@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container-fluid fixed-top barStatic py-2 top-bar">
+        <div class="show no-gutters d-flex position-relative align-items-center justify-content-between">
+            @*<a class="ml-sm-5" data-toggle="collapse" data-target=".collapse" role="button" href="#">*@
+            <button type="button" id="sidebarCollapse" class="btn btn-dark" style="font-size: 22px;">
+                <i class="fa fa-bars"></i>
+                @*<span>Menu</span>*@
+            </button>
+            @*</a>*@
+            <div class="RFIDCORE-logo">
+                <div class="col-12">
+                    <!--LOGO CENTRAL-->
+                    <a href="#" class="pl-2 font-weight-bold RFIDCORE">SAFE CORE SOFTWARE</a>
+                </div>
+            </div>
+            <div style="width: 50px;">
+                <!--Right Item-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- SIDE NVABAR -->
+    <div class="wrapper">
+
+        <nav id="sidebar">
+
+            <div class="sidebar-header" id="sHeader">
+                <h3>Safe Core</h3>
+            </div>
+
+            <div class="" id="sHeader_spacing">
+
+            </div>
+
+            <div class="d-flex justify-content-between" id="sidebarContainer">
+
+                <div id="topOptions">
+                    <ul class="list-unstyled components overflow-auto">
+
+                        <li>
+                            <a href="#Administracion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administración</a>
+
+                            <ul class="collapse list-unstyled" id="Administracion">
+                                <li>
+                                    <a asp-area="" asp-controller="Administracion" asp-action="CrearCapacitacion">Crear capacitación</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Administracion" asp-action="PlanificarVisita">Planificar visita</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Administracion" asp-action="CalculoA">Cálculo de accidentabilidad</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Administracion" asp-action="Actividades">Actividades</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Asesoria" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Asesoría</a>
+
+                            <ul class="collapse list-unstyled" id="Asesoria">
+                                <li>
+                                    <a asp-area="" asp-controller="Asesoria" asp-action="AsesoriaEspecial">Solicitar asesoría especial</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Asesoria" asp-action="IngresarAsesoria">Ingresar asesoría</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Personal" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Personal</a>
+
+                            <ul class="collapse list-unstyled" id="Personal">
+                                <li>
+                                    <a asp-area="" asp-controller="Personal" asp-action="Clientes">clientes</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Personal" asp-action="PagosClientes">Pagos clientes</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Personal" asp-action="Profesionales">profesionales</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Personal" asp-action="HistorialAtrasos">Historial de atrasos</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
+
+                            <ul class="collapse list-unstyled" id="ActMejora">
+                                <li>
+                                    <a asp-area="" asp-controller="ActMejora" asp-action="IngresarMejora">Ingresar</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="ActMejora" asp-action="RevisarMejora">Revisar</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Checklist" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Checklist</a>
+
+                            <ul class="collapse list-unstyled" id="Checklist">
+                                <li>
+                                    <a asp-area="" asp-controller="Checklist" asp-action="Crearcheck">Crear</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Checklist" asp-action="Responder">Responder</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#Reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Generar reportes</a>
+
+                            <ul class="collapse list-unstyled" id="Reportes">
+                                <li>
+                                    <a asp-area="" asp-controller="Report" asp-action="ReportClient">Reporte cliente</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Report" asp-action="ReportGlobal">Reporte global</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Report" asp-action="ReportAccidente">Reportar accidente</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div id="bottomOptions">
+                    <ul class="list-unstyled components" style="margin-bottom: 0; padding: 0;">
+                        <li class="">
+                            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Login" asp-action="login" onclick=confirm_meth()>Sign Out</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- HERE START THE CONTENT -->
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="top-spacing">
+
+                </div>
+            </nav>
+
+            <!-- START PAGE CONTENT -->
+            <div id="mainContent" class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+                <footer class="footer text-muted">
+                    <div class="container d-flex" id="footerContainer">
+                        &copy; @DateTime.Now.Year - SafeCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </div>
+                </footer>
+            </div>
+            <!-- END PAGE CONTENT -->
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- BOOTSTRAP 4.6 SCRIPTS FOR NAVBAR -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+
+    <script>
+
+        /* NAVBAR TOGGLE METHOD*/
+        $(document).ready(function () {
+            $("#sidebarCollapse").on('click', function () {
+                $("#sidebar").toggleClass('disabled');
+            });
+        });
+        /* FUNCION PARA CONFIRMAR*/
+        function confirm_meth() {
+            var confirmacion = confirm("Confirma cerrar sesión?");
+            if (confirmacion == true) {
+            }
+            else {
+                document.writeln("<b>You had clic on 'NO' Button</b>");
+            }
+        }
+    </script>
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+
+
+</body>
+
+</html>

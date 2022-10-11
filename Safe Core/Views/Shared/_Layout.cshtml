@@ -58,16 +58,16 @@
 
                             <ul class="collapse list-unstyled" id="Administracion">
                                 <li>
-                                    <a asp-area="" asp-controller="Administracion" asp-action="CrearCapacitacion">Crear capacitación</a>
+                                    <a href="@Url.Action("CrearCapacitacion", "Administracion")">Crear capacitación</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Administracion" asp-action="PlanificarVisita">Planificar visita</a>
+                                    <a href="@Url.Action("PlanificarVisita", "Administracion")">Planificar visita</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Administracion" asp-action="CalculoA">Cálculo de accidentabilidad</a>
+                                    <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Administracion" asp-action="Actividades">Actividades</a>
+                                    <a href="@Url.Action("Actividades", "Administracion")">Actividades</a>
                                 </li>
                             </ul>
                         </li>
@@ -152,7 +152,7 @@
                 <div id="bottomOptions">
                     <ul class="list-unstyled components" style="margin-bottom: 0; padding: 0;">
                         <li class="">
-                            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a href="@Url.Action("Index", "Home")">Home</a>
                         </li>
                         <li>
                             <a asp-controller="Login" asp-action="login" onclick=confirm_meth()>Sign Out</a>
@@ -212,21 +212,26 @@
 
     <script>
 
-        /* NAVBAR TOGGLE METHOD*/
+        /* NAVBAR TOGGLE METHOD */
         $(document).ready(function () {
             $("#sidebarCollapse").on('click', function () {
                 $("#sidebar").toggleClass('disabled');
             });
         });
-        /* FUNCION PARA CONFIRMAR*/
+
+
+        /* SIGN OUT METHOD */
         function confirm_meth() {
             var confirmacion = confirm("Confirma cerrar sesión?");
             if (confirmacion == true) {
+                // REDIRECTION HERE
+
             }
             else {
                 document.writeln("<b>You had clic on 'NO' Button</b>");
             }
         }
+
     </script>
 
 

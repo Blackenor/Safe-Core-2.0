@@ -77,10 +77,10 @@
 
                             <ul class="collapse list-unstyled" id="Asesoria">
                                 <li>
-                                    <a asp-area="" asp-controller="Asesoria" asp-action="AsesoriaEspecial">Solicitar asesoría especial</a>
+                                    <a href="@Url.Action("AsesoriaEspecial", "Asesoria")">Solicitar asesoría especial</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Asesoria" asp-action="IngresarAsesoria">Ingresar asesoría</a>
+                                    <a href="@Url.Action("IngresarAsesoria", "Asesoria")">Ingresar asesoría</a>
                                 </li>
                             </ul>
                         </li>
@@ -182,8 +182,8 @@
                     @RenderBody()
                 </main>
                 <footer class="footer text-muted">
-                    <div class="container d-flex" id="footerContainer">
-                        &copy; @DateTime.Now.Year - SafeCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    <div class="container d-flex justify-content-center" id="footerContainer">
+                        &copy; @DateTime.Now.Year - SafeCore - <a href="#"> Privacy</a>
                     </div>
                 </footer>
             </div>

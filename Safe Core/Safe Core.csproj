@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\AsesoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +212,8 @@
     <Content Include="Views\Administracion\CalculoA.cshtml" />
     <Content Include="Views\Administracion\PlanificarVisita.cshtml" />
     <Content Include="Views\Administracion\CrearCapacitacion.cshtml" />
+    <Content Include="Views\Asesoria\IngresarAsesoria.cshtml" />
+    <Content Include="Views\Asesoria\AsesoriaEspecial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

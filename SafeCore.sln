@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Core", "Safe Core\Safe Core.csproj", "{08F08E67-AE7F-40C5-A378-0A64321BB764}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeCore", "Safe Core\SafeCore.csproj", "{08F08E67-AE7F-40C5-A378-0A64321BB764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Core.Tests", "Safe Core.Tests\Safe Core.Tests.csproj", "{0952DA3F-F94E-4410-A373-66E812690A69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeCore.Tests", "Safe Core.Tests\SafeCore.Tests.csproj", "{0952DA3F-F94E-4410-A373-66E812690A69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

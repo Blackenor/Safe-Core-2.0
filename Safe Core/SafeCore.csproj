@@ -12,7 +12,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Safe_Core</RootNamespace>
-    <AssemblyName>Safe Core</AssemblyName>
+    <AssemblyName>SafeCore</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -118,9 +118,12 @@
     <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActMejoraController.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\AsesoriaController.cs" />
+    <Compile Include="Controllers\ChecklistController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +220,14 @@
     <Content Include="Views\Asesoria\IngresarAsesoria.cshtml" />
     <Content Include="Views\Asesoria\AsesoriaEspecial.cshtml" />
     <Content Include="Views\Report\ReportClient.cshtml" />
+    <Content Include="Views\Personal\HistorialAtrasos.cshtml" />
+    <Content Include="Views\Personal\Profesionales.cshtml" />
+    <Content Include="Views\Personal\PagosClientes.cshtml" />
+    <Content Include="Views\Personal\Clientes.cshtml" />
+    <Content Include="Views\ActMejora\IngresarMejora.cshtml" />
+    <Content Include="Views\ActMejora\RevisarMejora.cshtml" />
+    <Content Include="Views\Checklist\Crearcheck.cshtml" />
+    <Content Include="Views\Checklist\Responder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

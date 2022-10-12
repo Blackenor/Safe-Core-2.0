@@ -99,9 +99,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Safe Core\Safe Core.csproj">
+    <ProjectReference Include="..\Safe Core\SafeCore.csproj">
       <Project>{08F08E67-AE7F-40C5-A378-0A64321BB764}</Project>
-      <Name>Safe Core</Name>
+      <Name>SafeCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

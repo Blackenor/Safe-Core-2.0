@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace Safe_Core.Controllers
 {
-    public class ReportController : Controller
+    public class ActMejoraController : Controller
     {
-        // GET: Report
-        public ActionResult ReportGlobal()
+        // GET: ActMejora
+        public ActionResult IngresarMejora()
         {
             return View();
         }
-        public ActionResult ReportAccidente()
-        {
-            return View();
-        }
-        public ActionResult ReportClient()
+        public ActionResult RevisarMejora()
         {
             return View();
         }

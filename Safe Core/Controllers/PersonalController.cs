@@ -6,18 +6,22 @@ using System.Web.Mvc;
 
 namespace Safe_Core.Controllers
 {
-    public class ReportController : Controller
+    public class PersonalController : Controller
     {
-        // GET: Report
-        public ActionResult ReportGlobal()
+        // GET: Personal
+        public ActionResult HistorialAtrasos()
         {
             return View();
         }
-        public ActionResult ReportAccidente()
+        public ActionResult Profesionales()
         {
             return View();
         }
-        public ActionResult ReportClient()
+        public ActionResult PagosClientes()
+        {
+            return View();
+        }
+        public ActionResult Clientes()
         {
             return View();
         }

@@ -90,16 +90,16 @@
 
                             <ul class="collapse list-unstyled" id="Personal">
                                 <li>
-                                    <a asp-area="" asp-controller="Personal" asp-action="Clientes">clientes</a>
+                                    <a href="@Url.Action("Clientes", "Personal")">clientes</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Personal" asp-action="PagosClientes">Pagos clientes</a>
+                                    <a href="@Url.Action("PagosClientes", "Personal")">Pagos clientes</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Personal" asp-action="Profesionales">profesionales</a>
+                                    <a href="@Url.Action("Profesionales", "Personal")">profesionales</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Personal" asp-action="HistorialAtrasos">Historial de atrasos</a>
+                                    <a href="@Url.Action("HistorialAtrasos", "Personal")">Historial de atrasos</a>
                                 </li>
                             </ul>
                         </li>
@@ -109,10 +109,10 @@
 
                             <ul class="collapse list-unstyled" id="ActMejora">
                                 <li>
-                                    <a asp-area="" asp-controller="ActMejora" asp-action="IngresarMejora">Ingresar</a>
+                                    <a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="ActMejora" asp-action="RevisarMejora">Revisar</a>
+                                    <a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>
                                 </li>
                             </ul>
                         </li>
@@ -122,10 +122,10 @@
 
                             <ul class="collapse list-unstyled" id="Checklist">
                                 <li>
-                                    <a asp-area="" asp-controller="Checklist" asp-action="Crearcheck">Crear</a>
+                                    <a href="@Url.Action("Crearcheck", "Checklist")">Crear</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Checklist" asp-action="Responder">Responder</a>
+                                    <a href="@Url.Action("Responder", "Checklist")">Responder</a>
                                 </li>
                             </ul>
                         </li>
@@ -138,10 +138,10 @@
                                     <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Report" asp-action="ReportGlobal">Reporte global</a>
+                                    <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="Report" asp-action="ReportAccidente">Reportar accidente</a>
+                                    <a href="@Url.Action("ReportAccidente", "Report")">Reportar accidente</a>
                                 </li>
                             </ul>
                         </li>
@@ -155,7 +155,7 @@
                             <a href="@Url.Action("Index", "Home")">Home</a>
                         </li>
                         <li>
-                            <a asp-controller="Login" asp-action="login" onclick=confirm_meth()>Sign Out</a>
+                            <a href="@Url.Action("Login", "Login")" onclick=confirm_meth()>Sign Out</a>
                         </li>
                     </ul>
                 </div>

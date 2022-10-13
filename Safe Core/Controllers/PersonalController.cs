@@ -13,34 +13,22 @@ namespace Safe_Core.Controllers
         {
             return View();
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eb3a2c6217a65b039b41f49c406d5036400fc25
         public ActionResult Profesionales()
         {
             return View();
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eb3a2c6217a65b039b41f49c406d5036400fc25
         public ActionResult PagosClientes()
         {
             return View();
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eb3a2c6217a65b039b41f49c406d5036400fc25
         public ActionResult Clientes()
         {
             return View();
         }
-<<<<<<< HEAD
-    }
-}
-=======
+
 
 
 
@@ -131,4 +119,4 @@ namespace Safe_Core.Controllers
         }
     }
 }
->>>>>>> 7eb3a2c6217a65b039b41f49c406d5036400fc25
+

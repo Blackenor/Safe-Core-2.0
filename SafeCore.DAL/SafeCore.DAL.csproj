@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +48,98 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACTIVIDADMEJORA.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ATRASOS.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTES.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTRATOCLIENT.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTRATOPROF.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGOS.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROFESIONAL.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORTEACCIDENTE.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTECLIENTE.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTEGLOBAL.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROL.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafeCoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafeCoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafeCoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafeCoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafeCoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICIO.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SOLICITUD.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOSOLICITUD.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VISITASTERRENO.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SafeCoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SafeCoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="SafeCoreModel.edmx.diagram">
+      <DependentUpon>SafeCoreModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SafeCoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SafeCoreModel.Context.cs</LastGenOutput>
+      <DependentUpon>SafeCoreModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SafeCoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SafeCoreModel.edmx</DependentUpon>
+      <LastGenOutput>SafeCoreModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

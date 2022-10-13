@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bc89a48d41f4f0d91fccb90bcb30cd2" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACTIVIDADMEJORA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ATRASOS" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CLIENTES" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTRATOCLIENT" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTRATOPROF" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAGOS" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROFESIONAL" Width="1.5" PointX="3.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPORTEACCIDENTE" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPORTECLIENTE" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPORTEGLOBAL" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ROL" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPOSOLICITUD" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIOS" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VISITASTERRENO" Width="1.5" PointX="6" PointY="16.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.CONTRATOCLIENT_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAGOS_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REPORTEACCIDENTE_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REPORTECLIENTE_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.REPORTEGLOBAL_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SERVICIO_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SOLICITUDASESORIA_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITASTERRENO_CLIENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATOPROF_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SERVICIO_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITASTERRENO_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIOS_ROL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SOLICITUD_TIPOSOLICITUD_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

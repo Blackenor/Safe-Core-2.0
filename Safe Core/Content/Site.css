@@ -7,11 +7,17 @@
     Purple hard-dark: #6a29dc
     Purple dark: #561F99
     Blue Dark: #08263E
-    dark-gray: #505050;
-    purple-gray: #5F5B64;
+    aqua dark: #2080a4
+    dark-gray: #505050
+    purple-gray: #5F5B64
 
 */
 
+/* DARK MODE */
+
+p, h1, h2, h3, h4, h5 {
+    color: #cccccc;
+}
 
 
 html {
@@ -35,7 +41,7 @@ body {
 }
 
 footer {
-    border-top: solid 1px #cccccc;
+    /*border-top: solid 1px #cccccc;*/
     width: 69vw !important;
     bottom: 0;
     position: absolute;
@@ -250,8 +256,56 @@ ul ul a {
 }
 
 
+/* FORMULARIES */
+
+li {
+    list-style-type: none;
+}
+
+label {
+    margin-top: 1vh;
+    color: #cccccc;
+}
+
+.form-control {
+    background-color: #333136 !important;
+    color: #cccccc !important;
+    color-scheme: dark;
+}
+
+    .form-control:focus {
+        box-shadow: 0 0 8px 1px #9c6ffc41, /* inner*/
+        0 0 6px 1px #2080a4, /* middle*/
+        0 0 8px 1px #9c6ffc41; /* outer*/
+    }
 
 
+.btn-custom {
+    border: 2px solid #2080a4 !important;
+    color: #cccccc !important;
+    background-color: #333136 !important;
+}
+
+    .btn-custom:hover {
+        transition: all 0.2s;
+        background-color: #202020 !important;
+        color: #2080a4 !important;
+        border: 2px solid !important;
+        border-color: #2080a4 !important;
+        box-shadow: 0 0 8px 1px #9c6ffc41, /* inner*/
+        0 0 6px 1px #2080a4, /* middle*/
+        0 0 8px 1px #9c6ffc41; /* outer*/
+    }
+
+    .btn-custom:active {
+        transition: all 0.3s;
+        color: #7A46D5 !important;
+        border-color: #7A46D5 !important;
+        background-color: #1313135a !important; /* add here any color */
+        box-shadow: 0 0 12px 1px #7A46D5, /* inner*/
+        0 0 8px 1px #1aff003d, /* middle*/
+        0 0 12px 1px #1aff003d; /* outer*/
+    }
 
 
 

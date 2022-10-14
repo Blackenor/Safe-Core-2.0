@@ -4,49 +4,49 @@
 }
 
 <h2>Report Client</h2>
-<div class="mb-3">
-    <form action="/my-handling-form-page" method="post">
-        <ul>
-            <li>
-                <label for="number" class"form-label">Rut cliente:</label>
+<div class="container m-3">
+    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+            <li class="col">
+                <label for="number" class="form-label">Rut cliente:</label>
                 <input type="number" id="number" class="form-control" name="user_rut">
             </li>
-            <li>
-                <label for="name" class"form-label">Nombre:</label>
+            <li class="col">
+                <label for="name" class="form-label">Nombre:</label>
                 <input type="text" id="name" class="form-control" name="user_name">
             </li>
-            <li>
-                <label for="lastname" class"form-label">Apellido:</label>
+            <li class="col">
+                <label for="lastname" class="form-label">Apellido:</label>
                 <input type="text" id="lastname" class="form-control" name="user_lastname">
             </li>
-            <li>
-                <label for="address" class"form-label">Direccion:</label>
+            <li class="col">
+                <label for="address" class="form-label">Direccion:</label>
                 <input type="text" id="address" class="form-control" name="user_address">
             </li>
-            <li>
-                <label for="phone" class"form-label">Telefono:</label>
+            <li class="col">
+                <label for="phone" class="form-label">Telefono:</label>
                 <input type="number" id="number" class="form-control" name="user_phone">
             </li>
-            <li>
-                <label for="mail" class"form-label">Email:</label>
+            <li class="col">
+                <label for="mail" class="form-label">Email:</label>
                 <input type="email" id="mail" class="form-control" name="user_mail">
             </li>
-            <li>
-                <label for="text" class"form-label">Rubro:</label>
+            <li class="col">
+                <label for="text" class="form-label">Rubro:</label>
                 <input type="text" id="rubro" class="form-control" name="user_work">
             </li>
-            <li>
-                <label for="date" class"form-label">Fecha Accidente:</label>
+            <li class="col">
+                <label for="date" class="form-label">Fecha Accidente:</label>
                 <input type="date" name="date_user" class="form-control">
             </li>
-            <li>
-                <label for="msg" class"form-label">Reporte:</label>
-                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-            </li>
-
-            <li class="button">
-                <button type="submit">Envíe su mensaje</button>
-            </li>
+            <div class="d-flex col-12">
+                <li class="col">
+                    <label for="msg" class="form-label">Reporte:</label>
+                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+                </li>
+            </div>
         </ul>
+        <button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
     </form>
 </div>

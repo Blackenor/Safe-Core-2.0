@@ -219,6 +219,24 @@
             });
         });
 
+		window.onresize = displayWindowSize;
+		window.onload = displayWindowSize;
+
+		function displayWindowSize() {
+			myWidth = window.innerWidth;
+			//myHeight = window.innerHeight;
+
+			//console.log(myWidth + "x" + myHeight)
+
+            if (myWidth <= 1080) {
+                $("#sidebar").addClass("disabled");
+            }
+
+            else {
+				$("#sidebar").removeClass("disabled");
+            }
+		};
+
 
         /* SIGN OUT METHOD */
         function confirm_meth() {

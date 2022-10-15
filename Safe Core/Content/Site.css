@@ -1,4 +1,4 @@
-﻿/* BASE DESIGN */
+﻿
 
 /*
     --- COLORS PALETTE ---
@@ -19,6 +19,8 @@ p, h1, h2, h3, h4, h5 {
     color: #cccccc;
 }
 
+
+/* BASE DESIGN */
 
 html {
     font-size: 14px;
@@ -70,10 +72,13 @@ footer {
     border-radius: 100px;
 }
 
+
+
+
 /* -------------------------------- */
 
-/* NAVBAR TOP */
 
+/* NAVBAR TOP */
 .barStatic {
     background-color: #333136;
 }

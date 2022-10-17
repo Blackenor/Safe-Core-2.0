@@ -5,5 +5,46 @@
 }
 
 <h2>Ingresar actividad de mejora</h2>
+<div class="container m-3">
+    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
 
+        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+            <li class="col">
+                <label for="number" class="form-label">Numero de visita:</label>
+                <input type="number" id="number" class="form-control" name="num_visita">
+            </li>
+            <li class="col">
+                <label for="name" class="form-label">Nombre empresa:</label>
+                <input type="text" id="name" class="form-control" name="user_name">
+            </li>
+
+            <li class="col">
+                <label for="name" class="form-label">Nombre de profesional:</label>
+                <input type="text" id="address" class="form-control" name="user_name">
+            </li>
+            <li class="col">
+                <label for="phone" class="form-label">Telefono:</label>
+                <input type="number" id="number" class="form-control" name="user_phone">
+            </li>
+            
+            <li class="col">
+                <label for="date" class="form-label">Fecha de visita:</label>
+                <input type="date" name="date_user" class="form-control">
+            </li>
+            <li class="col">
+                <label for="text" class="form-label">Estado de chequeo:</label>
+                <input type="text" id="estado" class="form-control" name="Estado">
+
+            </li>
+
+            <div class="d-flex col-12">
+            <li class="col">
+                <label for="text" id="Recomendacion" class="form-label">Recomendacion para el cliente :</label>
+                <textarea class="form-control" name="text" type="text"></textarea>>
+            </li>
+</div>
+        </ul>
+<button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
+    </form>
+</div>
 

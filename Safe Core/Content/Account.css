@@ -2,11 +2,6 @@
 	font-family: "Lato", sans-serif;
 }
 
-.main-head {
-	height: 150px;
-	background: #FFF;
-}
-
 .sidenav {
 	height: 100%;
 	background-color: #000;
@@ -71,10 +66,6 @@
 	background-color: #000 !important;
 	color: #fff;
 }
-
-
-
-
 
 
 p {

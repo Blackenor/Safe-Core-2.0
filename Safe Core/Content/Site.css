@@ -249,19 +249,23 @@ ul ul a {
     /*width: auto;*/
     width: 100vw;
     padding: 10px;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     transition: all 0.3s;
 }
 
 #mainContent {
-    border: dashed 1px aqua;
+    /*border: dashed 1px aqua;*/
     padding: 10px;
-    margin-top: 20px;
-    padding-bottom: 1000px;
+    margin-bottom: 30px;
+    /*padding-bottom: 1000px;*/
 }
 
 
 /* FORMULARIES */
+
+.form-group {
+    margin-bottom: 1rem;
+}
 
 li {
     list-style-type: none;

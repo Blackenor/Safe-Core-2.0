@@ -1,14 +1,7 @@
 ﻿@{
-    ViewBag.Tittle = "Log In";
+    ViewBag.Title = "Inicio de sesión";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
-
-
-
-
-
-
-
 
 <div class="sidenav">
     <div class="login-main-text">
@@ -72,24 +65,32 @@
         <img src="~/Content/assets/AIEP_logo.png" width="400px" height="auto" />
     </div>
 </div>
+
 <div class="main">
-    <div>
+    <div class="col-md-6 col-sm-12">
 
         <h2 id="PageTitle" style="margin-top: 5vh;">@ViewBag.Title</h2>
         <hr />
 
         <div id="login-Form">
-            <form>
+            <form class="d-flex row container justify-content-center" role="form" action="@Url.Action("Index", "Home")">
+
                 <div class="form-group">
-                    <label>User Name</label>
-                    <input text-center type="text" class="form-control" placeholder="User Name">
+                    <label class="form-label">Usuario</label>
+                    <input text-center type="text" class="form-control" placeholder="Usuario">
                 </div>
+
                 <div class="form-group">
-                    <label>Password</label>
-                    <input text-center type="password" class="form-control" placeholder="Password">
+                    <label class="form-label">Contraseña</label>
+                    <input text-center type="password" class="form-control" placeholder="Contraseña">
                 </div>
-                <a type="submit" href="@Url.Action("Index", "Home")" class="btn btn-custom">Login</a>
-                <button type="submit" class="btn btn-secondary">Register</button>
+
+                <div class="form-group">
+                    <button type="submit" href="@Url.Action("Index", "Home")" class="btn btn-custom">Iniciar sesión</button>
+                </div>
+
+                @*<button type="submit" class="btn btn-secondary">Register</button>*@
+
             </form>
         </div>
 

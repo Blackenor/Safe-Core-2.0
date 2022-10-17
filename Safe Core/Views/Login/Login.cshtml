@@ -15,7 +15,7 @@
         <div class="RFIDCORE-logo">
             <div class="">
                 <!--toggler-->
-                <a data-toggle="collapse" href="#" data-target="" role="button">
+                <p data-toggle="collapse" href="#" data-target="" role="button">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="36.000000pt" height="36.000000pt" viewBox="0 0 800.000000 800.000000"
                          preserveAspectRatio="xMidYMid meet" id="RFID_logo">
@@ -63,8 +63,8 @@
                         </g>
 
                     </svg>
-                </a>
-                <h2 class="pl-2 font-weight-bold RFIDCORE" style="font-size: 24px;">SAFE CORE</h2>
+                </p>
+                <h2 class="pl-2 font-weight-bold RFIDCORE" style="font-size: 24px; margin: 0px;">SAFE CORE</h2>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
                     <label>Password</label>
                     <input text-center type="password" class="form-control" placeholder="Password">
                 </div>
-                <a href="@Url.Action("Index", "Home")">Login</a>
+                <a type="submit" href="@Url.Action("Index", "Home")" class="btn btn-custom">Login</a>
                 <button type="submit" class="btn btn-secondary">Register</button>
             </form>
         </div>

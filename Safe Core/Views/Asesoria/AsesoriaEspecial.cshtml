@@ -5,33 +5,31 @@
 
 <h2>Solicitar asesoria especial</h2>
 <div class="container m-3">
-    <form action="">
+    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
         <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col">
+            <li class="col form-group">
                 <label for="nombres" class="form-label">Nombres : </label>
                 <input type="text" id="nombres" class="form-control" name="user_name" />
             </li>
-            <li class="col">
+            <li class="col form-group">
                 <label for="lastname" class="form-label">Apellidos : </label>
                 <input type="text" id="lastname" class="form-control" name="user_lastname" />
             </li>
-            <li class="col">
+            <li class="col form-group">
                 <label for="rut" class="form-label">Rut : </label>
                 <input type="text" id="rut" class="form-control" name="user_rut" />
             </li>
-            <li class="col">
+            <li class="col form-group">
                 <label for="date" class="form-label">Fecha :</label>
                 <input type="date" name="date_user" class="form-control">
             </li>
-        </ul>
-        <div class="row row-cols-1 row-cols-md-2 justify-content-center">
             <div class="d-flex col-12">
-                <div class="col">
-                    <label for="msg" class="form-label">Descripcion :</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                </div>
+            <li class="col">
+                <label for="msg" class="form-label">Reporte:</label>
+                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+            </li>
             </div>
-        </div>
+        </ul>
         <button class="btn btn-custom col-auto" type="submit">Envíe su solicitud</button>
     </form>
 </div>

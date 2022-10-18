@@ -6,26 +6,31 @@
 
 <h2>Crear checklist</h2>
 <div class="container m-3">
-    <form action="">
-        <div>
-            <label for="crearcheck1">Escriba la tarea del checklist </label>
-            <input type="text" id="creacionchecks1" class="form-control"name="crearcheck1" />
-        </div>
-        <div>
-            <label for="crearcheck2">Escriba la tarea del checklist </label>
-            <input type="text" id="creacionchecks2" class="form-control" name="crearcheck2"/>
-        </div>
-        <div>
-            <label for="crearcheck3">Escriba la tarea del checklist </label>
-            <input type="text" id="creacionchecks3" class="form-control" name="crearcheck3" />
-        </div>
-        <div>
-            <label for="crearcheck4">Escriba la tarea del checklist </label>
-            <input type="text" id="creacionchecks4" class="form-control" name="crearcheck4" />
-        </div>
-        <div>
-            <button class="btn btn-custom col-auto" type="submit" id="buttoncheckscreados">finalizar creacion de la checklist</button>
-        </div>
-    </form>
- 
+    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
+        
+        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+            <li class="col form-group">
+                <label for="crearcheck1">Escriba la tarea del checklist </label>
+                <input type="text" id="creacionchecks1" class="form-control" name="crearcheck1" />
+            </li>
+
+            <li class="col form-group">
+                <label for="crearcheck2">Escriba la tarea del checklist </label>
+                <input type="text" id="creacionchecks2" class="form-control" name="crearcheck2"/>
+            </li>
+
+            <li class="col form-group">
+                <label for="crearcheck3">Escriba la tarea del checklist </label>
+                <input type="text" id="creacionchecks3" class="form-control" name="crearcheck3" />
+            </li>
+
+            <li class="col form-group">
+                <label for="crearcheck4">Escriba la tarea del checklist </label>
+                <input type="text" id="creacionchecks4" class="form-control" name="crearcheck4" />
+            </li>
+        </ul>
+        
+        <button class="btn btn-custom col-auto" type="submit" id="buttoncheckscreados">Finalizar creación</button>
+    
+    </form> 
 </div>

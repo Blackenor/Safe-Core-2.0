@@ -15,8 +15,18 @@
 
 /* DARK MODE */
 
-p, h1, h2, h3, h4, h5 {
+p, small, h1, h2, h3, h4, h5, td, th {
     color: #cccccc;
+}
+
+/* GRILLA */
+
+td {
+    background-color: #4E4C50 !important;
+}
+
+th {
+    background-color: #200C39 !important;
 }
 
 

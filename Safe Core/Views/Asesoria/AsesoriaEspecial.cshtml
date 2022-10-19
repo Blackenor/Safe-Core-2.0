@@ -17,7 +17,7 @@
             </li>
             <li class="col form-group">
                 <label for="rut" class="form-label">Rut : </label>
-                <input type="text" id="rut" class="form-control" name="user_rut" />
+                <input type="text" id="rut" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
             </li>
             <li class="col form-group">
                 <label for="date" class="form-label">Fecha :</label>

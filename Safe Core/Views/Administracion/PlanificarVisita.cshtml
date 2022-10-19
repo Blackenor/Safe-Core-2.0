@@ -22,12 +22,12 @@
 
             <li class="col form-group">
                 <label for="number" class="form-label">Rut del profesional:</label>
-                <input type="number" id="number" class="form-control" name="rut_profesional">
+                <input type="number" id="number" class="form-control" name="rut_profesional" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </li>
 
             <li class="col form-group">
                 <label for="number" class="form-label">Rut del cliente:</label>
-                <input type="number" id="number" class="form-control" name="rut_cliente">
+                <input type="number" id="number" class="form-control" name="rut_cliente" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </li>
 
         </ul>

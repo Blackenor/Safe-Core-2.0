@@ -10,7 +10,7 @@
         <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
             <li class="col form-group">
                 <label for="number" class="form-label">Rut cliente:</label>
-                <input type="number" id="number" class="form-control" name="user_rut">
+                <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </li>
             <li class="col form-group">
                 <label for="name" class="form-label">Nombre:</label>
@@ -26,7 +26,7 @@
             </li>
             <li class="col form-group">
                 <label for="phone" class="form-label">Telefono:</label>
-                <input type="number" id="number" class="form-control" name="user_phone">
+                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </li>
             <li class="col form-group">
                 <label for="mail" class="form-label">Email:</label>

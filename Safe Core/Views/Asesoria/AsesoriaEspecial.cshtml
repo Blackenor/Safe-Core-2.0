@@ -5,29 +5,42 @@
 
 <h2>Solicitar asesoria especial</h2>
 <div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
+    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
         <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col form-group">
+            <li class="col">
                 <label for="nombres" class="form-label">Nombres : </label>
                 <input type="text" id="nombres" class="form-control" name="user_name" />
             </li>
-            <li class="col form-group">
+            <li class="col">
                 <label for="lastname" class="form-label">Apellidos : </label>
                 <input type="text" id="lastname" class="form-control" name="user_lastname" />
             </li>
-            <li class="col form-group">
+            <li class="col">
                 <label for="rut" class="form-label">Rut : </label>
                 <input type="text" id="rut" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
             </li>
             <li class="col form-group">
+                <label for="address" class="form-label">Direccion:</label>
+                <input type="text" id="address" class="form-control" name="user_address">
+            </li>
+            <li class="col form-group">
+                <label for="phone" class="form-label">Telefono:</label>
+                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" required>
+            </li>
+            <li class="col form-group">
+                <label for="mail" class="form-label">Correo:</label>
+                <input type="email" id="mail" class="form-control" name="user_mail">
+            </li>
+            <li class="col">
                 <label for="date" class="form-label">Fecha :</label>
                 <input type="date" name="date_user" class="form-control">
             </li>
             <div class="d-flex col-12">
-            <li class="col">
-                <label for="msg" class="form-label">Reporte:</label>
-                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-            </li>
+                <li class="col">
+                    <label for="msg" class="form-label">Descripcion :</label>
+                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+                    </li>
+                </li>
             </div>
         </ul>
         <button class="btn btn-custom col-auto" type="submit">Envíe su solicitud</button>

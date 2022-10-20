@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SafeCore.BLL;
 
 namespace Safe_Core.Controllers
 {
@@ -26,6 +27,9 @@ namespace Safe_Core.Controllers
 
         public ActionResult Clientes()
         {
+            // Este ViewBag.clientes es el que trae toda la data de SafeCore.BLL llamando a la clase respectiva
+            ViewBag.clientes = new Cliente().ReadAll();
+
             return View();
         }
 

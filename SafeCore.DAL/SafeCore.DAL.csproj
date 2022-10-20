@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CFC23717-22E7-4DE7-A47D-70379F37EF3B}</ProjectGuid>
+    <ProjectGuid>{2E79FCFB-3904-41E9-AB14-D77F798779B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SafeCore.DAL</RootNamespace>
@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACTIVIDADMEJORA.cs">
-      <DependentUpon>SafeCoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ATRASOS.cs">
-      <DependentUpon>SafeCoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CLIENTES.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
@@ -100,10 +94,7 @@
     <Compile Include="SERVICIO.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SOLICITUD.cs">
-      <DependentUpon>SafeCoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TIPOSOLICITUD.cs">
+    <Compile Include="SOLICITUDASESORIA.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIOS.cs">

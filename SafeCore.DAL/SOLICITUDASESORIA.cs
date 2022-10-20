@@ -12,16 +12,13 @@ namespace SafeCore.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPOSOLICITUD
+    public partial class SOLICITUDASESORIA
     {
-        public TIPOSOLICITUD()
-        {
-            this.SOLICITUD = new HashSet<SOLICITUD>();
-        }
+        public int ID_SOLICITUD { get; set; }
+        public System.DateTime FECHA { get; set; }
+        public string DESCRIPCION { get; set; }
+        public string CLIENTES_RUT_CLIENT { get; set; }
     
-        public decimal ID_TIPOSOLICITUD { get; set; }
-        public string TIPOSOLICITUD1 { get; set; }
-    
-        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
+        public virtual CLIENTES CLIENTES { get; set; }
     }
 }

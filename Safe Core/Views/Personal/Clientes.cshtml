@@ -1,7 +1,14 @@
-﻿
+﻿@using SafeCore.BLL
+
 @{
     ViewBag.Title = "Clientes";
 }
+
+@{ List<Cliente> clientes = (List<Cliente>)ViewBag.clientes; }
+
+
+
+
 
 <html lang="en">
 <head>
@@ -29,8 +36,27 @@
                 </tr>
 
             </thead>
+
+
             <tbody>
+                
+            @foreach(var cliente in clientes)
+            {
                 <tr>
+                    <td>@cliente.Rut_cliente</td>
+                    <td>@cliente.Nombre</td>
+                    <td>@cliente.Direccion</td>
+                    <td>@cliente.Telefono</td>
+                    <td>@cliente.Correo</td>
+                    <td>@cliente.Rubro</td>
+                </tr>
+            }
+    
+    
+    
+    
+    
+                @*<tr>
                     <td>12343123-6</td>
                     <td>Nike</td>
                     <td>avenida siempre jordan</td>
@@ -53,7 +79,7 @@
                     <td>932435465</td>
                     <td>zooyork@gmail.com</td>
                     <td>Moda</td>
-                </tr>
+                </tr>*@
 
             </tbody>
 

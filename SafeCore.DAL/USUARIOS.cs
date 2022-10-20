@@ -16,9 +16,8 @@ namespace SafeCore.DAL
     {
         public decimal ID_USER { get; set; }
         public string NOMBRE { get; set; }
-        public byte[] PASSWORDHASH { get; set; }
-        public string SALT { get; set; }
         public short ROL_ID_ROL { get; set; }
+        public string PASS { get; set; }
     
         public virtual ROL ROL { get; set; }
     }

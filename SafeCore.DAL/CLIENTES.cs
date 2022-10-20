@@ -22,7 +22,7 @@ namespace SafeCore.DAL
             this.REPORTECLIENTE = new HashSet<REPORTECLIENTE>();
             this.REPORTEGLOBAL = new HashSet<REPORTEGLOBAL>();
             this.SERVICIO = new HashSet<SERVICIO>();
-            this.SOLICITUD = new HashSet<SOLICITUD>();
+            this.SOLICITUDASESORIA = new HashSet<SOLICITUDASESORIA>();
             this.VISITASTERRENO = new HashSet<VISITASTERRENO>();
         }
     
@@ -39,7 +39,7 @@ namespace SafeCore.DAL
         public virtual ICollection<REPORTECLIENTE> REPORTECLIENTE { get; set; }
         public virtual ICollection<REPORTEGLOBAL> REPORTEGLOBAL { get; set; }
         public virtual ICollection<SERVICIO> SERVICIO { get; set; }
-        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
+        public virtual ICollection<SOLICITUDASESORIA> SOLICITUDASESORIA { get; set; }
         public virtual ICollection<VISITASTERRENO> VISITASTERRENO { get; set; }
     }
 }

@@ -3,6 +3,11 @@
     ViewBag.Title = "Calculo de accidentabilidad";
 }
 
+<head>
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/Chart.bundle.js"></script>
+</head>
+
 <h2>Cálculo de accidentabilidad</h2>
 <div class="container m-3">
     <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
@@ -20,6 +25,262 @@
         <button class="btn btn-custom col-auto">Realizar Calculo de Accidentabilidad</button>
     </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-12" id="DashboardContainer">
+
+    <div class="d-flex flex-wrap">
+        <!--Div that will hold the filters-->
+        <div class="row">
+            <div class="row ChartDiv" style="width: 1080px; height: 150px">
+
+                <div class="col-4">
+                    <h2 class="row ml-4 mt-4" style="text-align: center; color: #E5E5E5; font-size: 20px; font-weight: bold;">Último inventario realizado:</h2>
+                    <div class="container" style="padding: 0px;">
+                        <h2 class="row ml-4 mt-0" style="text-align: center; color: #1ac044; font-size: 16px; font-weight: bold; ">20-10-2022 14:24</h2>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <h2 class="row ml-4 mt-4" style="text-align: center; color: #E5E5E5; font-size: 20px; font-weight: bold;">Productos:</h2>
+                    <div class="container" style="padding: 0px;">
+                        <h2 class="row ml-4 mt-0" style="text-align: center; color: #1ac044; font-size: 16px; font-weight: bold; ">19216</h2>
+                    </div>
+                </div>
+
+                <div class="col-4 row">
+                    <h2 class="col-6 mt-4" style="text-align: right; color: #E5E5E5; font-size: 20px; font-weight: bold;">Tienda:</h2>
+                    <div class="container col-6 mt-4">
+                        <select class="form-control">
+                            <option selected value="Macul">Macul</option>
+                            <option value="Maipú">Maipú</option>
+                            <option value="La Florida">La Florida</option>
+                            <option value="Pudahuel">Pudahuel</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class=" d-flex flex-wrap">
+
+        <!-- GRÁFICO DE BARRAS -->
+        <div class="row">
+            <div class="ChartDiv" id="barchart_values" style="width: 600px; height: 300px;">
+                <canvas id="barChart" width="600" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- GRÁFICO RADAR -->
+        <div class="col-5">
+            <div class="ChartDiv" id="chart_div" style="width: 470px; height: 300px">
+                <canvas id="radarChart" width="470" height="300"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex flex-wrap">
+
+        <!--Div that will hold the count chart-->
+        <div class="row">
+            <div class="d-flex justify-content-center flex-column align-items-center ChartDiv" id="" style="width: 270px; height: 300px">
+                @*<h2 class="" style="width: 200px; height: 50px !important; text-align: center; color: #E5E5E5; font-size: 18px; font-weight: bold;">Meta anual</h2>*@
+                <canvas id="gauge_div"></canvas>
+                <div id="gauge-textfield" style="color: #E5E5E5;"></div>
+
+                @*<div class="col-3 d-flex" style="margin-top: 100px;"><h1 style="font-size: 64px; color: #E5E5E5; ">5</h1></div>*@
+                <br />
+            </div>
+        </div>
+
+        <!--Div that will hold the line chart-->
+        <div class="col-4">
+            <div class="ChartDiv" id="curve_chart" style="width: 800px; height: 300px"></div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+@*<div class="row col-md-12">
+        <div class="col-md-9">
+            <canvas id="myChart" width="200" height="200"></canvas>
+        </div>
+    </div>*@
+
+
+<script>
+
+    // GRÁFICO DE BARRAS
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Polera', 'Pantalon', 'Gorro', 'Zapato', 'Short', 'Calcetin'],
+            datasets: [{
+                label: 'Stock bodega 1',
+                data: [12, 19, 12, 4, 18, 15],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 4
+
+            },
+            {
+                label: 'Stock bodega 2',
+                data: [9, 7, 3, 5, 6, 3],
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 2,
+                hoverBorderWidth: 4
+
+            }]
+        },
+        options: {
+            legend: {
+                labels: {
+                    fontColor: "#cccccc",
+                    fontSize: 16
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: "#cccccc",
+                        fontSize: 10,
+                        stepSize: 2,
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        display: true,
+                        color: "#CCCCCC60"
+                    },
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "#cccccc",
+                        fontSize: 10,
+                        stepSize: 1,
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        display: true,
+                        color: "#CCCCCC10"
+                    },
+                }]
+            }
+        }
+    });
+
+
+
+
+
+
+    // GRÁFICO RADAR
+    const radar_ctx = document.getElementById('radarChart').getContext('2d');
+    const radarChart = new Chart(radar_ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Polera', 'Pantalon', 'Gorro', 'Zapato', 'Short', 'Calcetin'],
+            datasets: [{
+                label: 'Stock bodega 1',
+                data: [12, 19, 12, 4, 18, 15],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                hoverBorderWidth: 4,
+
+                pointHighlightFill: 'blue'
+
+            },
+                {
+                    label: 'Stock bodega 2',
+                    data: [9, 7, 3, 5, 6, 3],
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 2,
+                    hoverBorderWidth: 4
+                }],
+
+        },
+        options: {
+            scale: {
+                gridLines: {
+                    color: '#cccccc1c'
+                },
+                angleLines: {
+                    color: '#cccccc'
+                }
+            },
+            legend: {
+                labels: {
+                    fontColor: "#cccccc",
+                    fontSize: 16
+                }
+            }
+        }
+
+    });
+
+</script>
+
 
 
 

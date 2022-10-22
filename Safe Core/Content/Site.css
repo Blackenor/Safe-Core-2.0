@@ -327,8 +327,43 @@ label {
     }
 
 
+/* DASHBOARD */
+
+#DashboardContainer {
+    padding: 25px;
+    background-color: transparent;
+}
 
 
+.e-panel {
+    border: solid 2px greenyellow;
+}
+
+#DashboardContainer div {
+    /*border: dashed 2px yellowgreen;*/
+}
+
+.ChartDiv {
+    margin: 5px;
+    border: solid 1px;
+    border-radius: 2px;
+    border-color: black !important;
+    box-shadow: 0 0 8px 1px black, /* inner*/
+    0 0 3px 1px #6c6c6c, /* middle*/
+    0 0 4px 1px #6c6c6c; /* outer*/
+    transition: 0.15s;
+}
+
+    .ChartDiv:hover {
+        background-color: #343a40;
+        border: solid 1px;
+        border-radius: 6px;
+        border-color: #0059DB !important;
+        box-shadow: 0 0 2px 1px #104CA4, /* inner*/
+        0 0 8px 6px #3970BF, /* middle*/
+        0 0 6px 4px #6c6c6c; /* outer*/
+        transition: 0.15s;
+    }
 
 
 

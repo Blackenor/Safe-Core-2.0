@@ -375,368 +375,69 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CLIENTES">
-          <Key>
-            <PropertyRef Name="RUT_CLIENT" />
-          </Key>
-          <Property Name="RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DIRECCION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TELEFONO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RUBRO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CONTRATOCLIENT" Relationship="Self.CONTRATOCLIENT_CLIENTES_FK" FromRole="CLIENTES" ToRole="CONTRATOCLIENT" />
-          <NavigationProperty Name="PAGOS" Relationship="Self.PAGOS_CLIENTES_FK" FromRole="CLIENTES" ToRole="PAGOS" />
-          <NavigationProperty Name="REPORTEACCIDENTE" Relationship="Self.REPORTEACCIDENTE_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTEACCIDENTE" />
-          <NavigationProperty Name="REPORTECLIENTE" Relationship="Self.REPORTECLIENTE_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTECLIENTE" />
-          <NavigationProperty Name="REPORTEGLOBAL" Relationship="Self.REPORTEGLOBAL_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTEGLOBAL" />
-          <NavigationProperty Name="SERVICIO" Relationship="Self.SERVICIO_CLIENTES_FK" FromRole="CLIENTES" ToRole="SERVICIO" />
-          <NavigationProperty Name="SOLICITUDASESORIA" Relationship="Self.SOLICITUDASESORIA_CLIENTES_FK" FromRole="CLIENTES" ToRole="SOLICITUDASESORIA" />
-          <NavigationProperty Name="VISITASTERRENO" Relationship="Self.VISITASTERRENO_CLIENTES_FK" FromRole="CLIENTES" ToRole="VISITASTERRENO" />
-          <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK1" FromRole="CLIENTES" ToRole="SOLICITUD" />
-        </EntityType>
-        <EntityType Name="CONTRATOCLIENT">
-          <Key>
-            <PropertyRef Name="ID_CONTR" />
-          </Key>
-          <Property Name="ID_CONTR" Type="Int32" Nullable="false" />
-          <Property Name="ACTIVO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="FECHAINICIO" Type="DateTime" Nullable="false" />
-          <Property Name="FECHATERMINO" Type="DateTime" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.CONTRATOCLIENT_CLIENTES_FK" FromRole="CONTRATOCLIENT" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="CONTRATOPROF">
-          <Key>
-            <PropertyRef Name="ID_CONTR" />
-          </Key>
-          <Property Name="ID_CONTR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="FECHAINICIO" Type="DateTime" Nullable="false" />
-          <Property Name="FECHATERMINO" Type="DateTime" />
-          <Property Name="HISTORIAL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="PROFESIONAL_RUT_PROF" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PROFESIONAL" Relationship="Self.CONTRATOPROF_PROFESIONAL_FK" FromRole="CONTRATOPROF" ToRole="PROFESIONAL" />
-        </EntityType>
-        <EntityType Name="PAGOS">
-          <Key>
-            <PropertyRef Name="ID_PAGO" />
-          </Key>
-          <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="MONTO" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.PAGOS_CLIENTES_FK" FromRole="PAGOS" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="PROFESIONAL">
-          <Key>
-            <PropertyRef Name="RUT_PROF" />
-          </Key>
-          <Property Name="RUT_PROF" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="ACTIVO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GENERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TELEFONO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CONTRATOPROF" Relationship="Self.CONTRATOPROF_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="CONTRATOPROF" />
-          <NavigationProperty Name="SERVICIO" Relationship="Self.SERVICIO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="SERVICIO" />
-          <NavigationProperty Name="VISITASTERRENO" Relationship="Self.VISITASTERRENO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="VISITASTERRENO" />
-        </EntityType>
-        <EntityType Name="REPORTEACCIDENTE">
-          <Key>
-            <PropertyRef Name="ID_REPORTA" />
-          </Key>
-          <Property Name="ID_REPORTA" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="FECHAACCIDENTE" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.REPORTEACCIDENTE_CLIENTES_FK" FromRole="REPORTEACCIDENTE" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="REPORTECLIENTE">
-          <Key>
-            <PropertyRef Name="ID_REPORTC" />
-          </Key>
-          <Property Name="ID_REPORTC" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.REPORTECLIENTE_CLIENTES_FK" FromRole="REPORTECLIENTE" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="REPORTEGLOBAL">
-          <Key>
-            <PropertyRef Name="ID_REPORTG" />
-          </Key>
-          <Property Name="ID_REPORTG" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.REPORTEGLOBAL_CLIENTES_FK" FromRole="REPORTEGLOBAL" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="ROL">
-          <Key>
-            <PropertyRef Name="ID_ROL" />
-          </Key>
-          <Property Name="ID_ROL" Type="Int16" Nullable="false" />
-          <Property Name="NOMBREROL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="USUARIOS" Relationship="Self.USUARIOS_ROL_FK" FromRole="ROL" ToRole="USUARIOS" />
-        </EntityType>
-        <EntityType Name="SERVICIO">
-          <Key>
-            <PropertyRef Name="ID_SERV" />
-          </Key>
-          <Property Name="ID_SERV" Type="Int32" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIPCIÓN" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="FECHASERVICIO" Type="DateTime" Nullable="false" />
-          <Property Name="VALOR" Type="Int32" Nullable="false" />
-          <Property Name="PROFESIONAL_RUT_PROF" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.SERVICIO_CLIENTES_FK" FromRole="SERVICIO" ToRole="CLIENTES" />
-          <NavigationProperty Name="PROFESIONAL" Relationship="Self.SERVICIO_PROFESIONAL_FK" FromRole="SERVICIO" ToRole="PROFESIONAL" />
-        </EntityType>
-        <EntityType Name="SOLICITUDASESORIA">
-          <Key>
-            <PropertyRef Name="ID_SOLICITUD" />
-          </Key>
-          <Property Name="ID_SOLICITUD" Nullable="false" Type="Int32" />
-          <Property Name="FECHA" Nullable="false" Type="DateTime" />
-          <Property Name="DESCRIPCION" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="CLIENTES_RUT_CLIENT" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" Type="String" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.SOLICITUDASESORIA_CLIENTES_FK" FromRole="SOLICITUDASESORIA" ToRole="CLIENTES" />
-        </EntityType>
-        <EntityType Name="USUARIOS">
-          <Key>
-            <PropertyRef Name="ID_USER" />
-          </Key>
-          <Property Name="ID_USER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ROL_ID_ROL" Type="Int16" Nullable="false" />
-          <Property Name="PASS" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ROL" Relationship="Self.USUARIOS_ROL_FK" FromRole="USUARIOS" ToRole="ROL" />
-        </EntityType>
-        <EntityType Name="VISITASTERRENO">
-          <Key>
-            <PropertyRef Name="ID_VISITA" />
-          </Key>
-          <Property Name="ID_VISITA" Type="Int32" Nullable="false" />
-          <Property Name="FECHAVISITA" Type="DateTime" Nullable="false" />
-          <Property Name="PROFESIONAL_RUT_PROF" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CLIENTES" Relationship="Self.VISITASTERRENO_CLIENTES_FK" FromRole="VISITASTERRENO" ToRole="CLIENTES" />
-          <NavigationProperty Name="PROFESIONAL" Relationship="Self.VISITASTERRENO_PROFESIONAL_FK" FromRole="VISITASTERRENO" ToRole="PROFESIONAL" />
-        </EntityType>
-        <Association Name="CONTRATOCLIENT_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="CONTRATOCLIENT" Type="Self.CONTRATOCLIENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="CONTRATOCLIENT">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PAGOS_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="PAGOS">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REPORTEACCIDENTE_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="REPORTEACCIDENTE" Type="Self.REPORTEACCIDENTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="REPORTEACCIDENTE">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REPORTECLIENTE_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="REPORTECLIENTE" Type="Self.REPORTECLIENTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="REPORTECLIENTE">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="REPORTEGLOBAL_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="REPORTEGLOBAL" Type="Self.REPORTEGLOBAL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="REPORTEGLOBAL">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SERVICIO_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="SERVICIO">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SOLICITUDASESORIA_CLIENTES_FK">
-          <End Type="Self.CLIENTES" Multiplicity="1" Role="CLIENTES" />
-          <End Type="Self.SOLICITUDASESORIA" Multiplicity="*" Role="SOLICITUDASESORIA" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="SOLICITUDASESORIA">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VISITASTERRENO_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="VISITASTERRENO" Type="Self.VISITASTERRENO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTES">
-              <PropertyRef Name="RUT_CLIENT" />
-            </Principal>
-            <Dependent Role="VISITASTERRENO">
-              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CONTRATOPROF_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
-          <End Role="CONTRATOPROF" Type="Self.CONTRATOPROF" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROFESIONAL">
-              <PropertyRef Name="RUT_PROF" />
-            </Principal>
-            <Dependent Role="CONTRATOPROF">
-              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SERVICIO_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
-          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROFESIONAL">
-              <PropertyRef Name="RUT_PROF" />
-            </Principal>
-            <Dependent Role="SERVICIO">
-              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VISITASTERRENO_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
-          <End Role="VISITASTERRENO" Type="Self.VISITASTERRENO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROFESIONAL">
-              <PropertyRef Name="RUT_PROF" />
-            </Principal>
-            <Dependent Role="VISITASTERRENO">
-              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="USUARIOS_ROL_FK">
-          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
-          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ROL">
-              <PropertyRef Name="ID_ROL" />
-            </Principal>
-            <Dependent Role="USUARIOS">
-              <PropertyRef Name="ROL_ID_ROL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SafeCoreEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
-          <EntitySet Name="CONTRATOCLIENT" EntityType="Self.CONTRATOCLIENT" />
-          <EntitySet Name="CONTRATOPROF" EntityType="Self.CONTRATOPROF" />
-          <EntitySet Name="PAGOS" EntityType="Self.PAGOS" />
-          <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" />
-          <EntitySet Name="REPORTEACCIDENTE" EntityType="Self.REPORTEACCIDENTE" />
-          <EntitySet Name="REPORTECLIENTE" EntityType="Self.REPORTECLIENTE" />
-          <EntitySet Name="REPORTEGLOBAL" EntityType="Self.REPORTEGLOBAL" />
-          <EntitySet Name="ROL" EntityType="Self.ROL" />
-          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
-          <EntitySet Name="SOLICITUDASESORIA" EntityType="Self.SOLICITUDASESORIA" />
-          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
-          <EntitySet Name="VISITASTERRENO" EntityType="Self.VISITASTERRENO" />
-          <AssociationSet Name="CONTRATOCLIENT_CLIENTES_FK" Association="Self.CONTRATOCLIENT_CLIENTES_FK">
+          <EntitySet Name="ACTIVIDADMEJORA" EntityType="Model.ACTIVIDADMEJORA" />
+          <EntitySet Name="CLIENTES" EntityType="Model.CLIENTES" />
+          <EntitySet Name="CONTRATOCLIENT" EntityType="Model.CONTRATOCLIENT" />
+          <EntitySet Name="CONTRATOPROF" EntityType="Model.CONTRATOPROF" />
+          <EntitySet Name="PAGOS" EntityType="Model.PAGOS" />
+          <EntitySet Name="PROFESIONAL" EntityType="Model.PROFESIONAL" />
+          <EntitySet Name="REPORTEACCIDENTE" EntityType="Model.REPORTEACCIDENTE" />
+          <EntitySet Name="REPORTECLIENTE" EntityType="Model.REPORTECLIENTE" />
+          <EntitySet Name="REPORTEGLOBAL" EntityType="Model.REPORTEGLOBAL" />
+          <EntitySet Name="ROL" EntityType="Model.ROL" />
+          <EntitySet Name="SERVICIO" EntityType="Model.SERVICIO" />
+          <EntitySet Name="SOLICITUD" EntityType="Model.SOLICITUD" />
+          <EntitySet Name="TIPOSOLICITUD" EntityType="Model.TIPOSOLICITUD" />
+          <EntitySet Name="USUARIOS" EntityType="Model.USUARIOS" />
+          <EntitySet Name="VISITASTERRENO" EntityType="Model.VISITASTERRENO" />
+          <AssociationSet Name="CONTRATOCLIENT_CLIENTES_FK" Association="Model.CONTRATOCLIENT_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="CONTRATOCLIENT" EntitySet="CONTRATOCLIENT" />
           </AssociationSet>
-          <AssociationSet Name="PAGOS_CLIENTES_FK" Association="Self.PAGOS_CLIENTES_FK">
+          <AssociationSet Name="PAGOS_CLIENTES_FK" Association="Model.PAGOS_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="PAGOS" EntitySet="PAGOS" />
           </AssociationSet>
-          <AssociationSet Name="REPORTEACCIDENTE_CLIENTES_FK" Association="Self.REPORTEACCIDENTE_CLIENTES_FK">
+          <AssociationSet Name="REPORTEACCIDENTE_CLIENTES_FK" Association="Model.REPORTEACCIDENTE_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="REPORTEACCIDENTE" EntitySet="REPORTEACCIDENTE" />
           </AssociationSet>
-          <AssociationSet Name="REPORTECLIENTE_CLIENTES_FK" Association="Self.REPORTECLIENTE_CLIENTES_FK">
+          <AssociationSet Name="REPORTECLIENTE_CLIENTES_FK" Association="Model.REPORTECLIENTE_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="REPORTECLIENTE" EntitySet="REPORTECLIENTE" />
           </AssociationSet>
-          <AssociationSet Name="REPORTEGLOBAL_CLIENTES_FK" Association="Self.REPORTEGLOBAL_CLIENTES_FK">
+          <AssociationSet Name="REPORTEGLOBAL_CLIENTES_FK" Association="Model.REPORTEGLOBAL_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="REPORTEGLOBAL" EntitySet="REPORTEGLOBAL" />
           </AssociationSet>
-          <AssociationSet Name="SERVICIO_CLIENTES_FK" Association="Self.SERVICIO_CLIENTES_FK">
+          <AssociationSet Name="SERVICIO_CLIENTES_FK" Association="Model.SERVICIO_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="SERVICIO" EntitySet="SERVICIO" />
           </AssociationSet>
-          <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK" Association="Self.SOLICITUDASESORIA_CLIENTES_FK">
-            <End EntitySet="CLIENTES" Role="CLIENTES" />
-            <End EntitySet="SOLICITUDASESORIA" Role="SOLICITUDASESORIA" />
+          <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK" Association="Model.SOLICITUDASESORIA_CLIENTES_FK">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
-          <AssociationSet Name="VISITASTERRENO_CLIENTES_FK" Association="Self.VISITASTERRENO_CLIENTES_FK">
+          <AssociationSet Name="VISITASTERRENO_CLIENTES_FK" Association="Model.VISITASTERRENO_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="VISITASTERRENO" EntitySet="VISITASTERRENO" />
           </AssociationSet>
-          <AssociationSet Name="CONTRATOPROF_PROFESIONAL_FK" Association="Self.CONTRATOPROF_PROFESIONAL_FK">
+          <AssociationSet Name="CONTRATOPROF_PROFESIONAL_FK" Association="Model.CONTRATOPROF_PROFESIONAL_FK">
             <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
             <End Role="CONTRATOPROF" EntitySet="CONTRATOPROF" />
           </AssociationSet>
-          <AssociationSet Name="SERVICIO_PROFESIONAL_FK" Association="Self.SERVICIO_PROFESIONAL_FK">
+          <AssociationSet Name="SERVICIO_PROFESIONAL_FK" Association="Model.SERVICIO_PROFESIONAL_FK">
             <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
             <End Role="SERVICIO" EntitySet="SERVICIO" />
           </AssociationSet>
-          <AssociationSet Name="VISITASTERRENO_PROFESIONAL_FK" Association="Self.VISITASTERRENO_PROFESIONAL_FK">
+          <AssociationSet Name="VISITASTERRENO_PROFESIONAL_FK" Association="Model.VISITASTERRENO_PROFESIONAL_FK">
             <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
             <End Role="VISITASTERRENO" EntitySet="VISITASTERRENO" />
           </AssociationSet>
-          <AssociationSet Name="USUARIOS_ROL_FK" Association="Self.USUARIOS_ROL_FK">
+          <AssociationSet Name="USUARIOS_ROL_FK" Association="Model.USUARIOS_ROL_FK">
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
-          </AssociationSet>
-          <EntitySet Name="ACTIVIDADMEJORA" EntityType="Model.ACTIVIDADMEJORA" />
-          <EntitySet Name="SOLICITUD" EntityType="Model.SOLICITUD" />
-          <EntitySet Name="TIPOSOLICITUD" EntityType="Model.TIPOSOLICITUD" />
-          <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK1" Association="Model.SOLICITUDASESORIA_CLIENTES_FK1">
-            <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
           <AssociationSet Name="SOLICITUD_TIPOSOLICITUD_FK" Association="Model.SOLICITUD_TIPOSOLICITUD_FK">
             <End Role="TIPOSOLICITUD" EntitySet="TIPOSOLICITUD" />
@@ -751,6 +452,124 @@
           <Property Name="NOMBREMEJORA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCIONMEJORA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="RUT_CLIENT" />
+          </Key>
+          <Property Name="RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RUBRO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CONTRATOCLIENT" Relationship="Model.CONTRATOCLIENT_CLIENTES_FK" FromRole="CLIENTES" ToRole="CONTRATOCLIENT" />
+          <NavigationProperty Name="PAGOS" Relationship="Model.PAGOS_CLIENTES_FK" FromRole="CLIENTES" ToRole="PAGOS" />
+          <NavigationProperty Name="REPORTEACCIDENTE" Relationship="Model.REPORTEACCIDENTE_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTEACCIDENTE" />
+          <NavigationProperty Name="REPORTECLIENTE" Relationship="Model.REPORTECLIENTE_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTECLIENTE" />
+          <NavigationProperty Name="REPORTEGLOBAL" Relationship="Model.REPORTEGLOBAL_CLIENTES_FK" FromRole="CLIENTES" ToRole="REPORTEGLOBAL" />
+          <NavigationProperty Name="SERVICIO" Relationship="Model.SERVICIO_CLIENTES_FK" FromRole="CLIENTES" ToRole="SERVICIO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK" FromRole="CLIENTES" ToRole="SOLICITUD" />
+          <NavigationProperty Name="VISITASTERRENO" Relationship="Model.VISITASTERRENO_CLIENTES_FK" FromRole="CLIENTES" ToRole="VISITASTERRENO" />
+        </EntityType>
+        <EntityType Name="CONTRATOCLIENT">
+          <Key>
+            <PropertyRef Name="ID_CONTR" />
+          </Key>
+          <Property Name="ID_CONTR" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FECHAINICIO" Type="DateTime" Nullable="false" />
+          <Property Name="FECHATERMINO" Type="DateTime" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.CONTRATOCLIENT_CLIENTES_FK" FromRole="CONTRATOCLIENT" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="CONTRATOPROF">
+          <Key>
+            <PropertyRef Name="ID_CONTR" />
+          </Key>
+          <Property Name="ID_CONTR" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHAINICIO" Type="DateTime" Nullable="false" />
+          <Property Name="FECHATERMINO" Type="DateTime" />
+          <Property Name="HISTORIAL" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Model.CONTRATOPROF_PROFESIONAL_FK" FromRole="CONTRATOPROF" ToRole="PROFESIONAL" />
+        </EntityType>
+        <EntityType Name="PAGOS">
+          <Key>
+            <PropertyRef Name="ID_PAGO" />
+          </Key>
+          <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="MONTO" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.PAGOS_CLIENTES_FK" FromRole="PAGOS" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="PROFESIONAL">
+          <Key>
+            <PropertyRef Name="RUT_PROF" />
+          </Key>
+          <Property Name="RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="ACTIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GENERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CONTRATOPROF" Relationship="Model.CONTRATOPROF_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="CONTRATOPROF" />
+          <NavigationProperty Name="SERVICIO" Relationship="Model.SERVICIO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="SERVICIO" />
+          <NavigationProperty Name="VISITASTERRENO" Relationship="Model.VISITASTERRENO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="VISITASTERRENO" />
+        </EntityType>
+        <EntityType Name="REPORTEACCIDENTE">
+          <Key>
+            <PropertyRef Name="ID_REPORTA" />
+          </Key>
+          <Property Name="ID_REPORTA" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="FECHAACCIDENTE" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.REPORTEACCIDENTE_CLIENTES_FK" FromRole="REPORTEACCIDENTE" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="REPORTECLIENTE">
+          <Key>
+            <PropertyRef Name="ID_REPORTC" />
+          </Key>
+          <Property Name="ID_REPORTC" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.REPORTECLIENTE_CLIENTES_FK" FromRole="REPORTECLIENTE" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="REPORTEGLOBAL">
+          <Key>
+            <PropertyRef Name="ID_REPORTG" />
+          </Key>
+          <Property Name="ID_REPORTG" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.REPORTEGLOBAL_CLIENTES_FK" FromRole="REPORTEGLOBAL" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Int16" Nullable="false" />
+          <Property Name="NOMBREROL" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Model.USUARIOS_ROL_FK" FromRole="ROL" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_SERV" />
+          </Key>
+          <Property Name="ID_SERV" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPCIÓN" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FECHASERVICIO" Type="DateTime" Nullable="false" />
+          <Property Name="VALOR" Type="Int32" Nullable="false" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.SERVICIO_CLIENTES_FK" FromRole="SERVICIO" ToRole="CLIENTES" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Model.SERVICIO_PROFESIONAL_FK" FromRole="SERVICIO" ToRole="PROFESIONAL" />
+        </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
             <PropertyRef Name="ID_SOLICITUD" />
@@ -760,7 +579,7 @@
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
           <Property Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <NavigationProperty Name="CLIENTES" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK1" FromRole="SOLICITUD" ToRole="CLIENTES" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK" FromRole="SOLICITUD" ToRole="CLIENTES" />
           <NavigationProperty Name="TIPOSOLICITUD" Relationship="Model.SOLICITUD_TIPOSOLICITUD_FK" FromRole="SOLICITUD" ToRole="TIPOSOLICITUD" />
         </EntityType>
         <EntityType Name="TIPOSOLICITUD">
@@ -771,7 +590,100 @@
           <Property Name="TIPOSOLICITUD1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUD_TIPOSOLICITUD_FK" FromRole="TIPOSOLICITUD" ToRole="SOLICITUD" />
         </EntityType>
-        <Association Name="SOLICITUDASESORIA_CLIENTES_FK1">
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ROL_ID_ROL" Type="Int16" Nullable="false" />
+          <Property Name="PASS" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ROL" Relationship="Model.USUARIOS_ROL_FK" FromRole="USUARIOS" ToRole="ROL" />
+        </EntityType>
+        <EntityType Name="VISITASTERRENO">
+          <Key>
+            <PropertyRef Name="ID_VISITA" />
+          </Key>
+          <Property Name="ID_VISITA" Type="Int32" Nullable="false" />
+          <Property Name="FECHAVISITA" Type="DateTime" Nullable="false" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.VISITASTERRENO_CLIENTES_FK" FromRole="VISITASTERRENO" ToRole="CLIENTES" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Model.VISITASTERRENO_PROFESIONAL_FK" FromRole="VISITASTERRENO" ToRole="PROFESIONAL" />
+        </EntityType>
+        <Association Name="CONTRATOCLIENT_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.CONTRATOCLIENT" Role="CONTRATOCLIENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="CONTRATOCLIENT">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGOS_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.PAGOS" Role="PAGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="PAGOS">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REPORTEACCIDENTE_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.REPORTEACCIDENTE" Role="REPORTEACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="REPORTEACCIDENTE">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REPORTECLIENTE_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.REPORTECLIENTE" Role="REPORTECLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="REPORTECLIENTE">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="REPORTEGLOBAL_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.REPORTEGLOBAL" Role="REPORTEGLOBAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="REPORTEGLOBAL">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.SERVICIO" Role="SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDASESORIA_CLIENTES_FK">
           <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
           <End Type="Model.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
@@ -780,6 +692,66 @@
             </Principal>
             <Dependent Role="SOLICITUD">
               <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITASTERRENO_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.VISITASTERRENO" Role="VISITASTERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="VISITASTERRENO">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATOPROF_PROFESIONAL_FK">
+          <End Type="Model.PROFESIONAL" Role="PROFESIONAL" Multiplicity="1" />
+          <End Type="Model.CONTRATOPROF" Role="CONTRATOPROF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="CONTRATOPROF">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_PROFESIONAL_FK">
+          <End Type="Model.PROFESIONAL" Role="PROFESIONAL" Multiplicity="1" />
+          <End Type="Model.SERVICIO" Role="SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITASTERRENO_PROFESIONAL_FK">
+          <End Type="Model.PROFESIONAL" Role="PROFESIONAL" Multiplicity="1" />
+          <End Type="Model.VISITASTERRENO" Role="VISITASTERRENO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="VISITASTERRENO">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIOS_ROL_FK">
+          <End Type="Model.ROL" Role="ROL" Multiplicity="1" />
+          <End Type="Model.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ROL_ID_ROL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -795,146 +767,126 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="SafeCoreEntities">
-          <EntitySetMapping Name="CLIENTES">
-            <EntityTypeMapping TypeName="Model.CLIENTES">
-              <MappingFragment StoreEntitySet="CLIENTES">
-                <ScalarProperty Name="RUT_CLIENT" ColumnName="RUT_CLIENT" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
-                <ScalarProperty Name="RUBRO" ColumnName="RUBRO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CONTRATOCLIENT">
-            <EntityTypeMapping TypeName="Model.CONTRATOCLIENT">
-              <MappingFragment StoreEntitySet="CONTRATOCLIENT">
-                <ScalarProperty Name="ID_CONTR" ColumnName="ID_CONTR" />
-                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
-                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
-                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CONTRATOPROF">
-            <EntityTypeMapping TypeName="Model.CONTRATOPROF">
-              <MappingFragment StoreEntitySet="CONTRATOPROF">
-                <ScalarProperty Name="ID_CONTR" ColumnName="ID_CONTR" />
-                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
-                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
-                <ScalarProperty Name="HISTORIAL" ColumnName="HISTORIAL" />
-                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAGOS">
-            <EntityTypeMapping TypeName="Model.PAGOS">
-              <MappingFragment StoreEntitySet="PAGOS">
-                <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROFESIONAL">
-            <EntityTypeMapping TypeName="Model.PROFESIONAL">
-              <MappingFragment StoreEntitySet="PROFESIONAL">
-                <ScalarProperty Name="RUT_PROF" ColumnName="RUT_PROF" />
-                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REPORTEACCIDENTE">
-            <EntityTypeMapping TypeName="Model.REPORTEACCIDENTE">
-              <MappingFragment StoreEntitySet="REPORTEACCIDENTE">
-                <ScalarProperty Name="ID_REPORTA" ColumnName="ID_REPORTA" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-                <ScalarProperty Name="FECHAACCIDENTE" ColumnName="FECHAACCIDENTE" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REPORTECLIENTE">
-            <EntityTypeMapping TypeName="Model.REPORTECLIENTE">
-              <MappingFragment StoreEntitySet="REPORTECLIENTE">
-                <ScalarProperty Name="ID_REPORTC" ColumnName="ID_REPORTC" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REPORTEGLOBAL">
-            <EntityTypeMapping TypeName="Model.REPORTEGLOBAL">
-              <MappingFragment StoreEntitySet="REPORTEGLOBAL">
-                <ScalarProperty Name="ID_REPORTG" ColumnName="ID_REPORTG" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ROL">
-            <EntityTypeMapping TypeName="Model.ROL">
-              <MappingFragment StoreEntitySet="ROL">
-                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
-                <ScalarProperty Name="NOMBREROL" ColumnName="NOMBREROL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SERVICIO">
-            <EntityTypeMapping TypeName="Model.SERVICIO">
-              <MappingFragment StoreEntitySet="SERVICIO">
-                <ScalarProperty Name="ID_SERV" ColumnName="ID_SERV" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
-                <ScalarProperty Name="FECHASERVICIO" ColumnName="FECHASERVICIO" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USUARIOS">
-            <EntityTypeMapping TypeName="Model.USUARIOS">
-              <MappingFragment StoreEntitySet="USUARIOS">
-                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
-                <ScalarProperty Name="PASS" ColumnName="PASS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VISITASTERRENO">
-            <EntityTypeMapping TypeName="Model.VISITASTERRENO">
-              <MappingFragment StoreEntitySet="VISITASTERRENO">
-                <ScalarProperty Name="ID_VISITA" ColumnName="ID_VISITA" />
-                <ScalarProperty Name="FECHAVISITA" ColumnName="FECHAVISITA" />
-                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ACTIVIDADMEJORA">
             <EntityTypeMapping TypeName="Model.ACTIVIDADMEJORA">
               <MappingFragment StoreEntitySet="ACTIVIDADMEJORA">
                 <ScalarProperty Name="DESCRIPCIONMEJORA" ColumnName="DESCRIPCIONMEJORA" />
                 <ScalarProperty Name="NOMBREMEJORA" ColumnName="NOMBREMEJORA" />
                 <ScalarProperty Name="ID_ACTIVIDADMEJORA" ColumnName="ID_ACTIVIDADMEJORA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTES">
+            <EntityTypeMapping TypeName="Model.CLIENTES">
+              <MappingFragment StoreEntitySet="CLIENTES">
+                <ScalarProperty Name="RUBRO" ColumnName="RUBRO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="RUT_CLIENT" ColumnName="RUT_CLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATOCLIENT">
+            <EntityTypeMapping TypeName="Model.CONTRATOCLIENT">
+              <MappingFragment StoreEntitySet="CONTRATOCLIENT">
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
+                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="ID_CONTR" ColumnName="ID_CONTR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATOPROF">
+            <EntityTypeMapping TypeName="Model.CONTRATOPROF">
+              <MappingFragment StoreEntitySet="CONTRATOPROF">
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="HISTORIAL" ColumnName="HISTORIAL" />
+                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
+                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                <ScalarProperty Name="ID_CONTR" ColumnName="ID_CONTR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGOS">
+            <EntityTypeMapping TypeName="Model.PAGOS">
+              <MappingFragment StoreEntitySet="PAGOS">
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFESIONAL">
+            <EntityTypeMapping TypeName="Model.PROFESIONAL">
+              <MappingFragment StoreEntitySet="PROFESIONAL">
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="RUT_PROF" ColumnName="RUT_PROF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTEACCIDENTE">
+            <EntityTypeMapping TypeName="Model.REPORTEACCIDENTE">
+              <MappingFragment StoreEntitySet="REPORTEACCIDENTE">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHAACCIDENTE" ColumnName="FECHAACCIDENTE" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="ID_REPORTA" ColumnName="ID_REPORTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTECLIENTE">
+            <EntityTypeMapping TypeName="Model.REPORTECLIENTE">
+              <MappingFragment StoreEntitySet="REPORTECLIENTE">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="ID_REPORTC" ColumnName="ID_REPORTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTEGLOBAL">
+            <EntityTypeMapping TypeName="Model.REPORTEGLOBAL">
+              <MappingFragment StoreEntitySet="REPORTEGLOBAL">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="ID_REPORTG" ColumnName="ID_REPORTG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="Model.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="NOMBREROL" ColumnName="NOMBREROL" />
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIO">
+            <EntityTypeMapping TypeName="Model.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="FECHASERVICIO" ColumnName="FECHASERVICIO" />
+                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="ID_SERV" ColumnName="ID_SERV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -954,6 +906,26 @@
               <MappingFragment StoreEntitySet="TIPOSOLICITUD">
                 <ScalarProperty Name="TIPOSOLICITUD1" ColumnName="TIPOSOLICITUD" />
                 <ScalarProperty Name="ID_TIPOSOLICITUD" ColumnName="ID_TIPOSOLICITUD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="Model.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITASTERRENO">
+            <EntityTypeMapping TypeName="Model.VISITASTERRENO">
+              <MappingFragment StoreEntitySet="VISITASTERRENO">
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="FECHAVISITA" ColumnName="FECHAVISITA" />
+                <ScalarProperty Name="ID_VISITA" ColumnName="ID_VISITA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,6 +25,7 @@ namespace SafeCore.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<ACTIVIDADMEJORA> ACTIVIDADMEJORA { get; set; }
         public DbSet<CLIENTES> CLIENTES { get; set; }
         public DbSet<CONTRATOCLIENT> CONTRATOCLIENT { get; set; }
         public DbSet<CONTRATOPROF> CONTRATOPROF { get; set; }
@@ -35,11 +36,9 @@ namespace SafeCore.DAL
         public DbSet<REPORTEGLOBAL> REPORTEGLOBAL { get; set; }
         public DbSet<ROL> ROL { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
-        public DbSet<SOLICITUDASESORIA> SOLICITUDASESORIA { get; set; }
-        public DbSet<USUARIOS> USUARIOS { get; set; }
-        public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
-        public DbSet<ACTIVIDADMEJORA> ACTIVIDADMEJORA { get; set; }
         public DbSet<SOLICITUD> SOLICITUD { get; set; }
         public DbSet<TIPOSOLICITUD> TIPOSOLICITUD { get; set; }
+        public DbSet<USUARIOS> USUARIOS { get; set; }
+        public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
     }
 }

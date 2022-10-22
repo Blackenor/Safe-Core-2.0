@@ -100,9 +100,6 @@
     <Compile Include="SOLICITUD.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SOLICITUDASESORIA.cs">
-      <DependentUpon>SafeCoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPOSOLICITUD.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>

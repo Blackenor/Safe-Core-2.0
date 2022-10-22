@@ -14,6 +14,9 @@ namespace SafeCore.BLL
         public DateTime FECHA { get; set; }
         public string DESCRIPCION { get; set; }
 
+        public Cliente Cliente { get; set; }
+
+
         SafeCoreEntities db = new SafeCoreEntities();
 
         public List<ReporteCliente> ReadAll()
@@ -23,7 +26,17 @@ namespace SafeCore.BLL
                 ID_REPORTC = r.ID_REPORTC,
                 CLIENTES_RUT_CLIENT = r.CLIENTES_RUT_CLIENT,
                 FECHA = r.FECHA,
-                DESCRIPCION = r.DESCRIPCION
+                DESCRIPCION = r.DESCRIPCION,
+
+                Cliente = new Cliente()
+                {
+                    Rut_cliente = r.CLIENTES_RUT_CLIENT,
+                    Nombre = r.CLIENTES.NOMBRE,
+                    Direccion = r.CLIENTES.DIRECCION,
+                    Telefono = r.CLIENTES.TELEFONO,
+                    Correo = r.CLIENTES.CORREO,
+                    Rubro = r.CLIENTES.RUBRO
+                }
 
             }).ToList();
         }

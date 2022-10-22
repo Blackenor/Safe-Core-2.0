@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCliente.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SafeCore.DAL\SafeCore.DAL.csproj">

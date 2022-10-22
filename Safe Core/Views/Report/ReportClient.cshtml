@@ -1,7 +1,9 @@
-﻿
+﻿@using SafeCore.BLL
 @{
-    ViewBag.Title = "Report Client";
+    ViewBag.Title = "ReportCliente";
 }
+
+@{ List<ReporteCliente> LCliente = (List<ReporteCliente>)ViewBag.ReporteCliente; }
 
 <h2>Reporte cliente</h2>
 <div class="container m-3">
@@ -41,12 +43,40 @@
                 <input type="date" name="date_user" class="form-control">
             </li>
             <div class="d-flex col-12">
-                <li class="col form-group">
-                    <label for="msg" class="form-label">Reporte:</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                </li>
-            </div>
+            <li class="col form-group">
+                <label for="msg" class="form-label">Reporte:</label>
+                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+            </li>
+</div>
         </ul>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
+<button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
     </form>
 </div>
+
+
+
+
+    <table class="table" bgcolor="#FFFFFF">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id_Report</th>
+                <th>Rut Cliente</th>
+                <th>Fecha Accidente</th>
+                <th>Descripcion</th>
+            </tr>
+
+        </thead>
+
+
+
+
+        @foreach (var ReporteClientes in LCliente)
+        {
+            <tr>
+                <td>@ReporteClientes.ID_REPORTC</td>
+                <td>@ReporteClientes.CLIENTES_RUT_CLIENT</td>
+                <td>@ReporteClientes.FECHA</td>
+                <td>@ReporteClientes.DESCRIPCION</td>
+            </tr>
+        }
+    </table>

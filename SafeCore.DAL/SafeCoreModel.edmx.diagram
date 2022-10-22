@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="972f96ec0ac5462084341e3e75ec79c8" Name="Diagram1" ZoomLevel="28">
-        <EntityTypeShape EntityType="Model.ACTIVIDADMEJORA" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.CLIENTES" Width="1.5" PointX="0.75" PointY="11.25" />
-        <EntityTypeShape EntityType="Model.CONTRATOCLIENT" Width="1.5" PointX="3" PointY="21.375" />
-        <EntityTypeShape EntityType="Model.CONTRATOPROF" Width="1.5" PointX="6" PointY="4.125" />
-        <EntityTypeShape EntityType="Model.PAGOS" Width="1.5" PointX="3" PointY="27.125" />
-        <EntityTypeShape EntityType="Model.PROFESIONAL" Width="1.5" PointX="3.75" PointY="2.625" />
-        <EntityTypeShape EntityType="Model.REPORTEACCIDENTE" Width="1.5" PointX="3" PointY="6.625" />
-        <EntityTypeShape EntityType="Model.REPORTECLIENTE" Width="1.5" PointX="3" PointY="24.375" />
-        <EntityTypeShape EntityType="Model.REPORTEGLOBAL" Width="1.5" PointX="3" PointY="12.625" />
-        <EntityTypeShape EntityType="Model.ROL" Width="1.5" PointX="5.75" PointY="1.125" />
-        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="6" PointY="11.875" />
-        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="6" PointY="8" />
-        <EntityTypeShape EntityType="Model.TIPOSOLICITUD" Width="1.5" PointX="3.75" PointY="9.375" />
-        <EntityTypeShape EntityType="Model.USUARIOS" Width="1.5" PointX="8" PointY="0.875" />
-        <EntityTypeShape EntityType="Model.VISITASTERRENO" Width="1.5" PointX="3" PointY="16.125" />
+      <Diagram DiagramId="972f96ec0ac5462084341e3e75ec79c8" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="Model.ACTIVIDADMEJORA" Width="1.5" PointX="3.375" PointY="9.375" />
+        <EntityTypeShape EntityType="Model.CLIENTES" Width="1.5" PointX="9.5" PointY="12.875" />
+        <EntityTypeShape EntityType="Model.CONTRATOCLIENT" Width="1.5" PointX="9.125" PointY="21.75" />
+        <EntityTypeShape EntityType="Model.CONTRATOPROF" Width="1.5" PointX="14" PointY="9.25" />
+        <EntityTypeShape EntityType="Model.PAGOS" Width="1.5" PointX="6.875" PointY="19.125" />
+        <EntityTypeShape EntityType="Model.PROFESIONAL" Width="1.5" PointX="11.375" PointY="8.625" />
+        <EntityTypeShape EntityType="Model.REPORTEACCIDENTE" Width="1.5" PointX="7" PointY="13" />
+        <EntityTypeShape EntityType="Model.REPORTECLIENTE" Width="1.5" PointX="10.5" PointY="19.25" />
+        <EntityTypeShape EntityType="Model.REPORTEGLOBAL" Width="1.5" PointX="12.25" PointY="17.125" />
+        <EntityTypeShape EntityType="Model.ROL" Width="1.5" PointX="5.5" PointY="6.25" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="7.875" PointY="9" />
+        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="6.5" PointY="16" />
+        <EntityTypeShape EntityType="Model.TIPOSOLICITUD" Width="1.5" PointX="3.875" PointY="17.125" />
+        <EntityTypeShape EntityType="Model.USUARIOS" Width="1.5" PointX="7.75" PointY="6" />
+        <EntityTypeShape EntityType="Model.VISITASTERRENO" Width="1.5" PointX="12.75" PointY="12.875" />
         <AssociationConnector Association="Model.CONTRATOCLIENT_CLIENTES_FK" />
         <AssociationConnector Association="Model.PAGOS_CLIENTES_FK" />
         <AssociationConnector Association="Model.REPORTEACCIDENTE_CLIENTES_FK" />

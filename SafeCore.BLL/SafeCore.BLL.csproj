@@ -46,9 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActividadMejora.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ContratoCliente.cs" />
+    <Compile Include="ContratoProfesional.cs" />
+    <Compile Include="Pagos.cs" />
+    <Compile Include="Profesional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteAccidente.cs" />
     <Compile Include="ReporteCliente.cs" />
+    <Compile Include="ReporteGlobal.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Servicio.cs" />
+    <Compile Include="Solicitud.cs" />
+    <Compile Include="TipoSolicitud.cs" />
+    <Compile Include="Usuarios.cs" />
+    <Compile Include="VisitasTerreno.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SafeCore.DAL\SafeCore.DAL.csproj">

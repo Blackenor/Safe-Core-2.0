@@ -1,0 +1,22 @@
+-- 10 FILAS DE DATA RANDOM PARA LA TABLA "REPORTECLIENTE"
+
+INSERT INTO REPORTECLIENTE 
+VALUES (1,'194135807',TO_DATE('2023/05/07 21:02:45', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (2,'101939502',TO_DATE('2023/05/08 21:02:46', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (3,'253273739',TO_DATE('2023/05/09 21:02:46', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (4,'286405770',TO_DATE('2023/05/10 21:02:47', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (5,'364233930',TO_DATE('2023/05/11 21:02:48', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (6,'249673781',TO_DATE('2023/05/12 21:02:49', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (7,'184315904',TO_DATE('2023/05/13 21:02:50', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (8,'226746412',TO_DATE('2023/05/14 21:02:51', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (9,'393831677',TO_DATE('2023/05/15 21:02:52', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');
+INSERT INTO REPORTECLIENTE 
+VALUES (10,'35758054',TO_DATE('2023/05/16 21:02:53', 'yyyy/mm/dd hh24:mi:ss'),'Un profesional sufre muerte subita al ingresar a la empresa, se desconoce la causa de muerte');

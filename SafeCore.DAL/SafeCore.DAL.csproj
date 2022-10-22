@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACTIVIDADMEJORA.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CLIENTES.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
@@ -94,7 +97,13 @@
     <Compile Include="SERVICIO.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SOLICITUD.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SOLICITUDASESORIA.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPOSOLICITUD.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USUARIOS.cs">

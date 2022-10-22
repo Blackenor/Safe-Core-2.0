@@ -38,5 +38,8 @@ namespace SafeCore.DAL
         public DbSet<SOLICITUDASESORIA> SOLICITUDASESORIA { get; set; }
         public DbSet<USUARIOS> USUARIOS { get; set; }
         public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
+        public DbSet<ACTIVIDADMEJORA> ACTIVIDADMEJORA { get; set; }
+        public DbSet<SOLICITUD> SOLICITUD { get; set; }
+        public DbSet<TIPOSOLICITUD> TIPOSOLICITUD { get; set; }
     }
 }

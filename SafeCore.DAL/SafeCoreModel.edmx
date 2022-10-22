@@ -4,7 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACTIVIDADMEJORA">
+          <Key>
+            <PropertyRef Name="ID_ACTIVIDADMEJORA" />
+          </Key>
+          <Property Name="ID_ACTIVIDADMEJORA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMEJORA" Type="varchar2" MaxLength="20" />
+          <Property Name="DESCRIPCIONMEJORA" Type="varchar2" MaxLength="300" />
+        </EntityType>
         <EntityType Name="CLIENTES">
           <Key>
             <PropertyRef Name="RUT_CLIENT" />
@@ -103,7 +111,7 @@
           <Property Name="VALOR" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
         </EntityType>
-        <EntityType Name="SOLICITUDASESORIA">
+        <EntityType Name="SOLICITUD">
           <Key>
             <PropertyRef Name="ID_SOLICITUD" />
           </Key>
@@ -111,6 +119,14 @@
           <Property Name="FECHA" Type="date" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" Nullable="false" />
           <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPOSOLICITUD">
+          <Key>
+            <PropertyRef Name="ID_TIPOSOLICITUD" />
+          </Key>
+          <Property Name="ID_TIPOSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOSOLICITUD" Type="varchar2" MaxLength="10" />
         </EntityType>
         <EntityType Name="USUARIOS">
           <Key>
@@ -226,14 +242,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="SOLICITUD_TIPOSOLICITUD_FK">
+          <End Role="TIPOSOLICITUD" Type="Self.TIPOSOLICITUD" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOSOLICITUD">
+              <PropertyRef Name="ID_TIPOSOLICITUD" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="SOLICITUDASESORIA_CLIENTES_FK">
           <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="SOLICITUDASESORIA" Type="Self.SOLICITUDASESORIA" Multiplicity="*" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
               <PropertyRef Name="RUT_CLIENT" />
             </Principal>
-            <Dependent Role="SOLICITUDASESORIA">
+            <Dependent Role="SOLICITUD">
               <PropertyRef Name="CLIENTES_RUT_CLIENT" />
             </Dependent>
           </ReferentialConstraint>
@@ -275,6 +303,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ACTIVIDADMEJORA" EntityType="Self.ACTIVIDADMEJORA" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CONTRATOCLIENT" EntityType="Self.CONTRATOCLIENT" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CONTRATOPROF" EntityType="Self.CONTRATOPROF" Schema="SAFECORE" store:Type="Tables" />
@@ -285,7 +314,8 @@
           <EntitySet Name="REPORTEGLOBAL" EntityType="Self.REPORTEGLOBAL" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="ROL" EntityType="Self.ROL" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="SAFECORE" store:Type="Tables" />
-          <EntitySet Name="SOLICITUDASESORIA" EntityType="Self.SOLICITUDASESORIA" Schema="SAFECORE" store:Type="Tables" />
+          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="SAFECORE" store:Type="Tables" />
+          <EntitySet Name="TIPOSOLICITUD" EntityType="Self.TIPOSOLICITUD" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="VISITASTERRENO" EntityType="Self.VISITASTERRENO" Schema="SAFECORE" store:Type="Tables" />
           <AssociationSet Name="CONTRATOCLIENT_CLIENTES_FK" Association="Self.CONTRATOCLIENT_CLIENTES_FK">
@@ -320,9 +350,13 @@
             <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
             <End Role="SERVICIO" EntitySet="SERVICIO" />
           </AssociationSet>
+          <AssociationSet Name="SOLICITUD_TIPOSOLICITUD_FK" Association="Self.SOLICITUD_TIPOSOLICITUD_FK">
+            <End Role="TIPOSOLICITUD" EntitySet="TIPOSOLICITUD" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
           <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK" Association="Self.SOLICITUDASESORIA_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="SOLICITUDASESORIA" EntitySet="SOLICITUDASESORIA" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
           <AssociationSet Name="USUARIOS_ROL_FK" Association="Self.USUARIOS_ROL_FK">
             <End Role="ROL" EntitySet="ROL" />
@@ -337,8 +371,7 @@
             <End Role="VISITASTERRENO" EntitySet="VISITASTERRENO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -360,6 +393,7 @@
           <NavigationProperty Name="SERVICIO" Relationship="Self.SERVICIO_CLIENTES_FK" FromRole="CLIENTES" ToRole="SERVICIO" />
           <NavigationProperty Name="SOLICITUDASESORIA" Relationship="Self.SOLICITUDASESORIA_CLIENTES_FK" FromRole="CLIENTES" ToRole="SOLICITUDASESORIA" />
           <NavigationProperty Name="VISITASTERRENO" Relationship="Self.VISITASTERRENO_CLIENTES_FK" FromRole="CLIENTES" ToRole="VISITASTERRENO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK1" FromRole="CLIENTES" ToRole="SOLICITUD" />
         </EntityType>
         <EntityType Name="CONTRATOCLIENT">
           <Key>
@@ -464,10 +498,10 @@
           <Key>
             <PropertyRef Name="ID_SOLICITUD" />
           </Key>
-          <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Nullable="false" Type="Int32" />
+          <Property Name="FECHA" Nullable="false" Type="DateTime" />
+          <Property Name="DESCRIPCION" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="CLIENTES_RUT_CLIENT" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="CLIENTES" Relationship="Self.SOLICITUDASESORIA_CLIENTES_FK" FromRole="SOLICITUDASESORIA" ToRole="CLIENTES" />
         </EntityType>
         <EntityType Name="USUARIOS">
@@ -564,8 +598,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SOLICITUDASESORIA_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
-          <End Role="SOLICITUDASESORIA" Type="Self.SOLICITUDASESORIA" Multiplicity="*" />
+          <End Type="Self.CLIENTES" Multiplicity="1" Role="CLIENTES" />
+          <End Type="Self.SOLICITUDASESORIA" Multiplicity="*" Role="SOLICITUDASESORIA" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
               <PropertyRef Name="RUT_CLIENT" />
@@ -674,8 +708,8 @@
             <End Role="SERVICIO" EntitySet="SERVICIO" />
           </AssociationSet>
           <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK" Association="Self.SOLICITUDASESORIA_CLIENTES_FK">
-            <End Role="CLIENTES" EntitySet="CLIENTES" />
-            <End Role="SOLICITUDASESORIA" EntitySet="SOLICITUDASESORIA" />
+            <End EntitySet="CLIENTES" Role="CLIENTES" />
+            <End EntitySet="SOLICITUDASESORIA" Role="SOLICITUDASESORIA" />
           </AssociationSet>
           <AssociationSet Name="VISITASTERRENO_CLIENTES_FK" Association="Self.VISITASTERRENO_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
@@ -697,7 +731,70 @@
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
           </AssociationSet>
+          <EntitySet Name="ACTIVIDADMEJORA" EntityType="Model.ACTIVIDADMEJORA" />
+          <EntitySet Name="SOLICITUD" EntityType="Model.SOLICITUD" />
+          <EntitySet Name="TIPOSOLICITUD" EntityType="Model.TIPOSOLICITUD" />
+          <AssociationSet Name="SOLICITUDASESORIA_CLIENTES_FK1" Association="Model.SOLICITUDASESORIA_CLIENTES_FK1">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUD_TIPOSOLICITUD_FK" Association="Model.SOLICITUD_TIPOSOLICITUD_FK">
+            <End Role="TIPOSOLICITUD" EntitySet="TIPOSOLICITUD" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ACTIVIDADMEJORA">
+          <Key>
+            <PropertyRef Name="ID_ACTIVIDADMEJORA" />
+          </Key>
+          <Property Name="ID_ACTIVIDADMEJORA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBREMEJORA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCIONMEJORA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="ID_SOLICITUD" />
+          </Key>
+          <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK1" FromRole="SOLICITUD" ToRole="CLIENTES" />
+          <NavigationProperty Name="TIPOSOLICITUD" Relationship="Model.SOLICITUD_TIPOSOLICITUD_FK" FromRole="SOLICITUD" ToRole="TIPOSOLICITUD" />
+        </EntityType>
+        <EntityType Name="TIPOSOLICITUD">
+          <Key>
+            <PropertyRef Name="ID_TIPOSOLICITUD" />
+          </Key>
+          <Property Name="ID_TIPOSOLICITUD" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TIPOSOLICITUD1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUD_TIPOSOLICITUD_FK" FromRole="TIPOSOLICITUD" ToRole="SOLICITUD" />
+        </EntityType>
+        <Association Name="SOLICITUDASESORIA_CLIENTES_FK1">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUD_TIPOSOLICITUD_FK">
+          <End Type="Model.TIPOSOLICITUD" Role="TIPOSOLICITUD" Multiplicity="1" />
+          <End Type="Model.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOSOLICITUD">
+              <PropertyRef Name="ID_TIPOSOLICITUD" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -812,16 +909,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SOLICITUDASESORIA">
-            <EntityTypeMapping TypeName="Model.SOLICITUDASESORIA">
-              <MappingFragment StoreEntitySet="SOLICITUDASESORIA">
-                <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="USUARIOS">
             <EntityTypeMapping TypeName="Model.USUARIOS">
               <MappingFragment StoreEntitySet="USUARIOS">
@@ -839,6 +926,34 @@
                 <ScalarProperty Name="FECHAVISITA" ColumnName="FECHAVISITA" />
                 <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
                 <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACTIVIDADMEJORA">
+            <EntityTypeMapping TypeName="Model.ACTIVIDADMEJORA">
+              <MappingFragment StoreEntitySet="ACTIVIDADMEJORA">
+                <ScalarProperty Name="DESCRIPCIONMEJORA" ColumnName="DESCRIPCIONMEJORA" />
+                <ScalarProperty Name="NOMBREMEJORA" ColumnName="NOMBREMEJORA" />
+                <ScalarProperty Name="ID_ACTIVIDADMEJORA" ColumnName="ID_ACTIVIDADMEJORA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOLICITUD">
+            <EntityTypeMapping TypeName="Model.SOLICITUD">
+              <MappingFragment StoreEntitySet="SOLICITUD">
+                <ScalarProperty Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" ColumnName="TIPOSOLICITUD_ID_TIPOSOLICITUD" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOSOLICITUD">
+            <EntityTypeMapping TypeName="Model.TIPOSOLICITUD">
+              <MappingFragment StoreEntitySet="TIPOSOLICITUD">
+                <ScalarProperty Name="TIPOSOLICITUD1" ColumnName="TIPOSOLICITUD" />
+                <ScalarProperty Name="ID_TIPOSOLICITUD" ColumnName="ID_TIPOSOLICITUD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

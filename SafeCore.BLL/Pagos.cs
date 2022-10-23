@@ -40,5 +40,19 @@ namespace SafeCore.BLL
 
             }).ToList();
         }
+
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_PAGOS(this.ID_PAGO, this.FECHA, this.MONTO, this.CLIENTES_RUT_CLIENT);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

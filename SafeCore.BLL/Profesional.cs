@@ -37,5 +37,19 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_PROFESIONAL(this.RUT_PROF, this.ACTIVO, this.NOMBRE, this.APELLIDO, this.GENERO, this.DIRECCION, this.TELEFONO, this.CORREO);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

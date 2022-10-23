@@ -31,5 +31,19 @@ namespace SafeCore.BLL
 
             }).ToList();
         }
+
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_CLIENTES(this.Rut_cliente, this.Nombre, this.Direccion, this.Telefono, this.Correo, this.Rubro);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

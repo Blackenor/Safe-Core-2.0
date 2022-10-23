@@ -41,5 +41,19 @@ namespace SafeCore.BLL
                 }
             }).ToList();
         }
+
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_CONTRATOCLIENT(this.ID_CONTR, this.ACTIVO, this.FECHAINICIO, this.FECHATERMINO, this.CLIENTES_RUT_CLIENT);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

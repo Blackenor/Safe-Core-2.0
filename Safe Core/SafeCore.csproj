@@ -297,6 +297,10 @@
       <Project>{93bb83e3-822b-4e39-b42f-bf7dab113144}</Project>
       <Name>SafeCore.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SafeCore.DAL\SafeCore.DAL.csproj">
+      <Project>{2e79fcfb-3904-41e9-ab14-d77f798779b9}</Project>
+      <Name>SafeCore.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

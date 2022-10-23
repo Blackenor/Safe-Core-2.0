@@ -11,11 +11,15 @@ namespace Safe_Core.Controllers
         // GET: Asesoria
         public ActionResult IngresarAsesoria()
         {
+            // MÉTODO CREATE
+
             return View();
         }
 
         public ActionResult AsesoriaEspecial()
         {
+            // MÉTODO CREATE
+
             return View();
         }
     }

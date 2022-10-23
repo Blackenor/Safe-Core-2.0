@@ -5,3 +5,32 @@
 
 <h2>Actividades</h2>
 
+@{ List<VisitasTerreno> Visitas = (List<VisitasTerreno>)ViewBag.Actividades; }
+
+
+
+
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Visita</th>
+            <th>Fecha Visita</th>
+            <th>Rut profesional</th>
+            <th>Rut cliente</th>
+        </tr>
+
+    </thead>
+
+
+
+
+    @foreach (var visita in Visitas) 
+    {
+        <tr>
+            <td>@visita.ID_VISITA</td>
+            <td>@visita.FECHAVISITA</td>
+            <td>@visita.PROFESIONAL_RUT_PROF</td>
+            <td>@visita.CLIENTES_RUT_CLIENT</td>
+        </tr>
+    }
+</table>

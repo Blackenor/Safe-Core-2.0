@@ -1,68 +1,22 @@
 ﻿@using SafeCore.BLL
+
 @{
-    ViewBag.Title = "ReportCliente";
+    ViewBag.Title = "Actividades";
 }
 
-@{ List<ReporteCliente> LCliente = (List<ReporteCliente>)ViewBag.ReporteCliente; }
+@{ List<VisitasTerreno> Visitas = (List<VisitasTerreno>)ViewBag.Actividades; }
 
 <h2>Reporte cliente</h2>
-<div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
-
-        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col form-group">
-                <label for="number" class="form-label">Rut cliente:</label>
-                <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col form-group">
-                <label for="name" class="form-label">Nombre:</label>
-                <input type="text" id="name" class="form-control" name="user_name">
-            </li>
-            <li class="col form-group">
-                <label for="lastname" class="form-label">Apellido:</label>
-                <input type="text" id="lastname" class="form-control" name="user_lastname">
-            </li>
-            <li class="col form-group">
-                <label for="address" class="form-label">Direccion:</label>
-                <input type="text" id="address" class="form-control" name="user_address">
-            </li>
-            <li class="col form-group">
-                <label for="phone" class="form-label">Telefono:</label>
-                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col form-group">
-                <label for="mail" class="form-label">Email:</label>
-                <input type="email" id="mail" class="form-control" name="user_mail">
-            </li>
-            <li class="col form-group">
-                <label for="text" class="form-label">Rubro:</label>
-                <input type="text" id="rubro" class="form-control" name="user_work">
-            </li>
-            <li class="col form-group">
-                <label for="date" class="form-label">Fecha Accidente:</label>
-                <input type="date" name="date_user" class="form-control">
-            </li>
-            <div class="d-flex col-12">
-            <li class="col form-group">
-                <label for="msg" class="form-label">Reporte:</label>
-                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-            </li>
-</div>
-        </ul>
-<button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
-    </form>
-</div>
-
 
 
 
     <table class="table" bgcolor="#FFFFFF">
         <thead class="thead-dark">
             <tr>
-                <th>Id_Report</th>
-                <th>Rut Cliente</th>
-                <th>Fecha Accidente</th>
-                <th>Descripcion</th>
+                <th>ID visitat</th>
+                <th>Fecha Visita</th>
+                <th>Rut del profesional</th>
+                <th>rut del cliente</th>
             </tr>
 
         </thead>
@@ -70,13 +24,5 @@
 
 
 
-        @foreach (var ReporteClientes in LCliente)
-        {
-            <tr>
-                <td>@ReporteClientes.ID_REPORTC</td>
-                <td>@ReporteClientes.CLIENTES_RUT_CLIENT</td>
-                <td>@ReporteClientes.FECHA</td>
-                <td>@ReporteClientes.DESCRIPCION</td>
-            </tr>
-        }
+        
     </table>

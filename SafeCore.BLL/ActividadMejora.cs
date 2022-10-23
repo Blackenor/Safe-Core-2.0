@@ -26,5 +26,19 @@ namespace SafeCore.BLL
 
             }).ToList();
         }
+
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_ACTIVIDADMEJORA(this.ID_ACTIVIDADMEJORA, this.NOMBREMEJORA, this.DESCRIPCIONMEJORA);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

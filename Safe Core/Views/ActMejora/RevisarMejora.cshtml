@@ -1,11 +1,11 @@
-﻿
+﻿@using SafeCore.BLL
 @{
 
 
     ViewBag.Title = "Revisar actividad de mejora";
 
 }
-
+@{ List<ActividadMejora> actividadMejora = (List<ActividadMejora>)ViewBag.ActividadMejora; }
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,53 +17,65 @@
 <body>
     <h1>Revisar actividad de mejora</h1>
     <main class="container">
-        
 
-            
-                    <table class="table" bgcolor= "#FFFFFF">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>N° de visita</th>
-                                <th>Nombre Empresa</th>
-                                <th>Nombre Profesional</th>
-                                <th>Fecha Visita</th>
-                                <th>Estado de chequeo</th>
-                                <th>Recomendacion</th>
-                            </tr>
 
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>12343</td>
-                                <td>Nike</td>
-                                <td>Jordan</td>
-                                <td>06/12/1969</td>
-                                <td>Aprobado</td>
-                                <td>Mantener frio la zona</td>
-                            </tr>
-                            <tr>
-                                <td>1123123</td>
-                                <td>Nike</td>
-                                <td>felo</td>
-                                <td>06/12/1979</td>
-                                <td>Aprobado</td>
-                                <td>Mantener hot</td>
-                            </tr>
-                            <tr>
-                                <td>132324</td>
-                                <td>Nike</td>
-                                <td>eladio</td>
-                                <td>06/12/1989</td>
-                                <td>Aprobado</td>
-                                <td>Mantener funcionando 24/7</td>
-                            </tr>
 
-                        </tbody>
+        <table class="table" bgcolor="#FFFFFF">
+            <thead class="thead-dark">
+                <tr>
+                    <th>N° de Mejora</th>
+                    <th>Nombre Mejora</th>
+                    <th>Recomendacion</th>
+                </tr>
 
-                    </table>
-                
+            </thead>
+            <tbody>
 
-        
+                @foreach (var actividad in actividadMejora)
+                {
+                    <tr>
+                        <td>@actividad.ID_ACTIVIDADMEJORA</td>
+                        <td>@actividad.NOMBREMEJORA</td>
+                        <td>@actividad.DESCRIPCIONMEJORA</td>
+                        
+                    </tr>
+                }
+
+
+
+
+
+                @*<tr>
+                        <td>12343123-6</td>
+                        <td>Nike</td>
+                        <td>avenida siempre jordan</td>
+                        <td>931312323</td>
+                        <td>jordan@gmail.cl</td>
+                        <td>Minera</td>
+                    </tr>
+                    <tr>
+                        <td>11231232-5</td>
+                        <td>adidas</td>
+                        <td>Avenida adidas</td>
+                        <td>932321212</td>
+                        <td>adidas@gmail.cl</td>
+                        <td>textil</td>
+                    </tr>
+                    <tr>
+                        <td>13232124-5</td>
+                        <td>zoo york</td>
+                        <td>eladio 12</td>
+                        <td>932435465</td>
+                        <td>zooyork@gmail.com</td>
+                        <td>Moda</td>
+                    </tr>*@
+
+            </tbody>
+
+        </table>
+
+
+
     </main>
     <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>

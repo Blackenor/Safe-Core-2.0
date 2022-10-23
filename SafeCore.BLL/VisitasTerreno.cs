@@ -55,5 +55,19 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_VISITASTERRENO(this.ID_VISITA, this.FECHAVISITA, this.PROFESIONAL_RUT_PROF, this.CLIENTES_RUT_CLIENT);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

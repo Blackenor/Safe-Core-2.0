@@ -53,5 +53,18 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_SOLICITUD(this.ID_SOLICITUD, this.FECHA, this.DESCRIPCION, this.CLIENTES_RUT_CLIENT, this.TIPOSOLICITUD_ID_TIPOSOLICITUD);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

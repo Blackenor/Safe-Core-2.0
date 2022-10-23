@@ -25,5 +25,8 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+
+        // NO TIENE SP
+
     }
 }

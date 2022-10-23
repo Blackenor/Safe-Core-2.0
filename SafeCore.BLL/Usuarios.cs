@@ -38,5 +38,19 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_USUARIOS(this.ID_USER, this.NOMBRE, this.PASS, this.ROL_ID_ROL);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

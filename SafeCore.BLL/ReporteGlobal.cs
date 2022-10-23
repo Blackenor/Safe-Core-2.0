@@ -42,5 +42,19 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_REPORTEGLOBAL(this.ID_REPORTG, this.CLIENTES_RUT_CLIENT, this.FECHA, this.DESCRIPCION);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

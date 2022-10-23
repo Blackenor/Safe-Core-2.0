@@ -48,7 +48,19 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
-       
+        public bool Create()
+        {
+            try
+            {
+                db.SP_CREATE_SERVICIO(this.ID_SERV, this.CLIENTES_RUT_CLIENT, this.DESCRIPCION, this.FECHASERVICIO, this.VALOR, this.PROFESIONAL_RUT_PROF);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }

@@ -10,6 +10,7 @@ namespace Safe_Core.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 

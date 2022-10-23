@@ -16,6 +16,8 @@ namespace Safe_Core.Controllers
 
         public ActionResult Responder()
         {
+            // Create
+           // ViewBag.Responder = new Checklist().ReadAll();
             return View();
         }
     }

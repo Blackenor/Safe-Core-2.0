@@ -12,16 +12,20 @@ namespace Safe_Core.Controllers
         // GET: Personal
         public ActionResult HistorialAtrasos()
         {
+            //CREAR TABLE
+           // ViewBag.HistorialAtrasos = new HistorialAtrasos().ReadAll();
             return View();
         }
 
         public ActionResult Profesionales()
         {
+            ViewBag.Profesionales = new Profesional().ReadAll();
             return View();
         }
 
         public ActionResult PagosClientes()
         {
+            ViewBag.PagosClientes = new Pagos().ReadAll();
             return View();
         }
 

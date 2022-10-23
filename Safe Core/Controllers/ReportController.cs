@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SafeCore.BLL;
+
 namespace Safe_Core.Controllers
 {
     public class ReportController : Controller
@@ -11,6 +12,7 @@ namespace Safe_Core.Controllers
         // GET: Report
         public ActionResult ReportGlobal()
         {
+            ViewBag.ReporteGlobal = new ReporteGlobal().ReadAll();
             return View();
         }
         public ActionResult ReportAccidente()

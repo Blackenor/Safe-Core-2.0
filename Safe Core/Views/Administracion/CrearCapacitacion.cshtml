@@ -12,23 +12,11 @@
                 <label for="number" class="form-label">Rut cliente:</label>
                 <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
             </li>
-            <li class="col form-group">
-                <label for="name" class="form-label">Nombre empresa:</label>
-                <input type="text" id="name" class="form-control" name="user_name">
-            </li>
+            
 
-            <li class="col form-group">
-                <label for="address" class="form-label">Direccion:</label>
-                <input type="text" id="address" class="form-control" name="user_address">
-            </li>
-            <li class="col form-group">
-                <label for="phone" class="form-label">Telefono:</label>
-                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col form-group">
-                <label for="mail" class="form-label">Email:</label>
-                <input type="email" id="mail" class="form-control" name="user_mail">
-            </li>
+           
+            
+            
             <li class="col form-group">
                 <label for="text" class="form-label">Rubro:</label>
                 <input type="text" id="rubro" class="form-control" name="user_work">
@@ -37,24 +25,16 @@
                 <label for="date" class="form-label">Fecha de visita:</label>
                 <input type="date" name="date_user" class="form-control">
             </li>
-            <li  class="col form-group">
-                <label for="appt" class="form-label">Hora de visita:</label>
-
-                <input type="time" id="appt" name="appt" class="form-control"
-                       min="09:00" max="18:00" required>
-
-                <small>Elija un horario de atencion "9am a 6pm"</small>
-
-            </li>
+            
             
             <div class="d-flex col-12">
             <li class="col">
-                <label for="text" id="Asistente" class="form-label">Asistente de capacitación :</label>
+                <label for="text" id="Asistente" class="form-label">Profesional :</label>
                 <input class="form-control" name="text" type="text" ></input>
             </li>
             </div>
         </ul>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
+        <button class="btn btn-custom col-auto" type="submit">Crear Capacitacion</button>
     </form>
 </div>
 

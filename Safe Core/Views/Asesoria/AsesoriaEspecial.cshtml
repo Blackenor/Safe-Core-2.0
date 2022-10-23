@@ -1,4 +1,4 @@
-﻿
+﻿@using SafeCore.BLL
 @{
     ViewBag.Title = "Solicitar asesoria especial";
 }
@@ -17,7 +17,7 @@
             </li>
             <li class="col">
                 <label for="rut" class="form-label">Rut : </label>
-                <input type="text" id="rut" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
+                <input type="text" id="rut" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
             </li>
             <li class="col form-group">
                 <label for="address" class="form-label">Direccion:</label>
@@ -36,13 +36,13 @@
                 <input type="date" name="date_user" class="form-control">
             </li>
             <div class="d-flex col-12">
-                <li class="col">
-                    <label for="msg" class="form-label">Descripcion :</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                    </li>
-                </li>
-            </div>
+            <li class="col">
+                <label for="msg" class="form-label">Descripcion :</label>
+                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+            </li>
+            </li>
+</div>
         </ul>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su solicitud</button>
+<button class="btn btn-custom col-auto" type="submit">Envíe su solicitud</button>
     </form>
 </div>

@@ -1,4 +1,4 @@
-﻿
+﻿@using SafeCore.BLL
 @{
 
     ViewBag.Title = "Crear checklist";
@@ -7,7 +7,7 @@
 <h2>Crear checklist</h2>
 <div class="container m-3">
     <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
-        
+
         <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
             <li class="col form-group">
                 <label for="crearcheck1">Escriba la tarea del checklist </label>
@@ -16,7 +16,7 @@
 
             <li class="col form-group">
                 <label for="crearcheck2">Escriba la tarea del checklist </label>
-                <input type="text" id="creacionchecks2" class="form-control" name="crearcheck2"/>
+                <input type="text" id="creacionchecks2" class="form-control" name="crearcheck2" />
             </li>
 
             <li class="col form-group">
@@ -29,8 +29,8 @@
                 <input type="text" id="creacionchecks4" class="form-control" name="crearcheck4" />
             </li>
         </ul>
-        
+
         <button class="btn btn-custom col-auto" type="submit" id="buttoncheckscreados">Finalizar creación</button>
-    
-    </form> 
+
+    </form>
 </div>

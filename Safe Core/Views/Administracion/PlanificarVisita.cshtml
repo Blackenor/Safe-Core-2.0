@@ -1,4 +1,4 @@
-﻿
+﻿@using SafeCore.BLL
 @{
     ViewBag.Title = "Planificar visita";
 }
@@ -14,7 +14,7 @@
                 <label for="number" class="form-label">ID de visita:</label>
                 <input type="number" id="number" class="form-control" name="id_visita">
             </li>
-            
+
             <li class="col form-group">
                 <label for="date" class="form-label">Fecha de visita:</label>
                 <input type="date" name="fecha_visita" class="form-control">
@@ -33,6 +33,6 @@
         </ul>
 
         <button class="btn btn-custom col-auto" type="submit">Guardar</button>
-    
+
     </form>
 </div>

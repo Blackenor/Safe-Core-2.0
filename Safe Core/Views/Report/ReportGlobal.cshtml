@@ -1,4 +1,4 @@
-﻿
+﻿@using SafeCore.BLL
 @{
     ViewBag.Title = "ReportGlobal";
 }
@@ -21,13 +21,13 @@
                 <input type="date" name="date_user" class="form-control">
             </li>
             <div class="d-flex col-12">
-                <li class="col">
-                    <label for="msg" class="form-label">Descripción:</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                </li>
-            </div>
+            <li class="col">
+                <label for="msg" class="form-label">Descripción:</label>
+                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
+            </li>
+</div>
         </ul>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
+<button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
     </form>
 </div>
 

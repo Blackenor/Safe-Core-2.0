@@ -12,6 +12,9 @@ namespace SafeCore.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class SafeCoreEntities : DbContext
     {
@@ -40,5 +43,748 @@ namespace SafeCore.DAL
         public DbSet<TIPOSOLICITUD> TIPOSOLICITUD { get; set; }
         public DbSet<USUARIOS> USUARIOS { get; set; }
         public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
+    
+        public virtual int SP_CREATE_ACTIVIDADMEJORA(Nullable<decimal> v_ACTIVIDADMEJORA, string v_NOMBRE, string v_DESCRIPCION)
+        {
+            var v_ACTIVIDADMEJORAParameter = v_ACTIVIDADMEJORA.HasValue ?
+                new ObjectParameter("V_ACTIVIDADMEJORA", v_ACTIVIDADMEJORA) :
+                new ObjectParameter("V_ACTIVIDADMEJORA", typeof(decimal));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_ACTIVIDADMEJORA", v_ACTIVIDADMEJORAParameter, v_NOMBREParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_CREATE_CLIENTES(string v_RUT, string v_NOMBRE, string v_DIRECCION, string v_TELEFONO, string v_CORREO, string v_RUBRO)
+        {
+            var v_RUTParameter = v_RUT != null ?
+                new ObjectParameter("V_RUT", v_RUT) :
+                new ObjectParameter("V_RUT", typeof(string));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_DIRECCIONParameter = v_DIRECCION != null ?
+                new ObjectParameter("V_DIRECCION", v_DIRECCION) :
+                new ObjectParameter("V_DIRECCION", typeof(string));
+    
+            var v_TELEFONOParameter = v_TELEFONO != null ?
+                new ObjectParameter("V_TELEFONO", v_TELEFONO) :
+                new ObjectParameter("V_TELEFONO", typeof(string));
+    
+            var v_CORREOParameter = v_CORREO != null ?
+                new ObjectParameter("V_CORREO", v_CORREO) :
+                new ObjectParameter("V_CORREO", typeof(string));
+    
+            var v_RUBROParameter = v_RUBRO != null ?
+                new ObjectParameter("V_RUBRO", v_RUBRO) :
+                new ObjectParameter("V_RUBRO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CLIENTES", v_RUTParameter, v_NOMBREParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter, v_RUBROParameter);
+        }
+    
+        public virtual int SP_CREATE_CONTRATOCLIENT(Nullable<decimal> v_IDCONTR, string v_ACTIVO, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_RUTCLIENT)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            var v_ACTIVOParameter = v_ACTIVO != null ?
+                new ObjectParameter("V_ACTIVO", v_ACTIVO) :
+                new ObjectParameter("V_ACTIVO", typeof(string));
+    
+            var v_FECHAINICIOParameter = v_FECHAINICIO.HasValue ?
+                new ObjectParameter("V_FECHAINICIO", v_FECHAINICIO) :
+                new ObjectParameter("V_FECHAINICIO", typeof(System.DateTime));
+    
+            var v_FECHATERMINOParameter = v_FECHATERMINO.HasValue ?
+                new ObjectParameter("V_FECHATERMINO", v_FECHATERMINO) :
+                new ObjectParameter("V_FECHATERMINO", typeof(System.DateTime));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOCLIENT", v_IDCONTRParameter, v_ACTIVOParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_CREATE_CONTRATOPROF(Nullable<decimal> v_IDCONTR, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_HISTORIAL, string v_RUTPROF)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            var v_FECHAINICIOParameter = v_FECHAINICIO.HasValue ?
+                new ObjectParameter("V_FECHAINICIO", v_FECHAINICIO) :
+                new ObjectParameter("V_FECHAINICIO", typeof(System.DateTime));
+    
+            var v_FECHATERMINOParameter = v_FECHATERMINO.HasValue ?
+                new ObjectParameter("V_FECHATERMINO", v_FECHATERMINO) :
+                new ObjectParameter("V_FECHATERMINO", typeof(System.DateTime));
+    
+            var v_HISTORIALParameter = v_HISTORIAL != null ?
+                new ObjectParameter("V_HISTORIAL", v_HISTORIAL) :
+                new ObjectParameter("V_HISTORIAL", typeof(string));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOPROF", v_IDCONTRParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_HISTORIALParameter, v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_CREATE_PAGOS(Nullable<decimal> v_IDPAGO, Nullable<System.DateTime> v_FECHA, Nullable<decimal> v_MONTO, string v_RUTCLIENT)
+        {
+            var v_IDPAGOParameter = v_IDPAGO.HasValue ?
+                new ObjectParameter("V_IDPAGO", v_IDPAGO) :
+                new ObjectParameter("V_IDPAGO", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_MONTOParameter = v_MONTO.HasValue ?
+                new ObjectParameter("V_MONTO", v_MONTO) :
+                new ObjectParameter("V_MONTO", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_PAGOS", v_IDPAGOParameter, v_FECHAParameter, v_MONTOParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_CREATE_PROFESIONAL(string v_RUTPROF, string v_ACTIVO, string v_NOMBRE, string v_APELLIDO, string v_GENERO, string v_DIRECCION, string v_TELEFONO, string v_CORREO)
+        {
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            var v_ACTIVOParameter = v_ACTIVO != null ?
+                new ObjectParameter("V_ACTIVO", v_ACTIVO) :
+                new ObjectParameter("V_ACTIVO", typeof(string));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_APELLIDOParameter = v_APELLIDO != null ?
+                new ObjectParameter("V_APELLIDO", v_APELLIDO) :
+                new ObjectParameter("V_APELLIDO", typeof(string));
+    
+            var v_GENEROParameter = v_GENERO != null ?
+                new ObjectParameter("V_GENERO", v_GENERO) :
+                new ObjectParameter("V_GENERO", typeof(string));
+    
+            var v_DIRECCIONParameter = v_DIRECCION != null ?
+                new ObjectParameter("V_DIRECCION", v_DIRECCION) :
+                new ObjectParameter("V_DIRECCION", typeof(string));
+    
+            var v_TELEFONOParameter = v_TELEFONO != null ?
+                new ObjectParameter("V_TELEFONO", v_TELEFONO) :
+                new ObjectParameter("V_TELEFONO", typeof(string));
+    
+            var v_CORREOParameter = v_CORREO != null ?
+                new ObjectParameter("V_CORREO", v_CORREO) :
+                new ObjectParameter("V_CORREO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_PROFESIONAL", v_RUTPROFParameter, v_ACTIVOParameter, v_NOMBREParameter, v_APELLIDOParameter, v_GENEROParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter);
+        }
+    
+        public virtual int SP_CREATE_REPORTEACCIDENTE(Nullable<decimal> v_IDREPORT, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHAACCIDENTE, string v_DESCRIPCION)
+        {
+            var v_IDREPORTParameter = v_IDREPORT.HasValue ?
+                new ObjectParameter("V_IDREPORT", v_IDREPORT) :
+                new ObjectParameter("V_IDREPORT", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAACCIDENTEParameter = v_FECHAACCIDENTE.HasValue ?
+                new ObjectParameter("V_FECHAACCIDENTE", v_FECHAACCIDENTE) :
+                new ObjectParameter("V_FECHAACCIDENTE", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEACCIDENTE", v_IDREPORTParameter, v_RUTCLIENTParameter, v_FECHAACCIDENTEParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_CREATE_REPORTECLIENTE(Nullable<decimal> v_REPORTC, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        {
+            var v_REPORTCParameter = v_REPORTC.HasValue ?
+                new ObjectParameter("V_REPORTC", v_REPORTC) :
+                new ObjectParameter("V_REPORTC", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTECLIENTE", v_REPORTCParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_CREATE_REPORTEGLOBAL(Nullable<decimal> v_REPORTG, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        {
+            var v_REPORTGParameter = v_REPORTG.HasValue ?
+                new ObjectParameter("V_REPORTG", v_REPORTG) :
+                new ObjectParameter("V_REPORTG", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEGLOBAL", v_REPORTGParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_CREATE_SERVICIO(Nullable<decimal> v_IDSERV, string v_RUTCLIENT, string v_DESCRIPCION, Nullable<System.DateTime> v_FECHASERVICIO, Nullable<decimal> v_VALOR, string v_RUTPROF)
+        {
+            var v_IDSERVParameter = v_IDSERV.HasValue ?
+                new ObjectParameter("V_IDSERV", v_IDSERV) :
+                new ObjectParameter("V_IDSERV", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            var v_FECHASERVICIOParameter = v_FECHASERVICIO.HasValue ?
+                new ObjectParameter("V_FECHASERVICIO", v_FECHASERVICIO) :
+                new ObjectParameter("V_FECHASERVICIO", typeof(System.DateTime));
+    
+            var v_VALORParameter = v_VALOR.HasValue ?
+                new ObjectParameter("V_VALOR", v_VALOR) :
+                new ObjectParameter("V_VALOR", typeof(decimal));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SERVICIO", v_IDSERVParameter, v_RUTCLIENTParameter, v_DESCRIPCIONParameter, v_FECHASERVICIOParameter, v_VALORParameter, v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_CREATE_SOLICITUD(Nullable<decimal> v_IDSOLICITUD, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION, string v_RUTCLIENT, Nullable<decimal> v_IDTIPOSOLICITUD)
+        {
+            var v_IDSOLICITUDParameter = v_IDSOLICITUD.HasValue ?
+                new ObjectParameter("V_IDSOLICITUD", v_IDSOLICITUD) :
+                new ObjectParameter("V_IDSOLICITUD", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_IDTIPOSOLICITUDParameter = v_IDTIPOSOLICITUD.HasValue ?
+                new ObjectParameter("V_IDTIPOSOLICITUD", v_IDTIPOSOLICITUD) :
+                new ObjectParameter("V_IDTIPOSOLICITUD", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SOLICITUD", v_IDSOLICITUDParameter, v_FECHAParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter, v_IDTIPOSOLICITUDParameter);
+        }
+    
+        public virtual int SP_CREATE_USUARIOS(Nullable<decimal> v_IDUSER, string v_NOMBRE, string v_PASS, Nullable<decimal> v_ROLID)
+        {
+            var v_IDUSERParameter = v_IDUSER.HasValue ?
+                new ObjectParameter("V_IDUSER", v_IDUSER) :
+                new ObjectParameter("V_IDUSER", typeof(decimal));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_PASSParameter = v_PASS != null ?
+                new ObjectParameter("V_PASS", v_PASS) :
+                new ObjectParameter("V_PASS", typeof(string));
+    
+            var v_ROLIDParameter = v_ROLID.HasValue ?
+                new ObjectParameter("V_ROLID", v_ROLID) :
+                new ObjectParameter("V_ROLID", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_USUARIOS", v_IDUSERParameter, v_NOMBREParameter, v_PASSParameter, v_ROLIDParameter);
+        }
+    
+        public virtual int SP_CREATE_VISITASTERRENO(Nullable<decimal> v_IDVISITA, Nullable<System.DateTime> v_FECHAVISITA, string v_RUTPROF, string v_RUTCLIENT)
+        {
+            var v_IDVISITAParameter = v_IDVISITA.HasValue ?
+                new ObjectParameter("V_IDVISITA", v_IDVISITA) :
+                new ObjectParameter("V_IDVISITA", typeof(decimal));
+    
+            var v_FECHAVISITAParameter = v_FECHAVISITA.HasValue ?
+                new ObjectParameter("V_FECHAVISITA", v_FECHAVISITA) :
+                new ObjectParameter("V_FECHAVISITA", typeof(System.DateTime));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_VISITASTERRENO", v_IDVISITAParameter, v_FECHAVISITAParameter, v_RUTPROFParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_DELETE_CLIENTES(Nullable<decimal> v_RUT)
+        {
+            var v_RUTParameter = v_RUT.HasValue ?
+                new ObjectParameter("V_RUT", v_RUT) :
+                new ObjectParameter("V_RUT", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CLIENTES", v_RUTParameter);
+        }
+    
+        public virtual int SP_DELETE_CONTRATOCLIENT(Nullable<decimal> v_IDCONTR)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CONTRATOCLIENT", v_IDCONTRParameter);
+        }
+    
+        public virtual int SP_DELETE_CONTRATOPROF(Nullable<decimal> v_IDCONTR)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CONTRATOPROF", v_IDCONTRParameter);
+        }
+    
+        public virtual int SP_DELETE_MEJORA(Nullable<decimal> v_ACTMEJORA)
+        {
+            var v_ACTMEJORAParameter = v_ACTMEJORA.HasValue ?
+                new ObjectParameter("V_ACTMEJORA", v_ACTMEJORA) :
+                new ObjectParameter("V_ACTMEJORA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_MEJORA", v_ACTMEJORAParameter);
+        }
+    
+        public virtual int SP_DELETE_PAGOS(Nullable<decimal> v_IDPAGO)
+        {
+            var v_IDPAGOParameter = v_IDPAGO.HasValue ?
+                new ObjectParameter("V_IDPAGO", v_IDPAGO) :
+                new ObjectParameter("V_IDPAGO", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_PAGOS", v_IDPAGOParameter);
+        }
+    
+        public virtual int SP_DELETE_PROFESIONAL(Nullable<decimal> v_RUTPROF)
+        {
+            var v_RUTPROFParameter = v_RUTPROF.HasValue ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_PROFESIONAL", v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_DELETE_REPORTEACCIDENTE(Nullable<decimal> v_IDREPORT)
+        {
+            var v_IDREPORTParameter = v_IDREPORT.HasValue ?
+                new ObjectParameter("V_IDREPORT", v_IDREPORT) :
+                new ObjectParameter("V_IDREPORT", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_REPORTEACCIDENTE", v_IDREPORTParameter);
+        }
+    
+        public virtual int SP_DELETE_REPORTECLIENTE(Nullable<decimal> v_REPORTC)
+        {
+            var v_REPORTCParameter = v_REPORTC.HasValue ?
+                new ObjectParameter("V_REPORTC", v_REPORTC) :
+                new ObjectParameter("V_REPORTC", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_REPORTECLIENTE", v_REPORTCParameter);
+        }
+    
+        public virtual int SP_DELETE_REPORTEGLOBAL(Nullable<decimal> v_REPORTG)
+        {
+            var v_REPORTGParameter = v_REPORTG.HasValue ?
+                new ObjectParameter("V_REPORTG", v_REPORTG) :
+                new ObjectParameter("V_REPORTG", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_REPORTEGLOBAL", v_REPORTGParameter);
+        }
+    
+        public virtual int SP_DELETE_SERVICIO(Nullable<decimal> v_IDSERV)
+        {
+            var v_IDSERVParameter = v_IDSERV.HasValue ?
+                new ObjectParameter("V_IDSERV", v_IDSERV) :
+                new ObjectParameter("V_IDSERV", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_SERVICIO", v_IDSERVParameter);
+        }
+    
+        public virtual int SP_DELETE_SOLICITUD(Nullable<decimal> v_IDSOLICITUD)
+        {
+            var v_IDSOLICITUDParameter = v_IDSOLICITUD.HasValue ?
+                new ObjectParameter("V_IDSOLICITUD", v_IDSOLICITUD) :
+                new ObjectParameter("V_IDSOLICITUD", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_SOLICITUD", v_IDSOLICITUDParameter);
+        }
+    
+        public virtual int SP_DELETE_USUARIOS(Nullable<decimal> v_IDUSER)
+        {
+            var v_IDUSERParameter = v_IDUSER.HasValue ?
+                new ObjectParameter("V_IDUSER", v_IDUSER) :
+                new ObjectParameter("V_IDUSER", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_USUARIOS", v_IDUSERParameter);
+        }
+    
+        public virtual int SP_DELETE_VISITASTERRENO(Nullable<decimal> v_IDVISITA)
+        {
+            var v_IDVISITAParameter = v_IDVISITA.HasValue ?
+                new ObjectParameter("V_IDVISITA", v_IDVISITA) :
+                new ObjectParameter("V_IDVISITA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_VISITASTERRENO", v_IDVISITAParameter);
+        }
+    
+        public virtual int SP_UPDATE_CLIENTES(string v_RUT, string v_NOMBRE, string v_DIRECCION, string v_TELEFONO, string v_CORREO, string v_RUBRO)
+        {
+            var v_RUTParameter = v_RUT != null ?
+                new ObjectParameter("V_RUT", v_RUT) :
+                new ObjectParameter("V_RUT", typeof(string));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_DIRECCIONParameter = v_DIRECCION != null ?
+                new ObjectParameter("V_DIRECCION", v_DIRECCION) :
+                new ObjectParameter("V_DIRECCION", typeof(string));
+    
+            var v_TELEFONOParameter = v_TELEFONO != null ?
+                new ObjectParameter("V_TELEFONO", v_TELEFONO) :
+                new ObjectParameter("V_TELEFONO", typeof(string));
+    
+            var v_CORREOParameter = v_CORREO != null ?
+                new ObjectParameter("V_CORREO", v_CORREO) :
+                new ObjectParameter("V_CORREO", typeof(string));
+    
+            var v_RUBROParameter = v_RUBRO != null ?
+                new ObjectParameter("V_RUBRO", v_RUBRO) :
+                new ObjectParameter("V_RUBRO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CLIENTES", v_RUTParameter, v_NOMBREParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter, v_RUBROParameter);
+        }
+    
+        public virtual int SP_UPDATE_CONTRATOCLIENT(Nullable<decimal> v_IDCONTR, string v_ACTIVO, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_RUTCLIENT)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            var v_ACTIVOParameter = v_ACTIVO != null ?
+                new ObjectParameter("V_ACTIVO", v_ACTIVO) :
+                new ObjectParameter("V_ACTIVO", typeof(string));
+    
+            var v_FECHAINICIOParameter = v_FECHAINICIO.HasValue ?
+                new ObjectParameter("V_FECHAINICIO", v_FECHAINICIO) :
+                new ObjectParameter("V_FECHAINICIO", typeof(System.DateTime));
+    
+            var v_FECHATERMINOParameter = v_FECHATERMINO.HasValue ?
+                new ObjectParameter("V_FECHATERMINO", v_FECHATERMINO) :
+                new ObjectParameter("V_FECHATERMINO", typeof(System.DateTime));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CONTRATOCLIENT", v_IDCONTRParameter, v_ACTIVOParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_UPDATE_CONTRATOPROF(Nullable<decimal> v_IDCONTR, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_HISTORIAL, string v_RUTPROF)
+        {
+            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
+                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
+                new ObjectParameter("V_IDCONTR", typeof(decimal));
+    
+            var v_FECHAINICIOParameter = v_FECHAINICIO.HasValue ?
+                new ObjectParameter("V_FECHAINICIO", v_FECHAINICIO) :
+                new ObjectParameter("V_FECHAINICIO", typeof(System.DateTime));
+    
+            var v_FECHATERMINOParameter = v_FECHATERMINO.HasValue ?
+                new ObjectParameter("V_FECHATERMINO", v_FECHATERMINO) :
+                new ObjectParameter("V_FECHATERMINO", typeof(System.DateTime));
+    
+            var v_HISTORIALParameter = v_HISTORIAL != null ?
+                new ObjectParameter("V_HISTORIAL", v_HISTORIAL) :
+                new ObjectParameter("V_HISTORIAL", typeof(string));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CONTRATOPROF", v_IDCONTRParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_HISTORIALParameter, v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_UPDATE_MEJORA(Nullable<decimal> v_ACTIVIDADMEJORA, string v_NOMBREMEJORA, string v_DESCRIPCION)
+        {
+            var v_ACTIVIDADMEJORAParameter = v_ACTIVIDADMEJORA.HasValue ?
+                new ObjectParameter("V_ACTIVIDADMEJORA", v_ACTIVIDADMEJORA) :
+                new ObjectParameter("V_ACTIVIDADMEJORA", typeof(decimal));
+    
+            var v_NOMBREMEJORAParameter = v_NOMBREMEJORA != null ?
+                new ObjectParameter("V_NOMBREMEJORA", v_NOMBREMEJORA) :
+                new ObjectParameter("V_NOMBREMEJORA", typeof(string));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_MEJORA", v_ACTIVIDADMEJORAParameter, v_NOMBREMEJORAParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_UPDATE_PRODUCTO(Nullable<decimal> v_IDPAGO, Nullable<System.DateTime> v_FECHA, Nullable<decimal> v_MONTO, string v_RUTCLIENT)
+        {
+            var v_IDPAGOParameter = v_IDPAGO.HasValue ?
+                new ObjectParameter("V_IDPAGO", v_IDPAGO) :
+                new ObjectParameter("V_IDPAGO", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_MONTOParameter = v_MONTO.HasValue ?
+                new ObjectParameter("V_MONTO", v_MONTO) :
+                new ObjectParameter("V_MONTO", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_PRODUCTO", v_IDPAGOParameter, v_FECHAParameter, v_MONTOParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_UPDATE_PROFESIONAL(string v_RUTPROF, string v_ACTIVO, string v_NOMBRE, string v_APELLIDO, string v_GENERO, string v_DIRECCION, string v_TELEFONO, string v_CORREO)
+        {
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            var v_ACTIVOParameter = v_ACTIVO != null ?
+                new ObjectParameter("V_ACTIVO", v_ACTIVO) :
+                new ObjectParameter("V_ACTIVO", typeof(string));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_APELLIDOParameter = v_APELLIDO != null ?
+                new ObjectParameter("V_APELLIDO", v_APELLIDO) :
+                new ObjectParameter("V_APELLIDO", typeof(string));
+    
+            var v_GENEROParameter = v_GENERO != null ?
+                new ObjectParameter("V_GENERO", v_GENERO) :
+                new ObjectParameter("V_GENERO", typeof(string));
+    
+            var v_DIRECCIONParameter = v_DIRECCION != null ?
+                new ObjectParameter("V_DIRECCION", v_DIRECCION) :
+                new ObjectParameter("V_DIRECCION", typeof(string));
+    
+            var v_TELEFONOParameter = v_TELEFONO != null ?
+                new ObjectParameter("V_TELEFONO", v_TELEFONO) :
+                new ObjectParameter("V_TELEFONO", typeof(string));
+    
+            var v_CORREOParameter = v_CORREO != null ?
+                new ObjectParameter("V_CORREO", v_CORREO) :
+                new ObjectParameter("V_CORREO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_PROFESIONAL", v_RUTPROFParameter, v_ACTIVOParameter, v_NOMBREParameter, v_APELLIDOParameter, v_GENEROParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter);
+        }
+    
+        public virtual int SP_UPDATE_REPORTEACCIDENTE(Nullable<decimal> v_IDREPORT, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHAACCIDENTE, string v_DESCRIPCION)
+        {
+            var v_IDREPORTParameter = v_IDREPORT.HasValue ?
+                new ObjectParameter("V_IDREPORT", v_IDREPORT) :
+                new ObjectParameter("V_IDREPORT", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAACCIDENTEParameter = v_FECHAACCIDENTE.HasValue ?
+                new ObjectParameter("V_FECHAACCIDENTE", v_FECHAACCIDENTE) :
+                new ObjectParameter("V_FECHAACCIDENTE", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_REPORTEACCIDENTE", v_IDREPORTParameter, v_RUTCLIENTParameter, v_FECHAACCIDENTEParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_UPDATE_REPORTECLIENTE(Nullable<decimal> v_REPORTC, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        {
+            var v_REPORTCParameter = v_REPORTC.HasValue ?
+                new ObjectParameter("V_REPORTC", v_REPORTC) :
+                new ObjectParameter("V_REPORTC", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_REPORTECLIENTE", v_REPORTCParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_UPDATE_REPORTEGLOBAL(Nullable<decimal> v_REPORTG, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        {
+            var v_REPORTGParameter = v_REPORTG.HasValue ?
+                new ObjectParameter("V_REPORTG", v_REPORTG) :
+                new ObjectParameter("V_REPORTG", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_REPORTEGLOBAL", v_REPORTGParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+        }
+    
+        public virtual int SP_UPDATE_SERVICIO(Nullable<decimal> v_IDSERV, string v_RUTCLIENT, string v_DESCRIPCION, Nullable<System.DateTime> v_FECHASERVICIO, Nullable<decimal> v_VALOR, string v_RUTPROF)
+        {
+            var v_IDSERVParameter = v_IDSERV.HasValue ?
+                new ObjectParameter("V_IDSERV", v_IDSERV) :
+                new ObjectParameter("V_IDSERV", typeof(decimal));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            var v_FECHASERVICIOParameter = v_FECHASERVICIO.HasValue ?
+                new ObjectParameter("V_FECHASERVICIO", v_FECHASERVICIO) :
+                new ObjectParameter("V_FECHASERVICIO", typeof(System.DateTime));
+    
+            var v_VALORParameter = v_VALOR.HasValue ?
+                new ObjectParameter("V_VALOR", v_VALOR) :
+                new ObjectParameter("V_VALOR", typeof(decimal));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_SERVICIO", v_IDSERVParameter, v_RUTCLIENTParameter, v_DESCRIPCIONParameter, v_FECHASERVICIOParameter, v_VALORParameter, v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_UPDATE_SOLICITUD(Nullable<decimal> v_IDSOLICITUD, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION, string v_RUTCLIENT, Nullable<decimal> v_IDTIPOSOLICITUD)
+        {
+            var v_IDSOLICITUDParameter = v_IDSOLICITUD.HasValue ?
+                new ObjectParameter("V_IDSOLICITUD", v_IDSOLICITUD) :
+                new ObjectParameter("V_IDSOLICITUD", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_IDTIPOSOLICITUDParameter = v_IDTIPOSOLICITUD.HasValue ?
+                new ObjectParameter("V_IDTIPOSOLICITUD", v_IDTIPOSOLICITUD) :
+                new ObjectParameter("V_IDTIPOSOLICITUD", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_SOLICITUD", v_IDSOLICITUDParameter, v_FECHAParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter, v_IDTIPOSOLICITUDParameter);
+        }
+    
+        public virtual int SP_UPDATE_USUARIOS(Nullable<decimal> v_IDUSER, string v_NOMBRE, string v_PASS, Nullable<decimal> v_ROLID)
+        {
+            var v_IDUSERParameter = v_IDUSER.HasValue ?
+                new ObjectParameter("V_IDUSER", v_IDUSER) :
+                new ObjectParameter("V_IDUSER", typeof(decimal));
+    
+            var v_NOMBREParameter = v_NOMBRE != null ?
+                new ObjectParameter("V_NOMBRE", v_NOMBRE) :
+                new ObjectParameter("V_NOMBRE", typeof(string));
+    
+            var v_PASSParameter = v_PASS != null ?
+                new ObjectParameter("V_PASS", v_PASS) :
+                new ObjectParameter("V_PASS", typeof(string));
+    
+            var v_ROLIDParameter = v_ROLID.HasValue ?
+                new ObjectParameter("V_ROLID", v_ROLID) :
+                new ObjectParameter("V_ROLID", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_USUARIOS", v_IDUSERParameter, v_NOMBREParameter, v_PASSParameter, v_ROLIDParameter);
+        }
+    
+        public virtual int SP_UPDATE_VISITASTERRENO(Nullable<decimal> v_IDVISITA, Nullable<System.DateTime> v_FECHAVISITA, string v_RUTPROF, string v_RUTCLIENT)
+        {
+            var v_IDVISITAParameter = v_IDVISITA.HasValue ?
+                new ObjectParameter("V_IDVISITA", v_IDVISITA) :
+                new ObjectParameter("V_IDVISITA", typeof(decimal));
+    
+            var v_FECHAVISITAParameter = v_FECHAVISITA.HasValue ?
+                new ObjectParameter("V_FECHAVISITA", v_FECHAVISITA) :
+                new ObjectParameter("V_FECHAVISITA", typeof(System.DateTime));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_VISITASTERRENO", v_IDVISITAParameter, v_FECHAVISITAParameter, v_RUTPROFParameter, v_RUTCLIENTParameter);
+        }
     }
 }

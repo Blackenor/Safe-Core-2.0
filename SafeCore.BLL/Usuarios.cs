@@ -35,7 +35,7 @@ namespace SafeCore.BLL
                     NOMBREROL = u.ROL.NOMBREROL
                 }
 
-            }).ToList()
+            }).ToList();
         }
 
     }

@@ -45,7 +45,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_PAGOS(this.ID_PAGO, this.FECHA, this.MONTO, this.CLIENTES_RUT_CLIENT);
+                db.SP_CREATE_PAGOS(this.FECHA, this.MONTO, this.CLIENTES_RUT_CLIENT);
 
                 return true;
             }

@@ -49,7 +49,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_CONTRATOPROF(this.ID_CONTR, this.FECHAINICIO, this.FECHATERMINO, this.HISTORIAL, this.PROFESIONAL_RUT_PROF);
+                db.SP_CREATE_CONTRATOPROF(this.FECHAINICIO, this.FECHATERMINO, this.HISTORIAL, this.PROFESIONAL_RUT_PROF);
 
                 return true;
             }

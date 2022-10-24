@@ -21,9 +21,9 @@ namespace SafeCore.BLL
 
         SafeCoreEntities db = new SafeCoreEntities();
 
-        public List<PROFESIONAL> ReadAll()
+        public List<Profesional> ReadAll()
         {
-            return this.db.PROFESIONAL.Select(p => new PROFESIONAL()
+            return this.db.PROFESIONAL.Select(p => new Profesional()
             {
                 RUT_PROF = p.RUT_PROF,
                 ACTIVO = p.ACTIVO,

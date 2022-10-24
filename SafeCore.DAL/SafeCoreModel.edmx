@@ -303,7 +303,6 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SP_CREATE_ACTIVIDADMEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_ACTIVIDADMEJORA" Type="number" Mode="In" />
           <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
         </Function>
@@ -316,21 +315,18 @@
           <Parameter Name="V_RUBRO" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_CONTRATOCLIENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDCONTR" Type="number" Mode="In" />
           <Parameter Name="V_ACTIVO" Type="char" Mode="In" />
           <Parameter Name="V_FECHAINICIO" Type="date" Mode="In" />
           <Parameter Name="V_FECHATERMINO" Type="date" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_CONTRATOPROF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDCONTR" Type="number" Mode="In" />
           <Parameter Name="V_FECHAINICIO" Type="date" Mode="In" />
           <Parameter Name="V_FECHATERMINO" Type="date" Mode="In" />
           <Parameter Name="V_HISTORIAL" Type="varchar2" Mode="In" />
           <Parameter Name="V_RUTPROF" Type="char" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDPAGO" Type="number" Mode="In" />
           <Parameter Name="V_FECHA" Type="date" Mode="In" />
           <Parameter Name="V_MONTO" Type="number" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
@@ -346,25 +342,21 @@
           <Parameter Name="V_CORREO" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_REPORTEACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDREPORT" Type="number" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
           <Parameter Name="V_FECHAACCIDENTE" Type="date" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_REPORTECLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_REPORTC" Type="number" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
           <Parameter Name="V_FECHA" Type="date" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_REPORTEGLOBAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_REPORTG" Type="number" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
           <Parameter Name="V_FECHA" Type="date" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDSERV" Type="number" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
           <Parameter Name="V_FECHASERVICIO" Type="date" Mode="In" />
@@ -372,20 +364,17 @@
           <Parameter Name="V_RUTPROF" Type="char" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDSOLICITUD" Type="number" Mode="In" />
           <Parameter Name="V_FECHA" Type="date" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
           <Parameter Name="V_IDTIPOSOLICITUD" Type="number" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_USUARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDUSER" Type="number" Mode="In" />
           <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
           <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
           <Parameter Name="V_ROLID" Type="number" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_VISITASTERRENO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
-          <Parameter Name="V_IDVISITA" Type="number" Mode="In" />
           <Parameter Name="V_FECHAVISITA" Type="date" Mode="In" />
           <Parameter Name="V_RUTPROF" Type="char" Mode="In" />
           <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
@@ -659,7 +648,6 @@
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
           <FunctionImport Name="SP_CREATE_ACTIVIDADMEJORA">
-            <Parameter Name="V_ACTIVIDADMEJORA" Mode="In" Type="Decimal" />
             <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
           </FunctionImport>
@@ -672,21 +660,18 @@
             <Parameter Name="V_RUBRO" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_CONTRATOCLIENT">
-            <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
             <Parameter Name="V_ACTIVO" Mode="In" Type="String" />
             <Parameter Name="V_FECHAINICIO" Mode="In" Type="DateTime" />
             <Parameter Name="V_FECHATERMINO" Mode="In" Type="DateTime" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_CONTRATOPROF">
-            <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
             <Parameter Name="V_FECHAINICIO" Mode="In" Type="DateTime" />
             <Parameter Name="V_FECHATERMINO" Mode="In" Type="DateTime" />
             <Parameter Name="V_HISTORIAL" Mode="In" Type="String" />
             <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_PAGOS">
-            <Parameter Name="V_IDPAGO" Mode="In" Type="Decimal" />
             <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="V_MONTO" Mode="In" Type="Decimal" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
@@ -702,25 +687,21 @@
             <Parameter Name="V_CORREO" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_REPORTEACCIDENTE">
-            <Parameter Name="V_IDREPORT" Mode="In" Type="Decimal" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
             <Parameter Name="V_FECHAACCIDENTE" Mode="In" Type="DateTime" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_REPORTECLIENTE">
-            <Parameter Name="V_REPORTC" Mode="In" Type="Decimal" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
             <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_REPORTEGLOBAL">
-            <Parameter Name="V_REPORTG" Mode="In" Type="Decimal" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
             <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_SERVICIO">
-            <Parameter Name="V_IDSERV" Mode="In" Type="Decimal" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
             <Parameter Name="V_FECHASERVICIO" Mode="In" Type="DateTime" />
@@ -728,62 +709,59 @@
             <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_SOLICITUD">
-            <Parameter Name="V_IDSOLICITUD" Mode="In" Type="Decimal" />
             <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
             <Parameter Name="V_IDTIPOSOLICITUD" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_USUARIOS">
-            <Parameter Name="V_IDUSER" Mode="In" Type="Decimal" />
             <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
             <Parameter Name="V_PASS" Mode="In" Type="String" />
             <Parameter Name="V_ROLID" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_VISITASTERRENO">
-            <Parameter Name="V_IDVISITA" Mode="In" Type="Decimal" />
             <Parameter Name="V_FECHAVISITA" Mode="In" Type="DateTime" />
             <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_CLIENTES">
-            <Parameter Name="V_RUT" Mode="In" Type="Decimal" />
+          <Parameter Name="V_RUT" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_CONTRATOCLIENT">
-            <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_CONTRATOPROF">
-            <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDCONTR" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_MEJORA">
-            <Parameter Name="V_ACTMEJORA" Mode="In" Type="Decimal" />
+          <Parameter Name="V_ACTMEJORA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_PAGOS">
-            <Parameter Name="V_IDPAGO" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDPAGO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_PROFESIONAL">
-            <Parameter Name="V_RUTPROF" Mode="In" Type="Decimal" />
+          <Parameter Name="V_RUTPROF" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_REPORTEACCIDENTE">
-            <Parameter Name="V_IDREPORT" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDREPORT" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_REPORTECLIENTE">
-            <Parameter Name="V_REPORTC" Mode="In" Type="Decimal" />
+          <Parameter Name="V_REPORTC" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_REPORTEGLOBAL">
-            <Parameter Name="V_REPORTG" Mode="In" Type="Decimal" />
+          <Parameter Name="V_REPORTG" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_SERVICIO">
-            <Parameter Name="V_IDSERV" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDSERV" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_SOLICITUD">
-            <Parameter Name="V_IDSOLICITUD" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDSOLICITUD" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_USUARIOS">
-            <Parameter Name="V_IDUSER" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDUSER" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_DELETE_VISITASTERRENO">
-            <Parameter Name="V_IDVISITA" Mode="In" Type="Decimal" />
+          <Parameter Name="V_IDVISITA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_UPDATE_CLIENTES">
             <Parameter Name="V_RUT" Mode="In" Type="String" />

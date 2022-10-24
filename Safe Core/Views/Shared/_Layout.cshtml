@@ -90,6 +90,7 @@
 
                             <ul class="collapse list-unstyled" id="Personal">
                                 <li>
+                                    @*<a href="@Url.Action("RevisarCliente", "Cliente")">clientes</a>*@
                                     <a href="@Url.Action("Clientes", "Personal")">clientes</a>
                                 </li>
                                 <li>
@@ -109,10 +110,12 @@
 
                             <ul class="collapse list-unstyled" id="ActMejora">
                                 <li>
-                                    <a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>
+                                    <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
+                                    @*<a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>*@
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>
+                                    <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Revisar</a>
+                                    @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
                                 </li>
                             </ul>
                         </li>

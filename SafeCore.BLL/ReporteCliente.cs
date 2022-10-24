@@ -45,7 +45,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_REPORTECLIENTE(this.ID_REPORTC, this.CLIENTES_RUT_CLIENT, this.FECHA, this.DESCRIPCION);
+                db.SP_CREATE_REPORTECLIENTE(this.CLIENTES_RUT_CLIENT, this.FECHA, this.DESCRIPCION);
 
                 return true;
             }

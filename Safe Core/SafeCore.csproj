@@ -153,10 +153,11 @@
     <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ActMejoraController.cs" />
+    <Compile Include="Controllers\ActividadMejoraController.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\AsesoriaController.cs" />
     <Compile Include="Controllers\ChecklistController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
@@ -274,14 +275,15 @@
     <Content Include="Views\Personal\Profesionales.cshtml" />
     <Content Include="Views\Personal\PagosClientes.cshtml" />
     <Content Include="Views\Personal\Clientes.cshtml" />
-    <Content Include="Views\ActMejora\IngresarMejora.cshtml" />
-    <Content Include="Views\ActMejora\RevisarMejora.cshtml" />
     <Content Include="Views\Checklist\Crearcheck.cshtml" />
     <Content Include="Views\Checklist\Responder.cshtml" />
     <Content Include="Views\Report\ReportAccidente.cshtml" />
     <Content Include="Views\Report\ReportGlobal.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
+    <Content Include="Views\ActividadMejora\RevisarActMejora.cshtml" />
+    <Content Include="Views\ActividadMejora\Create.cshtml" />
+    <Content Include="Views\Cliente\RevisarCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,7 +57,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_SOLICITUD(this.ID_SOLICITUD, this.FECHA, this.DESCRIPCION, this.CLIENTES_RUT_CLIENT, this.TIPOSOLICITUD_ID_TIPOSOLICITUD);
+                db.SP_CREATE_SOLICITUD(this.FECHA, this.DESCRIPCION, this.CLIENTES_RUT_CLIENT, this.TIPOSOLICITUD_ID_TIPOSOLICITUD);
 
                 return true;
             }

@@ -35,12 +35,42 @@ namespace Safe_Core.Controllers
             return View();
         }
 
-        public ActionResult CrearCapacitacion()
+        public ActionResult CrearCapacitacion(VisitasTerreno visitasTerreno)
         {
             // MÉTODO CREATE
-
-            return View();
+            try
+            {
+                visitasTerreno.Create();
+                TempData["mensaje"] = "Visita agendada correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al agendar visita";
+                return View();
+            }
+            //return View();
         }
+
+
+
+
+
+        //[HttpPost]
+        //public ActionResult CreateVisita(VisitasTerreno visitasTerreno)
+        //{
+        //    try
+        //    {
+        //        visitasTerreno.Create();
+        //        TempData["mensaje"] = "Visita agendada correctamente";
+        //        return View();
+        //    }
+        //    catch
+        //    {
+        //        TempData["mensaje"] = "Error al agendar visita";
+        //        return View();
+        //    }
+        //}
 
 
     }

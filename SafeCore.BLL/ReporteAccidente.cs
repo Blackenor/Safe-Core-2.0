@@ -46,7 +46,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_REPORTEACCIDENTE(this.ID_REPORTA, this.CLIENTES_RUT_CLIENT, this.FECHAACCIDENTE, this.DESCRIPCION);
+                db.SP_CREATE_REPORTEACCIDENTE(this.CLIENTES_RUT_CLIENT, this.FECHAACCIDENTE, this.DESCRIPCION);
 
                 return true;
             }

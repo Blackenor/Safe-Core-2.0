@@ -44,12 +44,8 @@ namespace SafeCore.DAL
         public DbSet<USUARIOS> USUARIOS { get; set; }
         public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
     
-        public virtual int SP_CREATE_ACTIVIDADMEJORA(Nullable<decimal> v_ACTIVIDADMEJORA, string v_NOMBRE, string v_DESCRIPCION)
+        public virtual int SP_CREATE_ACTIVIDADMEJORA(string v_NOMBRE, string v_DESCRIPCION)
         {
-            var v_ACTIVIDADMEJORAParameter = v_ACTIVIDADMEJORA.HasValue ?
-                new ObjectParameter("V_ACTIVIDADMEJORA", v_ACTIVIDADMEJORA) :
-                new ObjectParameter("V_ACTIVIDADMEJORA", typeof(decimal));
-    
             var v_NOMBREParameter = v_NOMBRE != null ?
                 new ObjectParameter("V_NOMBRE", v_NOMBRE) :
                 new ObjectParameter("V_NOMBRE", typeof(string));
@@ -58,7 +54,7 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_ACTIVIDADMEJORA", v_ACTIVIDADMEJORAParameter, v_NOMBREParameter, v_DESCRIPCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_ACTIVIDADMEJORA", v_NOMBREParameter, v_DESCRIPCIONParameter);
         }
     
         public virtual int SP_CREATE_CLIENTES(string v_RUT, string v_NOMBRE, string v_DIRECCION, string v_TELEFONO, string v_CORREO, string v_RUBRO)
@@ -90,12 +86,8 @@ namespace SafeCore.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CLIENTES", v_RUTParameter, v_NOMBREParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter, v_RUBROParameter);
         }
     
-        public virtual int SP_CREATE_CONTRATOCLIENT(Nullable<decimal> v_IDCONTR, string v_ACTIVO, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_RUTCLIENT)
+        public virtual int SP_CREATE_CONTRATOCLIENT(string v_ACTIVO, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_RUTCLIENT)
         {
-            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
-                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
-                new ObjectParameter("V_IDCONTR", typeof(decimal));
-    
             var v_ACTIVOParameter = v_ACTIVO != null ?
                 new ObjectParameter("V_ACTIVO", v_ACTIVO) :
                 new ObjectParameter("V_ACTIVO", typeof(string));
@@ -112,15 +104,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOCLIENT", v_IDCONTRParameter, v_ACTIVOParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_RUTCLIENTParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOCLIENT", v_ACTIVOParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_RUTCLIENTParameter);
         }
     
-        public virtual int SP_CREATE_CONTRATOPROF(Nullable<decimal> v_IDCONTR, Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_HISTORIAL, string v_RUTPROF)
+        public virtual int SP_CREATE_CONTRATOPROF(Nullable<System.DateTime> v_FECHAINICIO, Nullable<System.DateTime> v_FECHATERMINO, string v_HISTORIAL, string v_RUTPROF)
         {
-            var v_IDCONTRParameter = v_IDCONTR.HasValue ?
-                new ObjectParameter("V_IDCONTR", v_IDCONTR) :
-                new ObjectParameter("V_IDCONTR", typeof(decimal));
-    
             var v_FECHAINICIOParameter = v_FECHAINICIO.HasValue ?
                 new ObjectParameter("V_FECHAINICIO", v_FECHAINICIO) :
                 new ObjectParameter("V_FECHAINICIO", typeof(System.DateTime));
@@ -137,15 +125,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTPROF", v_RUTPROF) :
                 new ObjectParameter("V_RUTPROF", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOPROF", v_IDCONTRParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_HISTORIALParameter, v_RUTPROFParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CONTRATOPROF", v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_HISTORIALParameter, v_RUTPROFParameter);
         }
     
-        public virtual int SP_CREATE_PAGOS(Nullable<decimal> v_IDPAGO, Nullable<System.DateTime> v_FECHA, Nullable<decimal> v_MONTO, string v_RUTCLIENT)
+        public virtual int SP_CREATE_PAGOS(Nullable<System.DateTime> v_FECHA, Nullable<decimal> v_MONTO, string v_RUTCLIENT)
         {
-            var v_IDPAGOParameter = v_IDPAGO.HasValue ?
-                new ObjectParameter("V_IDPAGO", v_IDPAGO) :
-                new ObjectParameter("V_IDPAGO", typeof(decimal));
-    
             var v_FECHAParameter = v_FECHA.HasValue ?
                 new ObjectParameter("V_FECHA", v_FECHA) :
                 new ObjectParameter("V_FECHA", typeof(System.DateTime));
@@ -158,7 +142,7 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_PAGOS", v_IDPAGOParameter, v_FECHAParameter, v_MONTOParameter, v_RUTCLIENTParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_PAGOS", v_FECHAParameter, v_MONTOParameter, v_RUTCLIENTParameter);
         }
     
         public virtual int SP_CREATE_PROFESIONAL(string v_RUTPROF, string v_ACTIVO, string v_NOMBRE, string v_APELLIDO, string v_GENERO, string v_DIRECCION, string v_TELEFONO, string v_CORREO)
@@ -198,12 +182,8 @@ namespace SafeCore.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_PROFESIONAL", v_RUTPROFParameter, v_ACTIVOParameter, v_NOMBREParameter, v_APELLIDOParameter, v_GENEROParameter, v_DIRECCIONParameter, v_TELEFONOParameter, v_CORREOParameter);
         }
     
-        public virtual int SP_CREATE_REPORTEACCIDENTE(Nullable<decimal> v_IDREPORT, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHAACCIDENTE, string v_DESCRIPCION)
+        public virtual int SP_CREATE_REPORTEACCIDENTE(string v_RUTCLIENT, Nullable<System.DateTime> v_FECHAACCIDENTE, string v_DESCRIPCION)
         {
-            var v_IDREPORTParameter = v_IDREPORT.HasValue ?
-                new ObjectParameter("V_IDREPORT", v_IDREPORT) :
-                new ObjectParameter("V_IDREPORT", typeof(decimal));
-    
             var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
@@ -216,15 +196,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEACCIDENTE", v_IDREPORTParameter, v_RUTCLIENTParameter, v_FECHAACCIDENTEParameter, v_DESCRIPCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEACCIDENTE", v_RUTCLIENTParameter, v_FECHAACCIDENTEParameter, v_DESCRIPCIONParameter);
         }
     
-        public virtual int SP_CREATE_REPORTECLIENTE(Nullable<decimal> v_REPORTC, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        public virtual int SP_CREATE_REPORTECLIENTE(string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
         {
-            var v_REPORTCParameter = v_REPORTC.HasValue ?
-                new ObjectParameter("V_REPORTC", v_REPORTC) :
-                new ObjectParameter("V_REPORTC", typeof(decimal));
-    
             var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
@@ -237,15 +213,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTECLIENTE", v_REPORTCParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTECLIENTE", v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
         }
     
-        public virtual int SP_CREATE_REPORTEGLOBAL(Nullable<decimal> v_REPORTG, string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
+        public virtual int SP_CREATE_REPORTEGLOBAL(string v_RUTCLIENT, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION)
         {
-            var v_REPORTGParameter = v_REPORTG.HasValue ?
-                new ObjectParameter("V_REPORTG", v_REPORTG) :
-                new ObjectParameter("V_REPORTG", typeof(decimal));
-    
             var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
@@ -258,15 +230,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEGLOBAL", v_REPORTGParameter, v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_REPORTEGLOBAL", v_RUTCLIENTParameter, v_FECHAParameter, v_DESCRIPCIONParameter);
         }
     
-        public virtual int SP_CREATE_SERVICIO(Nullable<decimal> v_IDSERV, string v_RUTCLIENT, string v_DESCRIPCION, Nullable<System.DateTime> v_FECHASERVICIO, Nullable<decimal> v_VALOR, string v_RUTPROF)
+        public virtual int SP_CREATE_SERVICIO(string v_RUTCLIENT, string v_DESCRIPCION, Nullable<System.DateTime> v_FECHASERVICIO, Nullable<decimal> v_VALOR, string v_RUTPROF)
         {
-            var v_IDSERVParameter = v_IDSERV.HasValue ?
-                new ObjectParameter("V_IDSERV", v_IDSERV) :
-                new ObjectParameter("V_IDSERV", typeof(decimal));
-    
             var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
@@ -287,15 +255,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTPROF", v_RUTPROF) :
                 new ObjectParameter("V_RUTPROF", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SERVICIO", v_IDSERVParameter, v_RUTCLIENTParameter, v_DESCRIPCIONParameter, v_FECHASERVICIOParameter, v_VALORParameter, v_RUTPROFParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SERVICIO", v_RUTCLIENTParameter, v_DESCRIPCIONParameter, v_FECHASERVICIOParameter, v_VALORParameter, v_RUTPROFParameter);
         }
     
-        public virtual int SP_CREATE_SOLICITUD(Nullable<decimal> v_IDSOLICITUD, Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION, string v_RUTCLIENT, Nullable<decimal> v_IDTIPOSOLICITUD)
+        public virtual int SP_CREATE_SOLICITUD(Nullable<System.DateTime> v_FECHA, string v_DESCRIPCION, string v_RUTCLIENT, Nullable<decimal> v_IDTIPOSOLICITUD)
         {
-            var v_IDSOLICITUDParameter = v_IDSOLICITUD.HasValue ?
-                new ObjectParameter("V_IDSOLICITUD", v_IDSOLICITUD) :
-                new ObjectParameter("V_IDSOLICITUD", typeof(decimal));
-    
             var v_FECHAParameter = v_FECHA.HasValue ?
                 new ObjectParameter("V_FECHA", v_FECHA) :
                 new ObjectParameter("V_FECHA", typeof(System.DateTime));
@@ -312,15 +276,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_IDTIPOSOLICITUD", v_IDTIPOSOLICITUD) :
                 new ObjectParameter("V_IDTIPOSOLICITUD", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SOLICITUD", v_IDSOLICITUDParameter, v_FECHAParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter, v_IDTIPOSOLICITUDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_SOLICITUD", v_FECHAParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter, v_IDTIPOSOLICITUDParameter);
         }
     
-        public virtual int SP_CREATE_USUARIOS(Nullable<decimal> v_IDUSER, string v_NOMBRE, string v_PASS, Nullable<decimal> v_ROLID)
+        public virtual int SP_CREATE_USUARIOS(string v_NOMBRE, string v_PASS, Nullable<decimal> v_ROLID)
         {
-            var v_IDUSERParameter = v_IDUSER.HasValue ?
-                new ObjectParameter("V_IDUSER", v_IDUSER) :
-                new ObjectParameter("V_IDUSER", typeof(decimal));
-    
             var v_NOMBREParameter = v_NOMBRE != null ?
                 new ObjectParameter("V_NOMBRE", v_NOMBRE) :
                 new ObjectParameter("V_NOMBRE", typeof(string));
@@ -333,15 +293,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_ROLID", v_ROLID) :
                 new ObjectParameter("V_ROLID", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_USUARIOS", v_IDUSERParameter, v_NOMBREParameter, v_PASSParameter, v_ROLIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_USUARIOS", v_NOMBREParameter, v_PASSParameter, v_ROLIDParameter);
         }
     
-        public virtual int SP_CREATE_VISITASTERRENO(Nullable<decimal> v_IDVISITA, Nullable<System.DateTime> v_FECHAVISITA, string v_RUTPROF, string v_RUTCLIENT)
+        public virtual int SP_CREATE_VISITASTERRENO(Nullable<System.DateTime> v_FECHAVISITA, string v_RUTPROF, string v_RUTCLIENT)
         {
-            var v_IDVISITAParameter = v_IDVISITA.HasValue ?
-                new ObjectParameter("V_IDVISITA", v_IDVISITA) :
-                new ObjectParameter("V_IDVISITA", typeof(decimal));
-    
             var v_FECHAVISITAParameter = v_FECHAVISITA.HasValue ?
                 new ObjectParameter("V_FECHAVISITA", v_FECHAVISITA) :
                 new ObjectParameter("V_FECHAVISITA", typeof(System.DateTime));
@@ -354,7 +310,7 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_VISITASTERRENO", v_IDVISITAParameter, v_FECHAVISITAParameter, v_RUTPROFParameter, v_RUTCLIENTParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_VISITASTERRENO", v_FECHAVISITAParameter, v_RUTPROFParameter, v_RUTCLIENTParameter);
         }
     
         public virtual int SP_DELETE_CLIENTES(Nullable<decimal> v_RUT)

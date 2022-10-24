@@ -31,7 +31,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_ACTIVIDADMEJORA(this.ID_ACTIVIDADMEJORA, this.NOMBREMEJORA, this.DESCRIPCIONMEJORA);
+                db.SP_CREATE_ACTIVIDADMEJORA(this.NOMBREMEJORA, this.DESCRIPCIONMEJORA);
 
                 return true;
             }

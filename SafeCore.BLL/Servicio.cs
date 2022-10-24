@@ -52,7 +52,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_SERVICIO(this.ID_SERV, this.CLIENTES_RUT_CLIENT, this.DESCRIPCION, this.FECHASERVICIO, this.VALOR, this.PROFESIONAL_RUT_PROF);
+                db.SP_CREATE_SERVICIO(this.CLIENTES_RUT_CLIENT, this.DESCRIPCION, this.FECHASERVICIO, this.VALOR, this.PROFESIONAL_RUT_PROF);
 
                 return true;
             }

@@ -46,7 +46,7 @@ namespace SafeCore.BLL
         {
             try
             {
-                db.SP_CREATE_CONTRATOCLIENT(this.ID_CONTR, this.ACTIVO, this.FECHAINICIO, this.FECHATERMINO, this.CLIENTES_RUT_CLIENT);
+                db.SP_CREATE_CONTRATOCLIENT(this.ACTIVO, this.FECHAINICIO, this.FECHATERMINO, this.CLIENTES_RUT_CLIENT);
 
                 return true;
             }

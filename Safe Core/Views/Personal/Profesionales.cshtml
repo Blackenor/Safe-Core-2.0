@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Profesionales";
 }
+
+@{ List<Profesional> prof = (List<Profesional>)ViewBag.Profesionales; }
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,9 +21,10 @@
         <table class="table" bgcolor="#FFFFFF">
             <thead class="thead-dark">
                 <tr>
-                    <th>Rut</th>
-                    <th>Estado contrato</th>
+                    <th>Rut del profesional</th>
+                    <th>Activos</th>
                     <th>Nombre</th>
+                    <th>Apelldio</th>
                     <th>Genero</th>
                     <th>Direccion</th>
                     <th>Telefono</th>
@@ -29,36 +32,19 @@
                 </tr>
 
             </thead>
-            <tbody>
+            @foreach (var pro in prof)
+            {
                 <tr>
-                    <td>12343125-3</td>
-                    <td>Activo</td>
-                    <td>Maximiliano Santander Messi</td>
-                    <td>Masculino</td>
-                    <td>Avenida Cristiano Ronaldo</td>
-                    <td>949212541</td>
-                    <td>cristianronald@gmail.com</td>
+                    <td>@pro.RUT_PROF</td>
+                    <td>@pro.ACTIVO</td>
+                    <td>@pro.NOMBRE</td>
+                    <td>@pro.APELLIDO</td>
+                    <td>@pro.GENERO</td>
+                    <td>@pro.DIRECCION</td>
+                    <td>@pro.TELEFONO</td>
+                    <td>@pro.CORREO</td>
                 </tr>
-                <tr>
-                    <td>11231236-2</td>
-                    <td>Activo</td>
-                    <td>Sebastian Rocky Álvarez</td>
-                    <td>Masculino</td>
-                    <td>Avenida Rick</td>
-                    <td>962721314</td>
-                    <td>elricky@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>13232127-1</td>
-                    <td>finalizado</td>
-                    <td>Leo Díaz Castro</td>
-                    <td>Masculino</td>
-                    <td>Avenida Morty</td>
-                    <td>932483265</td>
-                    <td>mortytimes@gmail.com</td>
-                </tr>
-
-            </tbody>
+            }
 
         </table>
 

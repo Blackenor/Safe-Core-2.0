@@ -7,6 +7,7 @@ using SafeCore.BLL;
 
 namespace Safe_Core.Controllers
 {
+    [Authorize]
     public class ClienteController : Controller
     {
         // GET: Cliente

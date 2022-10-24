@@ -31,6 +31,7 @@ namespace Safe_Core.Controllers
 
 
             }
+            TempData["mensaje"] = "Nombre de usuario o contraseña incorrecta";
             return View(usuario);
         }
 
@@ -43,6 +44,13 @@ namespace Safe_Core.Controllers
 
             return false;
         }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Login");
+        }
+
 
     }
 }

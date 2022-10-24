@@ -34,9 +34,9 @@
                 </li>
                 <li class="col form-group">
 
-                    
-                    @Html.LabelFor(a => a.FECHA, "Fecha de Visita", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(a => a.FECHA, htmlAttributes: new { @class = "datefield", type = "date" })
+
+                    @Html.LabelFor(a => a.FECHA, "Fecha de visita", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.FECHA, htmlAttributes: new { @class = "form-control", @type = "date" })
                     @*<label for="date" class="form-label">Fecha de visita:</label>
                         <input type="date" name="date_user" class="form-control">*@
                 </li>
@@ -52,6 +52,9 @@
     </div>
     </ul>
     <button class="btn btn-custom col-auto" type="submit">Crear Capacitacion</button>
+    <br />
+
+    @TempData["mensaje"]
     </form>
 }
     </div>

@@ -52,5 +52,14 @@ namespace SafeCore.BLL
             }
         }
 
+        public bool Autenticar()
+        {
+            return db.USUARIOS
+                .Where(u => u.NOMBRE == this.NOMBRE
+                && u.PASS == this.PASS)
+                .FirstOrDefault() != null;
+        }
+
+
     }
 }

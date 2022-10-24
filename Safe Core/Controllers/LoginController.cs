@@ -37,12 +37,7 @@ namespace Safe_Core.Controllers
 
         private bool IsValid(Usuarios usuario) 
         {
-            if (usuario.NOMBRE == "admin" && usuario.PASS == "admin") 
-            {
-                return true;
-            }
-
-            return false;
+            return usuario.Autenticar();
         }
 
         public ActionResult LogOut()

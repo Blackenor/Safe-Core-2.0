@@ -14,7 +14,7 @@ namespace Safe_Core.Controllers
         public ActionResult Calcular (CalculadoraViewModel objCalculadora)
         {
             if ("%".Equals(objCalculadora.Accion)) {
-                objCalculadora.Respuesta = objCalculadora.Operador1 + objCalculadora.Operador2;
+                objCalculadora.Respuesta = objCalculadora.Operador1 * objCalculadora.Operador2;
                 objCalculadora.Respuesta = objCalculadora.Respuesta / 100;
                 int ViewData = objCalculadora.Respuesta;
             }

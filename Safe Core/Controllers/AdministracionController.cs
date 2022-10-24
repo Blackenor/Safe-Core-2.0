@@ -52,9 +52,7 @@ namespace Safe_Core.Controllers
             //return View();
         }
 
-
-
-
+         
 
         //[HttpPost]
         //public ActionResult CreateVisita(VisitasTerreno visitasTerreno)

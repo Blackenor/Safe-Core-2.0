@@ -157,9 +157,18 @@
                         <li class="">
                             <a href="@Url.Action("Index", "Home")">Home</a>
                         </li>
-                        <li>
-                            <a href="@Url.Action("Login", "Login")" onclick=confirm_meth()>Sign Out</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                @Html.ActionLink("Cerrar Sesion", "LogOut", "Login")
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                 @Html.ActionLink("Iniciar Sesion", "Login", "Login")
+                            </li>
+                        }
                     </ul>
                 </div>
 

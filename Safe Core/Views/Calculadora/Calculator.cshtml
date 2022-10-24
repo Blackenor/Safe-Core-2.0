@@ -1,0 +1,32 @@
+﻿@using SafeCore.BLL
+@using Safe_Core.Controllers
+@model Safe_Core.Models.CalculadoraViewModel
+
+
+@{
+    ViewBag.Title = "Calculator";
+}
+<head>
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/Chart.bundle.js"></script>
+</head>
+
+<div class="container m-3">
+    <h2>Cálculo de accidentabilidad</h2>
+
+    <form asp-controller="Calculadora" asp-action="Calcular" style="padding-left: 8%; padding-right: 8%;">
+        <label>Cantidad Reportes Global:</label>
+        <input asp-for="Operador1">
+        <label>Cantidad Accidentes Mensual:</label>
+        <input asp-for="Operador2">
+        <select asp-for="Accion">
+            <option value="%">%</option>
+        </select>
+        <br>
+        <input type="submit" value="Calcular">
+    </form>
+</div>
+<td>@Html.DisplayNameFor(model => model.Respuesta)</td>
+<td>@Html.DisplayTextFor(model => model.Respuesta)</td>
+<td>@Html.ValueFor(model => model.Respuesta)</td>
+

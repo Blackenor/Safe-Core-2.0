@@ -1,40 +1,61 @@
 ﻿@using SafeCore.BLL
+@model  SafeCore.BLL.Solicitud
+
+
+
 @{
     ViewBag.Title = "Crear Capacitacion";
 }
 
 <h2>Crear Capacitacion</h2>
 <div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
+    @using (Html.BeginForm())
+    {
+        <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index", "Home")" method="post">
 
-        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col form-group">
-                <label for="number" class="form-label">Rut cliente:</label>
-                <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+                <li class="col form-group">
 
-
-
-
-
-            <li class="col form-group">
-                <label for="text" class="form-label">Rubro:</label>
-                <input type="text" id="rubro" class="form-control" name="user_work">
-            </li>
-            <li class="col form-group">
-                <label for="date" class="form-label">Fecha de visita:</label>
-                <input type="date" name="date_user" class="form-control">
-            </li>
+                    @Html.LabelFor(a => a.Cliente, "Rut Cliente", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.Cliente, htmlAttributes: new { @class = "form-control" })
+                    @*<label for="number" class="form-label">Rut cliente:</label>
+                        <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">*@
+                </li>
 
 
-            <div class="d-flex col-12">
-            <li class="col">
-                <label for="text" id="Asistente" class="form-label">Profesional :</label>
-                <input class="form-control" name="text" type="text"></input>
-            </li>
-</div>
-        </ul>
-<button class="btn btn-custom col-auto" type="submit">Crear Capacitacion</button>
+
+
+
+                <li class="col form-group">
+                    @Html.LabelFor(a => a.TipoSolicitud, "Rubro", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.TipoSolicitud, htmlAttributes: new { @class = "form-control" })
+                    @*<label for="text" class="form-label">Rubro:</label>
+                        <input type="text" id="rubro" class="form-control" name="user_work">*@
+                </li>
+                <li class="col form-group">
+
+
+                    @Html.LabelFor(a => a.FECHA, "Fecha de visita", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.FECHA, htmlAttributes: new { @class = "form-control", @type = "date" })
+                    @*<label for="date" class="form-label">Fecha de visita:</label>
+                        <input type="date" name="date_user" class="form-control">*@
+                </li>
+
+
+                <div class="d-flex col-12">
+                <li class="col">
+                    @Html.LabelFor(a => a.DESCRIPCION, "Descripcion", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.DESCRIPCION, htmlAttributes: new { @class = "form-control" })
+                    @*<label for="text" id="Asistente" class="form-label">Profesional :</label>
+                        <input class="form-control" name="text" type="text"></input>*@
+                </li>
+    </div>
+    </ul>
+    <button class="btn btn-custom col-auto" type="submit">Crear Capacitacion</button>
+    <br />
+
+    @TempData["mensaje"]
     </form>
-</div>
+}
+    </div>
 

@@ -165,7 +165,9 @@
                                 @Html.ActionLink("Cerrar Sesion", "LogOut", "Login")
                             </li>
                             <li>
-                                @User.Identity.Name
+                                <a>
+                                    @User.Identity.Name
+                                </a>
                             </li>
                         }
                         else

@@ -68,6 +68,8 @@
     </div>
 </div>
 
+@using (Html.BeginForm()) 
+{
 <div class="main">
     <div class="col-md-6 col-sm-12">
 
@@ -75,23 +77,27 @@
         <hr />
 
         <div id="login-Form">
-            <form class="d-flex row container justify-content-center" role="form" action="@Url.Action("Index", "Home")">
+            <form class="d-flex row container justify-content-center">
 
                 <div class="form-group">
-                    <label class="form-label">Usuario</label>
-                    <input text-center type="text" class="form-control" placeholder="Usuario">
+                    @Html.LabelFor(u => u.NOMBRE, "Usuario", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(u => u.NOMBRE, htmlAttributes: new { @class = "form-control", @type = "text" })
+                    @*<label class="form-label">Usuario</label>
+            <input text-center type="text" class="form-control" placeholder="Usuario">*@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Contraseña</label>
-                    <input text-center type="password" class="form-control" placeholder="Contraseña">
+                    @Html.LabelFor(u => u.PASS, "Contraseña", htmlAttributes: new { @class = "form-label" })
+                    @Html.PasswordFor(u => u.PASS, htmlAttributes: new { @class = "form-control", @type = "password" })
+                    @*<label class="form-label">Contraseña</label>
+            <input text-center type="password" class="form-control" placeholder="Contraseña">*@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" href="@Url.Action("Index", "Home")" class="btn btn-custom">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-custom">Iniciar sesión</button>
                 </div>
 
-                @*<button type="submit" class="btn btn-secondary">Register</button>*@
+                @*<button type="submit" class="btn btn-secondary" href="@Url.Action("Index", "Home")">Register</button>*@
 
             </form>
         </div>
@@ -100,15 +106,13 @@
     </div>
 </div>
 
-@using (Html.BeginForm()) 
-{
-    @Html.LabelFor(u => u.NOMBRE, "Nombre del usuario")
+    @*@Html.LabelFor(u => u.NOMBRE, "Nombre del usuario")
     @Html.TextBoxFor(u => u.NOMBRE, new { type ="text"})
     <br />
     @Html.LabelFor(u=> u.PASS, "Contraseña")
-    @Html.PasswordFor(u=>u.PASS)
+    @Html.PasswordFor(u=>u.PASS)*@
 
-    <button>Ingresar</button>
+    @*<button>Ingresar</button>*@
 }
 <br />
 

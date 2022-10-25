@@ -53,25 +53,29 @@
                 <div id="topOptions">
                     <ul class="list-unstyled components overflow-auto">
 
-                        <li>
-                            <a href="#Administracion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administración</a>
+                        @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
+                        {
 
-                            <ul class="collapse list-unstyled" id="Administracion">
-                                <li>
-                                    <a href="@Url.Action("CrearCapacitacion", "Administracion")">Crear capacitación</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Create", "PlanificarVisita")">Planificar visita</a>
-                                    @*<a href="@Url.Action("PlanificarVisita", "Administracion")">Planificar visita</a>*@
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Actividades", "Administracion")">Actividades</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li>
+                                <a href="#Administracion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administración</a>
+
+                                <ul class="collapse list-unstyled" id="Administracion">
+                                    <li>
+                                        <a href="@Url.Action("CrearCapacitacion", "Administracion")">Crear capacitación</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Create", "PlanificarVisita")">Planificar visita</a>
+                                        @*<a href="@Url.Action("PlanificarVisita", "Administracion")">Planificar visita</a>*@
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Actividades", "Administracion")">Actividades</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
                         <li>
                             <a href="#Asesoria" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Asesoría</a>
@@ -86,71 +90,84 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="#Personal" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Personal</a>
+                        @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
+                        {
+                            <li>
+                                <a href="#Personal" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Personal</a>
 
-                            <ul class="collapse list-unstyled" id="Personal">
-                                <li>
-                                    @*<a href="@Url.Action("RevisarCliente", "Cliente")">clientes</a>*@
-                                    <a href="@Url.Action("Clientes", "Personal")">clientes</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("PagosClientes", "Personal")">Pagos clientes</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Profesionales", "Personal")">profesionales</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("HistorialAtrasos", "Personal")">Historial de atrasos</a>
-                                </li>
-                            </ul>
-                        </li>
+                                <ul class="collapse list-unstyled" id="Personal">
+                                    <li>
+                                        @*<a href="@Url.Action("RevisarCliente", "Cliente")">clientes</a>*@
+                                        <a href="@Url.Action("Clientes", "Personal")">clientes</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("PagosClientes", "Personal")">Pagos clientes</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Profesionales", "Personal")">profesionales</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("HistorialAtrasos", "Personal")">Historial de atrasos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
-                        <li>
-                            <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
+                        @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
+                        {
+                            <li>
+                                <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
 
-                            <ul class="collapse list-unstyled" id="ActMejora">
-                                <li>
-                                    <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
-                                    @*<a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>*@
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Revisar</a>
-                                    @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
-                                </li>
-                            </ul>
-                        </li>
+                                <ul class="collapse list-unstyled" id="ActMejora">
+                                    <li>
+                                        <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
+                                        @*<a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>*@
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Revisar</a>
+                                        @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
-                        <li>
-                            <a href="#Checklist" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Checklist</a>
 
-                            <ul class="collapse list-unstyled" id="Checklist">
-                                <li>
-                                    <a href="@Url.Action("Crearcheck", "Checklist")">Crear</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Responder", "Checklist")">Responder</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
+                        {
+                            <li>
+                                <a href="#Checklist" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Checklist</a>
+
+                                <ul class="collapse list-unstyled" id="Checklist">
+                                    <li>
+                                        <a href="@Url.Action("Crearcheck", "Checklist")">Crear</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Responder", "Checklist")">Responder</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+
 
                         <li>
                             <a href="#Reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reportes</a>
 
                             <ul class="collapse list-unstyled" id="Reportes">
-                                @if (User.Identity.Name == "admin" && User.Identity.Name == "profesional")
-                                {
-                                    <li>
-                                        <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Create", "ReportAccidente")">Reportar accidente</a>
-                                        @*<a href="@Url.Action("ReportAccidente", "Report")">Reportar accidente</a>*@
-                                    </li>
-                                }
+
+
+
+                                <li>
+                                    <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "ReportAccidente")">Reportar accidente</a>
+                                    @*<a href="@Url.Action("ReportAccidente", "Report")">Reportar accidente</a>*@
+                                </li>
+
 
                             </ul>
                         </li>

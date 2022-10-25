@@ -162,6 +162,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
+    <Compile Include="Controllers\PlanificarVisitaController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -287,6 +288,7 @@
     <Content Include="Views\ActividadMejora\Create.cshtml" />
     <Content Include="Views\Cliente\RevisarCliente.cshtml" />
     <Content Include="Views\Calculadora\Calculator.cshtml" />
+    <Content Include="Views\PlanificarVisita\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

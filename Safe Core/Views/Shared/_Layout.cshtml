@@ -138,16 +138,20 @@
                             <a href="#Reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reportes</a>
 
                             <ul class="collapse list-unstyled" id="Reportes">
-                                <li>
-                                    <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Create", "ReportAccidente")">Reportar accidente</a>
-                                    @*<a href="@Url.Action("ReportAccidente", "Report")">Reportar accidente</a>*@
-                                </li>
+                                @if (User.Identity.Name == "admin" && User.Identity.Name == "profesional")
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Create", "ReportAccidente")">Reportar accidente</a>
+                                        @*<a href="@Url.Action("ReportAccidente", "Report")">Reportar accidente</a>*@
+                                    </li>
+                                }
+
                             </ul>
                         </li>
 

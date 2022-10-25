@@ -1,0 +1,43 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.ReporteAccidente
+
+@{
+    ViewBag.Title = "ReportAccidente";
+}
+
+<h2>Reportar Accidente</h2>
+
+<div class="container m-3">
+    @using (Html.BeginForm())
+    {
+
+        <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(r => r.CLIENTES_RUT_CLIENT, "Rut del cliente", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(r => r.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control", @maxlength = "9" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(r => r.FECHAACCIDENTE, "Fecha de Accidente", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(r => r.FECHAACCIDENTE, htmlAttributes: new { @class = "form-control",  @type = "date" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(r => r.DESCRIPCION, "Descripción", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(r => r.DESCRIPCION, htmlAttributes: new { @class = "form-control", @type = "text"})
+                </li>
+
+            </ul>
+
+            <button class="btn btn-custom col-auto" type="submit">Guardar</button>
+
+            <br />
+
+            @TempData["mensaje"]
+
+        </form>
+    }
+</div>

@@ -63,8 +63,9 @@ namespace SafeCore.BLL
 
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                Console.WriteLine(ex);
                 return false;
             }
         }

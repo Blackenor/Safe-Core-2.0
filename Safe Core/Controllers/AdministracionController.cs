@@ -35,6 +35,12 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        public ActionResult CrearCapacitacion()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult CrearCapacitacion(VisitasTerreno visitasTerreno)
         {
             // MÉTODO CREATE

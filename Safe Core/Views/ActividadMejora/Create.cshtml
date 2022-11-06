@@ -9,25 +9,27 @@
 <div class="container m-3">
     @using (Html.BeginForm())
     {
-
-        <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+        
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
 
             <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
 
-                <li class="col">
+                <li class="col form-group">
                     @Html.LabelFor(a => a.NOMBREMEJORA, "Nombre de actividad", htmlAttributes: new { @class = "form-label" })
                     @Html.TextBoxFor(a => a.NOMBREMEJORA, htmlAttributes: new { @class = "form-control" })
-
-                    @*<label for="name" class="form-label">Nombre Mejora:</label>
-                        <input type="text" id="name" class="form-control" name="nombreMejora">*@
+                </li>
+                
+                <li class="col form-group">
+                    @Html.LabelFor(a => a.CLIENTES_RUT_CLIENT, "Rut del cliente", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(a => a.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
                 </li>
 
 
 
-                <div class="d-flex col-12">
+                <div class="d-flex col-12 form-group">
                     <li class="col">
                         @Html.LabelFor(a => a.DESCRIPCIONMEJORA, "Recomendación para el cliente", htmlAttributes: new { @class = "form-label" })
-                        @Html.TextBoxFor(a => a.DESCRIPCIONMEJORA, htmlAttributes: new { @class = "form-control" })
+                        @Html.TextAreaFor(a => a.DESCRIPCIONMEJORA, htmlAttributes: new { @class = "form-control", @type = "text" })
 
                         @*<label for="text" id="Recomendacion" class="form-label">Recomendacion para el cliente :</label>
                             <textarea class="form-control" name="text" type="text"></textarea>*@
@@ -37,7 +39,7 @@
             <button class="btn btn-custom col-auto" type="submit">Enviar actividad</button>
             <br />
             @TempData["mensaje"]
-        </form>
+        </div>
     }
     
 </div>

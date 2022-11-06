@@ -51,6 +51,12 @@
     <Compile Include="ACTIVIDADMEJORA.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CAPACITACIONES.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CHECKLIST.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CLIENTES.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
@@ -58,6 +64,9 @@
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTRATOPROF.cs">
+      <DependentUpon>SafeCoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HISTORIALATRASOS.cs">
       <DependentUpon>SafeCoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PAGOS.cs">

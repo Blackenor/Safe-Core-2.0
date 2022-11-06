@@ -24,6 +24,8 @@ namespace SafeCore.DAL
             this.SERVICIO = new HashSet<SERVICIO>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.VISITASTERRENO = new HashSet<VISITASTERRENO>();
+            this.ACTIVIDADMEJORA = new HashSet<ACTIVIDADMEJORA>();
+            this.CAPACITACIONES = new HashSet<CAPACITACIONES>();
         }
     
         public string RUT_CLIENT { get; set; }
@@ -41,5 +43,7 @@ namespace SafeCore.DAL
         public virtual ICollection<SERVICIO> SERVICIO { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
         public virtual ICollection<VISITASTERRENO> VISITASTERRENO { get; set; }
+        public virtual ICollection<ACTIVIDADMEJORA> ACTIVIDADMEJORA { get; set; }
+        public virtual ICollection<CAPACITACIONES> CAPACITACIONES { get; set; }
     }
 }

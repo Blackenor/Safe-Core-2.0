@@ -19,6 +19,8 @@ namespace SafeCore.DAL
             this.CONTRATOPROF = new HashSet<CONTRATOPROF>();
             this.SERVICIO = new HashSet<SERVICIO>();
             this.VISITASTERRENO = new HashSet<VISITASTERRENO>();
+            this.CAPACITACIONES = new HashSet<CAPACITACIONES>();
+            this.HISTORIALATRASOS = new HashSet<HISTORIALATRASOS>();
         }
     
         public string RUT_PROF { get; set; }
@@ -33,5 +35,7 @@ namespace SafeCore.DAL
         public virtual ICollection<CONTRATOPROF> CONTRATOPROF { get; set; }
         public virtual ICollection<SERVICIO> SERVICIO { get; set; }
         public virtual ICollection<VISITASTERRENO> VISITASTERRENO { get; set; }
+        public virtual ICollection<CAPACITACIONES> CAPACITACIONES { get; set; }
+        public virtual ICollection<HISTORIALATRASOS> HISTORIALATRASOS { get; set; }
     }
 }

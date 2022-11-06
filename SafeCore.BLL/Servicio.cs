@@ -28,7 +28,7 @@ namespace SafeCore.BLL
             {
                 ID_SERV = s.ID_SERV,
                 CLIENTES_RUT_CLIENT = s.CLIENTES_RUT_CLIENT,
-                DESCRIPCION = s.DESCRIPCIÓN,
+                DESCRIPCION = s.DESCRIPCION,
                 FECHASERVICIO = s.FECHASERVICIO,
                 VALOR = s.VALOR,
                 PROFESIONAL_RUT_PROF = s.PROFESIONAL_RUT_PROF,

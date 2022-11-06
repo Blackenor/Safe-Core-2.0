@@ -43,8 +43,11 @@ namespace SafeCore.DAL
         public DbSet<TIPOSOLICITUD> TIPOSOLICITUD { get; set; }
         public DbSet<USUARIOS> USUARIOS { get; set; }
         public DbSet<VISITASTERRENO> VISITASTERRENO { get; set; }
+        public DbSet<CAPACITACIONES> CAPACITACIONES { get; set; }
+        public DbSet<CHECKLIST> CHECKLIST { get; set; }
+        public DbSet<HISTORIALATRASOS> HISTORIALATRASOS { get; set; }
     
-        public virtual int SP_CREATE_ACTIVIDADMEJORA(string v_NOMBRE, string v_DESCRIPCION)
+        public virtual int SP_CREATE_ACTIVIDADMEJORA(string v_NOMBRE, string v_DESCRIPCION, string v_RUTCLIENT)
         {
             var v_NOMBREParameter = v_NOMBRE != null ?
                 new ObjectParameter("V_NOMBRE", v_NOMBRE) :
@@ -54,7 +57,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_ACTIVIDADMEJORA", v_NOMBREParameter, v_DESCRIPCIONParameter);
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_ACTIVIDADMEJORA", v_NOMBREParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter);
         }
     
         public virtual int SP_CREATE_CLIENTES(string v_RUT, string v_NOMBRE, string v_DIRECCION, string v_TELEFONO, string v_CORREO, string v_RUBRO)
@@ -509,7 +516,7 @@ namespace SafeCore.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CONTRATOPROF", v_IDCONTRParameter, v_FECHAINICIOParameter, v_FECHATERMINOParameter, v_HISTORIALParameter, v_RUTPROFParameter);
         }
     
-        public virtual int SP_UPDATE_MEJORA(Nullable<decimal> v_ACTIVIDADMEJORA, string v_NOMBREMEJORA, string v_DESCRIPCION)
+        public virtual int SP_UPDATE_MEJORA(Nullable<decimal> v_ACTIVIDADMEJORA, string v_NOMBREMEJORA, string v_DESCRIPCION, string v_RUTCLIENT)
         {
             var v_ACTIVIDADMEJORAParameter = v_ACTIVIDADMEJORA.HasValue ?
                 new ObjectParameter("V_ACTIVIDADMEJORA", v_ACTIVIDADMEJORA) :
@@ -523,7 +530,11 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
                 new ObjectParameter("V_DESCRIPCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_MEJORA", v_ACTIVIDADMEJORAParameter, v_NOMBREMEJORAParameter, v_DESCRIPCIONParameter);
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_MEJORA", v_ACTIVIDADMEJORAParameter, v_NOMBREMEJORAParameter, v_DESCRIPCIONParameter, v_RUTCLIENTParameter);
         }
     
         public virtual int SP_UPDATE_PRODUCTO(Nullable<decimal> v_IDPAGO, Nullable<System.DateTime> v_FECHA, Nullable<decimal> v_MONTO, string v_RUTCLIENT)
@@ -741,6 +752,232 @@ namespace SafeCore.DAL
                 new ObjectParameter("V_RUTCLIENT", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_VISITASTERRENO", v_IDVISITAParameter, v_FECHAVISITAParameter, v_RUTPROFParameter, v_RUTCLIENTParameter);
+        }
+    
+        public virtual int SP_CREATE_CAPACITACIONES(Nullable<System.DateTime> v_FECHA, string v_RUTPROFESIONAL, string v_RUTCLIENT, string v_DESCMATERIAL, string v_REALIZADA)
+        {
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_RUTPROFESIONALParameter = v_RUTPROFESIONAL != null ?
+                new ObjectParameter("V_RUTPROFESIONAL", v_RUTPROFESIONAL) :
+                new ObjectParameter("V_RUTPROFESIONAL", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_DESCMATERIALParameter = v_DESCMATERIAL != null ?
+                new ObjectParameter("V_DESCMATERIAL", v_DESCMATERIAL) :
+                new ObjectParameter("V_DESCMATERIAL", typeof(string));
+    
+            var v_REALIZADAParameter = v_REALIZADA != null ?
+                new ObjectParameter("V_REALIZADA", v_REALIZADA) :
+                new ObjectParameter("V_REALIZADA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CAPACITACIONES", v_FECHAParameter, v_RUTPROFESIONALParameter, v_RUTCLIENTParameter, v_DESCMATERIALParameter, v_REALIZADAParameter);
+        }
+    
+        public virtual int SP_CREATE_CHECKLIST(Nullable<decimal> v_VISITATERRENO, string v_STRING01, string v_STRING02, string v_STRING03, string v_STRING04, string v_STRING05, string v_STRING06, string v_STRING07, string v_STRING08, string v_STRING09, string v_STRING10, string v_STRING11, string v_STRING12, string v_STRING13, string v_STRING14, string v_STRING15)
+        {
+            var v_VISITATERRENOParameter = v_VISITATERRENO.HasValue ?
+                new ObjectParameter("V_VISITATERRENO", v_VISITATERRENO) :
+                new ObjectParameter("V_VISITATERRENO", typeof(decimal));
+    
+            var v_STRING01Parameter = v_STRING01 != null ?
+                new ObjectParameter("V_STRING01", v_STRING01) :
+                new ObjectParameter("V_STRING01", typeof(string));
+    
+            var v_STRING02Parameter = v_STRING02 != null ?
+                new ObjectParameter("V_STRING02", v_STRING02) :
+                new ObjectParameter("V_STRING02", typeof(string));
+    
+            var v_STRING03Parameter = v_STRING03 != null ?
+                new ObjectParameter("V_STRING03", v_STRING03) :
+                new ObjectParameter("V_STRING03", typeof(string));
+    
+            var v_STRING04Parameter = v_STRING04 != null ?
+                new ObjectParameter("V_STRING04", v_STRING04) :
+                new ObjectParameter("V_STRING04", typeof(string));
+    
+            var v_STRING05Parameter = v_STRING05 != null ?
+                new ObjectParameter("V_STRING05", v_STRING05) :
+                new ObjectParameter("V_STRING05", typeof(string));
+    
+            var v_STRING06Parameter = v_STRING06 != null ?
+                new ObjectParameter("V_STRING06", v_STRING06) :
+                new ObjectParameter("V_STRING06", typeof(string));
+    
+            var v_STRING07Parameter = v_STRING07 != null ?
+                new ObjectParameter("V_STRING07", v_STRING07) :
+                new ObjectParameter("V_STRING07", typeof(string));
+    
+            var v_STRING08Parameter = v_STRING08 != null ?
+                new ObjectParameter("V_STRING08", v_STRING08) :
+                new ObjectParameter("V_STRING08", typeof(string));
+    
+            var v_STRING09Parameter = v_STRING09 != null ?
+                new ObjectParameter("V_STRING09", v_STRING09) :
+                new ObjectParameter("V_STRING09", typeof(string));
+    
+            var v_STRING10Parameter = v_STRING10 != null ?
+                new ObjectParameter("V_STRING10", v_STRING10) :
+                new ObjectParameter("V_STRING10", typeof(string));
+    
+            var v_STRING11Parameter = v_STRING11 != null ?
+                new ObjectParameter("V_STRING11", v_STRING11) :
+                new ObjectParameter("V_STRING11", typeof(string));
+    
+            var v_STRING12Parameter = v_STRING12 != null ?
+                new ObjectParameter("V_STRING12", v_STRING12) :
+                new ObjectParameter("V_STRING12", typeof(string));
+    
+            var v_STRING13Parameter = v_STRING13 != null ?
+                new ObjectParameter("V_STRING13", v_STRING13) :
+                new ObjectParameter("V_STRING13", typeof(string));
+    
+            var v_STRING14Parameter = v_STRING14 != null ?
+                new ObjectParameter("V_STRING14", v_STRING14) :
+                new ObjectParameter("V_STRING14", typeof(string));
+    
+            var v_STRING15Parameter = v_STRING15 != null ?
+                new ObjectParameter("V_STRING15", v_STRING15) :
+                new ObjectParameter("V_STRING15", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_CHECKLIST", v_VISITATERRENOParameter, v_STRING01Parameter, v_STRING02Parameter, v_STRING03Parameter, v_STRING04Parameter, v_STRING05Parameter, v_STRING06Parameter, v_STRING07Parameter, v_STRING08Parameter, v_STRING09Parameter, v_STRING10Parameter, v_STRING11Parameter, v_STRING12Parameter, v_STRING13Parameter, v_STRING14Parameter, v_STRING15Parameter);
+        }
+    
+        public virtual int SP_CREATE_HISTORIALATRASOS(Nullable<System.DateTime> v_FECHA, string v_RUTPROF)
+        {
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREATE_HISTORIALATRASOS", v_FECHAParameter, v_RUTPROFParameter);
+        }
+    
+        public virtual int SP_UPDATE_CAPACITACIONES(Nullable<decimal> v_IDCAP, Nullable<System.DateTime> v_FECHA, string v_RUTPROFESIONAL, string v_RUTCLIENT, string v_DESCMATERIAL, Nullable<bool> v_REALIZADA)
+        {
+            var v_IDCAPParameter = v_IDCAP.HasValue ?
+                new ObjectParameter("V_IDCAP", v_IDCAP) :
+                new ObjectParameter("V_IDCAP", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_RUTPROFESIONALParameter = v_RUTPROFESIONAL != null ?
+                new ObjectParameter("V_RUTPROFESIONAL", v_RUTPROFESIONAL) :
+                new ObjectParameter("V_RUTPROFESIONAL", typeof(string));
+    
+            var v_RUTCLIENTParameter = v_RUTCLIENT != null ?
+                new ObjectParameter("V_RUTCLIENT", v_RUTCLIENT) :
+                new ObjectParameter("V_RUTCLIENT", typeof(string));
+    
+            var v_DESCMATERIALParameter = v_DESCMATERIAL != null ?
+                new ObjectParameter("V_DESCMATERIAL", v_DESCMATERIAL) :
+                new ObjectParameter("V_DESCMATERIAL", typeof(string));
+    
+            var v_REALIZADAParameter = v_REALIZADA.HasValue ?
+                new ObjectParameter("V_REALIZADA", v_REALIZADA) :
+                new ObjectParameter("V_REALIZADA", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CAPACITACIONES", v_IDCAPParameter, v_FECHAParameter, v_RUTPROFESIONALParameter, v_RUTCLIENTParameter, v_DESCMATERIALParameter, v_REALIZADAParameter);
+        }
+    
+        public virtual int SP_UPDATE_CHECKLIST(Nullable<decimal> v_IDCHECKLIST, Nullable<decimal> v_VISITATERRENO, string v_STRING01, string v_STRING02, string v_STRING03, string v_STRING04, string v_STRING05, string v_STRING06, string v_STRING07, string v_STRING08, string v_STRING09, string v_STRING10, string v_STRING11, string v_STRING12, string v_STRING13, string v_STRING14, string v_STRING15)
+        {
+            var v_IDCHECKLISTParameter = v_IDCHECKLIST.HasValue ?
+                new ObjectParameter("V_IDCHECKLIST", v_IDCHECKLIST) :
+                new ObjectParameter("V_IDCHECKLIST", typeof(decimal));
+    
+            var v_VISITATERRENOParameter = v_VISITATERRENO.HasValue ?
+                new ObjectParameter("V_VISITATERRENO", v_VISITATERRENO) :
+                new ObjectParameter("V_VISITATERRENO", typeof(decimal));
+    
+            var v_STRING01Parameter = v_STRING01 != null ?
+                new ObjectParameter("V_STRING01", v_STRING01) :
+                new ObjectParameter("V_STRING01", typeof(string));
+    
+            var v_STRING02Parameter = v_STRING02 != null ?
+                new ObjectParameter("V_STRING02", v_STRING02) :
+                new ObjectParameter("V_STRING02", typeof(string));
+    
+            var v_STRING03Parameter = v_STRING03 != null ?
+                new ObjectParameter("V_STRING03", v_STRING03) :
+                new ObjectParameter("V_STRING03", typeof(string));
+    
+            var v_STRING04Parameter = v_STRING04 != null ?
+                new ObjectParameter("V_STRING04", v_STRING04) :
+                new ObjectParameter("V_STRING04", typeof(string));
+    
+            var v_STRING05Parameter = v_STRING05 != null ?
+                new ObjectParameter("V_STRING05", v_STRING05) :
+                new ObjectParameter("V_STRING05", typeof(string));
+    
+            var v_STRING06Parameter = v_STRING06 != null ?
+                new ObjectParameter("V_STRING06", v_STRING06) :
+                new ObjectParameter("V_STRING06", typeof(string));
+    
+            var v_STRING07Parameter = v_STRING07 != null ?
+                new ObjectParameter("V_STRING07", v_STRING07) :
+                new ObjectParameter("V_STRING07", typeof(string));
+    
+            var v_STRING08Parameter = v_STRING08 != null ?
+                new ObjectParameter("V_STRING08", v_STRING08) :
+                new ObjectParameter("V_STRING08", typeof(string));
+    
+            var v_STRING09Parameter = v_STRING09 != null ?
+                new ObjectParameter("V_STRING09", v_STRING09) :
+                new ObjectParameter("V_STRING09", typeof(string));
+    
+            var v_STRING10Parameter = v_STRING10 != null ?
+                new ObjectParameter("V_STRING10", v_STRING10) :
+                new ObjectParameter("V_STRING10", typeof(string));
+    
+            var v_STRING11Parameter = v_STRING11 != null ?
+                new ObjectParameter("V_STRING11", v_STRING11) :
+                new ObjectParameter("V_STRING11", typeof(string));
+    
+            var v_STRING12Parameter = v_STRING12 != null ?
+                new ObjectParameter("V_STRING12", v_STRING12) :
+                new ObjectParameter("V_STRING12", typeof(string));
+    
+            var v_STRING13Parameter = v_STRING13 != null ?
+                new ObjectParameter("V_STRING13", v_STRING13) :
+                new ObjectParameter("V_STRING13", typeof(string));
+    
+            var v_STRING14Parameter = v_STRING14 != null ?
+                new ObjectParameter("V_STRING14", v_STRING14) :
+                new ObjectParameter("V_STRING14", typeof(string));
+    
+            var v_STRING15Parameter = v_STRING15 != null ?
+                new ObjectParameter("V_STRING15", v_STRING15) :
+                new ObjectParameter("V_STRING15", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CHECKLIST", v_IDCHECKLISTParameter, v_VISITATERRENOParameter, v_STRING01Parameter, v_STRING02Parameter, v_STRING03Parameter, v_STRING04Parameter, v_STRING05Parameter, v_STRING06Parameter, v_STRING07Parameter, v_STRING08Parameter, v_STRING09Parameter, v_STRING10Parameter, v_STRING11Parameter, v_STRING12Parameter, v_STRING13Parameter, v_STRING14Parameter, v_STRING15Parameter);
+        }
+    
+        public virtual int SP_UPDATE_HISTORIALATRASOS(Nullable<decimal> v_ATRASO, Nullable<System.DateTime> v_FECHA, string v_RUTPROF)
+        {
+            var v_ATRASOParameter = v_ATRASO.HasValue ?
+                new ObjectParameter("V_ATRASO", v_ATRASO) :
+                new ObjectParameter("V_ATRASO", typeof(decimal));
+    
+            var v_FECHAParameter = v_FECHA.HasValue ?
+                new ObjectParameter("V_FECHA", v_FECHA) :
+                new ObjectParameter("V_FECHA", typeof(System.DateTime));
+    
+            var v_RUTPROFParameter = v_RUTPROF != null ?
+                new ObjectParameter("V_RUTPROF", v_RUTPROF) :
+                new ObjectParameter("V_RUTPROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_HISTORIALATRASOS", v_ATRASOParameter, v_FECHAParameter, v_RUTPROFParameter);
         }
     }
 }

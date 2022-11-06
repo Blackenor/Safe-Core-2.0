@@ -16,10 +16,10 @@ namespace SafeCore.DAL
     {
         public int ID_SERV { get; set; }
         public string CLIENTES_RUT_CLIENT { get; set; }
-        public string DESCRIPCIÓN { get; set; }
         public System.DateTime FECHASERVICIO { get; set; }
         public int VALOR { get; set; }
         public string PROFESIONAL_RUT_PROF { get; set; }
+        public string DESCRIPCION { get; set; }
     
         public virtual CLIENTES CLIENTES { get; set; }
         public virtual PROFESIONAL PROFESIONAL { get; set; }

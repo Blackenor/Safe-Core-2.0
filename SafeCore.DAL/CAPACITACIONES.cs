@@ -12,13 +12,16 @@ namespace SafeCore.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class ACTIVIDADMEJORA
+    public partial class CAPACITACIONES
     {
-        public decimal ID_ACTIVIDADMEJORA { get; set; }
-        public string NOMBREMEJORA { get; set; }
-        public string DESCRIPCIONMEJORA { get; set; }
+        public decimal ID_CAP { get; set; }
+        public Nullable<System.DateTime> FECHA_REALIZA { get; set; }
+        public string PROFESIONAL_RUT_PROF { get; set; }
         public string CLIENTES_RUT_CLIENT { get; set; }
+        public string DESC_MATERIAL { get; set; }
+        public string REALIZADA { get; set; }
     
         public virtual CLIENTES CLIENTES { get; set; }
+        public virtual PROFESIONAL PROFESIONAL { get; set; }
     }
 }

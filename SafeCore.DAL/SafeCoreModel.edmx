@@ -12,17 +12,51 @@
           <Property Name="ID_ACTIVIDADMEJORA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREMEJORA" Type="varchar2" MaxLength="20" />
           <Property Name="DESCRIPCIONMEJORA" Type="varchar2" MaxLength="300" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="ID_CAP" />
+          </Key>
+          <Property Name="ID_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_REALIZA" Type="date" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="DESC_MATERIAL" Type="varchar2" MaxLength="100" />
+          <Property Name="REALIZADA" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CHECKLIST">
+          <Key>
+            <PropertyRef Name="ID_CHECK" />
+          </Key>
+          <Property Name="ID_CHECK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VISITASTERRENO_ID_VISITA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FIELD01" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD02" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD03" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD04" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD05" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD06" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD07" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD08" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD09" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD10" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD11" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD12" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD13" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD14" Type="varchar2" MaxLength="100" />
+          <Property Name="FIELD15" Type="varchar2" MaxLength="100" />
         </EntityType>
         <EntityType Name="CLIENTES">
           <Key>
             <PropertyRef Name="RUT_CLIENT" />
           </Key>
           <Property Name="RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="NOMBRE" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="DIRECCION" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="TELEFONO" Type="varchar2" MaxLength="13" Nullable="false" />
-          <Property Name="CORREO" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="RUBRO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="40" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="40" />
+          <Property Name="TELEFONO" Type="varchar2" MaxLength="13" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="50" />
+          <Property Name="RUBRO" Type="varchar2" MaxLength="200" />
         </EntityType>
         <EntityType Name="CONTRATOCLIENT">
           <Key>
@@ -30,18 +64,26 @@
           </Key>
           <Property Name="ID_CONTR" Type="number" Precision="7" Scale="0" Nullable="false" />
           <Property Name="ACTIVO" Type="char" MaxLength="1" />
-          <Property Name="FECHAINICIO" Type="date" Nullable="false" />
+          <Property Name="FECHAINICIO" Type="date" />
           <Property Name="FECHATERMINO" Type="date" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
         </EntityType>
         <EntityType Name="CONTRATOPROF">
           <Key>
             <PropertyRef Name="ID_CONTR" />
           </Key>
           <Property Name="ID_CONTR" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="FECHAINICIO" Type="date" Nullable="false" />
+          <Property Name="FECHAINICIO" Type="date" />
           <Property Name="FECHATERMINO" Type="date" />
           <Property Name="HISTORIAL" Type="varchar2" MaxLength="300" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="HISTORIALATRASOS">
+          <Key>
+            <PropertyRef Name="ID_ATRASO" />
+          </Key>
+          <Property Name="ID_ATRASO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" />
           <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
         </EntityType>
         <EntityType Name="PAGOS">
@@ -49,77 +91,77 @@
             <PropertyRef Name="ID_PAGO" />
           </Key>
           <Property Name="ID_PAGO" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
-          <Property Name="MONTO" Type="number" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="MONTO" Type="number" Precision="9" Scale="0" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
         </EntityType>
         <EntityType Name="PROFESIONAL">
           <Key>
             <PropertyRef Name="RUT_PROF" />
           </Key>
           <Property Name="RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="ACTIVO" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
-          <Property Name="APELLIDO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ACTIVO" Type="char" MaxLength="1" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" />
+          <Property Name="APELLIDO" Type="varchar2" MaxLength="100" />
           <Property Name="GENERO" Type="varchar2" MaxLength="10" />
-          <Property Name="DIRECCION" Type="varchar2" MaxLength="40" Nullable="false" />
-          <Property Name="TELEFONO" Type="varchar2" MaxLength="13" Nullable="false" />
-          <Property Name="CORREO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="40" />
+          <Property Name="TELEFONO" Type="varchar2" MaxLength="13" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="50" />
         </EntityType>
         <EntityType Name="REPORTEACCIDENTE">
           <Key>
             <PropertyRef Name="ID_REPORTA" />
           </Key>
           <Property Name="ID_REPORTA" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="FECHAACCIDENTE" Type="date" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
+          <Property Name="FECHAACCIDENTE" Type="date" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" />
         </EntityType>
         <EntityType Name="REPORTECLIENTE">
           <Key>
             <PropertyRef Name="ID_REPORTC" />
           </Key>
           <Property Name="ID_REPORTC" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" />
         </EntityType>
         <EntityType Name="REPORTEGLOBAL">
           <Key>
             <PropertyRef Name="ID_REPORTG" />
           </Key>
           <Property Name="ID_REPORTG" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="3000" />
         </EntityType>
         <EntityType Name="ROL">
           <Key>
             <PropertyRef Name="ID_ROL" />
           </Key>
           <Property Name="ID_ROL" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="NOMBREROL" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NOMBREROL" Type="varchar2" MaxLength="20" />
         </EntityType>
         <EntityType Name="SERVICIO">
           <Key>
             <PropertyRef Name="ID_SERV" />
           </Key>
           <Property Name="ID_SERV" Type="number" Precision="7" Scale="0" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="DESCRIPCIÓN" Type="varchar2" MaxLength="300" />
-          <Property Name="FECHASERVICIO" Type="date" Nullable="false" />
-          <Property Name="VALOR" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" />
+          <Property Name="FECHASERVICIO" Type="date" />
+          <Property Name="VALOR" Type="number" Precision="8" Scale="0" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
             <PropertyRef Name="ID_SOLICITUD" />
           </Key>
           <Property Name="ID_SOLICITUD" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
+          <Property Name="TIPOSOLICITUD_ID_TIPOSOLICITUD" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPOSOLICITUD">
           <Key>
@@ -133,21 +175,81 @@
             <PropertyRef Name="ID_USER" />
           </Key>
           <Property Name="ID_USER" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NOMBRE" Type="varchar2" MaxLength="200" Nullable="false" />
-          <Property Name="ROL_ID_ROL" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="PASS" Type="varchar2" MaxLength="32" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="200" />
+          <Property Name="ROL_ID_ROL" Type="number" Precision="1" Scale="0" />
+          <Property Name="PASS" Type="varchar2" MaxLength="32" />
         </EntityType>
         <EntityType Name="VISITASTERRENO">
           <Key>
             <PropertyRef Name="ID_VISITA" />
           </Key>
           <Property Name="ID_VISITA" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="FECHAVISITA" Type="date" Nullable="false" />
-          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" Nullable="false" />
-          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="FECHAVISITA" Type="date" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="char" MaxLength="9" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="char" MaxLength="9" />
         </EntityType>
-        <Association Name="CONTRATOCLIENT_CLIENTES_FK">
+        <Association Name="ACTIVIDADMEJORA_CLIENTES_FK">
           <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="ACTIVIDADMEJORA" Type="Self.ACTIVIDADMEJORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="ACTIVIDADMEJORA">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ATRASOS_PROF_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="HISTORIALATRASOS" Type="Self.HISTORIALATRASOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="HISTORIALATRASOS">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACIONES_CLIENTES_FK">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CAPACITACIONES" Type="Self.CAPACITACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="CAPACITACIONES">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACIONES_PROFESIONAL_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="CAPACITACIONES" Type="Self.CAPACITACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="CAPACITACIONES">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CHECKLIST_VISITASTERRENO_FK">
+          <End Role="VISITASTERRENO" Type="Self.VISITASTERRENO" Multiplicity="1" />
+          <End Role="CHECKLIST" Type="Self.CHECKLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITASTERRENO">
+              <PropertyRef Name="ID_VISITA" />
+            </Principal>
+            <Dependent Role="CHECKLIST">
+              <PropertyRef Name="VISITASTERRENO_ID_VISITA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATOCLIENT_CLIENTES_FK">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="CONTRATOCLIENT" Type="Self.CONTRATOCLIENT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -159,7 +261,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="CONTRATOPROF_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="0..1" />
           <End Role="CONTRATOPROF" Type="Self.CONTRATOPROF" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROFESIONAL">
@@ -171,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PAGOS_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -183,7 +285,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="REPORTEACCIDENTE_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="REPORTEACCIDENTE" Type="Self.REPORTEACCIDENTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -195,7 +297,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="REPORTECLIENTE_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="REPORTECLIENTE" Type="Self.REPORTECLIENTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -207,7 +309,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="REPORTEGLOBAL_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="REPORTEGLOBAL" Type="Self.REPORTEGLOBAL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -219,7 +321,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SERVICIO_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -231,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SERVICIO_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="0..1" />
           <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROFESIONAL">
@@ -243,7 +345,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SOLICITUD_TIPOSOLICITUD_FK">
-          <End Role="TIPOSOLICITUD" Type="Self.TIPOSOLICITUD" Multiplicity="1" />
+          <End Role="TIPOSOLICITUD" Type="Self.TIPOSOLICITUD" Multiplicity="0..1" />
           <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPOSOLICITUD">
@@ -255,7 +357,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="SOLICITUDASESORIA_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -267,7 +369,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="USUARIOS_ROL_FK">
-          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
           <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROL">
@@ -279,7 +381,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="VISITASTERRENO_CLIENTES_FK">
-          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="0..1" />
           <End Role="VISITASTERRENO" Type="Self.VISITASTERRENO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CLIENTES">
@@ -291,7 +393,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="VISITASTERRENO_PROFESIONAL_FK">
-          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="0..1" />
           <End Role="VISITASTERRENO" Type="Self.VISITASTERRENO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROFESIONAL">
@@ -305,6 +407,32 @@
         <Function Name="SP_CREATE_ACTIVIDADMEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTCLIENT" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_CAPACITACIONES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_FECHA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTPROFESIONAL" Type="char" Mode="In" />
+          <Parameter Name="V_RUTCLIENT" Type="char" Mode="In" />
+          <Parameter Name="V_DESCMATERIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_REALIZADA" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_CHECKLIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_VISITATERRENO" Type="number" Mode="In" />
+          <Parameter Name="V_STRING01" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING02" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING03" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING04" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING05" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING06" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING07" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING08" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING09" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING10" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING11" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING12" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING13" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING14" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING15" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_RUT" Type="char" Mode="In" />
@@ -325,6 +453,10 @@
           <Parameter Name="V_FECHATERMINO" Type="date" Mode="In" />
           <Parameter Name="V_HISTORIAL" Type="varchar2" Mode="In" />
           <Parameter Name="V_RUTPROF" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_HISTORIALATRASOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_FECHA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTPROF" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_CREATE_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_FECHA" Type="date" Mode="In" />
@@ -418,6 +550,33 @@
         <Function Name="SP_DELETE_VISITASTERRENO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_IDVISITA" Type="number" Mode="In" />
         </Function>
+        <Function Name="SP_UPDATE_CAPACITACIONES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_IDCAP" Type="number" Mode="In" />
+          <Parameter Name="V_FECHA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTPROFESIONAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTCLIENT" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DESCMATERIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_REALIZADA" Type="pl/sql boolean" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_CHECKLIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_IDCHECKLIST" Type="number" Mode="In" />
+          <Parameter Name="V_VISITATERRENO" Type="number" Mode="In" />
+          <Parameter Name="V_STRING01" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING02" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING03" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING04" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING05" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING06" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING07" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING08" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING09" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING10" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING11" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING12" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING13" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING14" Type="varchar2" Mode="In" />
+          <Parameter Name="V_STRING15" Type="varchar2" Mode="In" />
+        </Function>
         <Function Name="SP_UPDATE_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_RUT" Type="char" Mode="In" />
           <Parameter Name="V_NOMBRE" Type="varchar2" Mode="In" />
@@ -440,10 +599,16 @@
           <Parameter Name="V_HISTORIAL" Type="varchar2" Mode="In" />
           <Parameter Name="V_RUTPROF" Type="char" Mode="In" />
         </Function>
+        <Function Name="SP_UPDATE_HISTORIALATRASOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
+          <Parameter Name="V_ATRASO" Type="number" Mode="In" />
+          <Parameter Name="V_FECHA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTPROF" Type="varchar2" Mode="In" />
+        </Function>
         <Function Name="SP_UPDATE_MEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_ACTIVIDADMEJORA" Type="number" Mode="In" />
           <Parameter Name="V_NOMBREMEJORA" Type="varchar2" Mode="In" />
           <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTCLIENT" Type="varchar2" Mode="In" />
         </Function>
         <Function Name="SP_UPDATE_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SAFECORE">
           <Parameter Name="V_IDPAGO" Type="number" Mode="In" />
@@ -508,9 +673,12 @@
         </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="ACTIVIDADMEJORA" EntityType="Self.ACTIVIDADMEJORA" Schema="SAFECORE" store:Type="Tables" />
+          <EntitySet Name="CAPACITACIONES" EntityType="Self.CAPACITACIONES" Schema="SAFECORE" store:Type="Tables" />
+          <EntitySet Name="CHECKLIST" EntityType="Self.CHECKLIST" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CONTRATOCLIENT" EntityType="Self.CONTRATOCLIENT" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="CONTRATOPROF" EntityType="Self.CONTRATOPROF" Schema="SAFECORE" store:Type="Tables" />
+          <EntitySet Name="HISTORIALATRASOS" EntityType="Self.HISTORIALATRASOS" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="PAGOS" EntityType="Self.PAGOS" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="REPORTEACCIDENTE" EntityType="Self.REPORTEACCIDENTE" Schema="SAFECORE" store:Type="Tables" />
@@ -522,6 +690,26 @@
           <EntitySet Name="TIPOSOLICITUD" EntityType="Self.TIPOSOLICITUD" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="SAFECORE" store:Type="Tables" />
           <EntitySet Name="VISITASTERRENO" EntityType="Self.VISITASTERRENO" Schema="SAFECORE" store:Type="Tables" />
+          <AssociationSet Name="ACTIVIDADMEJORA_CLIENTES_FK" Association="Self.ACTIVIDADMEJORA_CLIENTES_FK">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="ACTIVIDADMEJORA" EntitySet="ACTIVIDADMEJORA" />
+          </AssociationSet>
+          <AssociationSet Name="ATRASOS_PROF_FK" Association="Self.ATRASOS_PROF_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="HISTORIALATRASOS" EntitySet="HISTORIALATRASOS" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACIONES_CLIENTES_FK" Association="Self.CAPACITACIONES_CLIENTES_FK">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="CAPACITACIONES" EntitySet="CAPACITACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACIONES_PROFESIONAL_FK" Association="Self.CAPACITACIONES_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="CAPACITACIONES" EntitySet="CAPACITACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="CHECKLIST_VISITASTERRENO_FK" Association="Self.CHECKLIST_VISITASTERRENO_FK">
+            <End Role="VISITASTERRENO" EntitySet="VISITASTERRENO" />
+            <End Role="CHECKLIST" EntitySet="CHECKLIST" />
+          </AssociationSet>
           <AssociationSet Name="CONTRATOCLIENT_CLIENTES_FK" Association="Self.CONTRATOCLIENT_CLIENTES_FK">
             <End Role="CLIENTES" EntitySet="CLIENTES" />
             <End Role="CONTRATOCLIENT" EntitySet="CONTRATOCLIENT" />
@@ -650,6 +838,7 @@
           <FunctionImport Name="SP_CREATE_ACTIVIDADMEJORA">
             <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_CREATE_CLIENTES">
             <Parameter Name="V_RUT" Mode="In" Type="String" />
@@ -789,6 +978,7 @@
             <Parameter Name="V_ACTIVIDADMEJORA" Mode="In" Type="Decimal" />
             <Parameter Name="V_NOMBREMEJORA" Mode="In" Type="String" />
             <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_UPDATE_PRODUCTO">
             <Parameter Name="V_IDPAGO" Mode="In" Type="Decimal" />
@@ -851,6 +1041,90 @@
             <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
             <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="CAPACITACIONES" EntityType="Model.CAPACITACIONES" />
+          <EntitySet Name="CHECKLIST" EntityType="Model.CHECKLIST" />
+          <EntitySet Name="HISTORIALATRASOS" EntityType="Model.HISTORIALATRASOS" />
+          <AssociationSet Name="ACTIVIDADMEJORA_CLIENTES_FK" Association="Model.ACTIVIDADMEJORA_CLIENTES_FK">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="ACTIVIDADMEJORA" EntitySet="ACTIVIDADMEJORA" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACIONES_CLIENTES_FK" Association="Model.CAPACITACIONES_CLIENTES_FK">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="CAPACITACIONES" EntitySet="CAPACITACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACIONES_PROFESIONAL_FK" Association="Model.CAPACITACIONES_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="CAPACITACIONES" EntitySet="CAPACITACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="CHECKLIST_VISITASTERRENO_FK" Association="Model.CHECKLIST_VISITASTERRENO_FK">
+            <End Role="VISITASTERRENO" EntitySet="VISITASTERRENO" />
+            <End Role="CHECKLIST" EntitySet="CHECKLIST" />
+          </AssociationSet>
+          <AssociationSet Name="ATRASOS_PROF_FK" Association="Model.ATRASOS_PROF_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="HISTORIALATRASOS" EntitySet="HISTORIALATRASOS" />
+          </AssociationSet>
+          <FunctionImport Name="SP_CREATE_CAPACITACIONES">
+            <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTPROFESIONAL" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
+            <Parameter Name="V_DESCMATERIAL" Mode="In" Type="String" />
+            <Parameter Name="V_REALIZADA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_CHECKLIST">
+            <Parameter Name="V_VISITATERRENO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_STRING01" Mode="In" Type="String" />
+            <Parameter Name="V_STRING02" Mode="In" Type="String" />
+            <Parameter Name="V_STRING03" Mode="In" Type="String" />
+            <Parameter Name="V_STRING04" Mode="In" Type="String" />
+            <Parameter Name="V_STRING05" Mode="In" Type="String" />
+            <Parameter Name="V_STRING06" Mode="In" Type="String" />
+            <Parameter Name="V_STRING07" Mode="In" Type="String" />
+            <Parameter Name="V_STRING08" Mode="In" Type="String" />
+            <Parameter Name="V_STRING09" Mode="In" Type="String" />
+            <Parameter Name="V_STRING10" Mode="In" Type="String" />
+            <Parameter Name="V_STRING11" Mode="In" Type="String" />
+            <Parameter Name="V_STRING12" Mode="In" Type="String" />
+            <Parameter Name="V_STRING13" Mode="In" Type="String" />
+            <Parameter Name="V_STRING14" Mode="In" Type="String" />
+            <Parameter Name="V_STRING15" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_HISTORIALATRASOS">
+            <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_CAPACITACIONES">
+            <Parameter Name="V_IDCAP" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTPROFESIONAL" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENT" Mode="In" Type="String" />
+            <Parameter Name="V_DESCMATERIAL" Mode="In" Type="String" />
+            <Parameter Name="V_REALIZADA" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_CHECKLIST">
+            <Parameter Name="V_IDCHECKLIST" Mode="In" Type="Decimal" />
+            <Parameter Name="V_VISITATERRENO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_STRING01" Mode="In" Type="String" />
+            <Parameter Name="V_STRING02" Mode="In" Type="String" />
+            <Parameter Name="V_STRING03" Mode="In" Type="String" />
+            <Parameter Name="V_STRING04" Mode="In" Type="String" />
+            <Parameter Name="V_STRING05" Mode="In" Type="String" />
+            <Parameter Name="V_STRING06" Mode="In" Type="String" />
+            <Parameter Name="V_STRING07" Mode="In" Type="String" />
+            <Parameter Name="V_STRING08" Mode="In" Type="String" />
+            <Parameter Name="V_STRING09" Mode="In" Type="String" />
+            <Parameter Name="V_STRING10" Mode="In" Type="String" />
+            <Parameter Name="V_STRING11" Mode="In" Type="String" />
+            <Parameter Name="V_STRING12" Mode="In" Type="String" />
+            <Parameter Name="V_STRING13" Mode="In" Type="String" />
+            <Parameter Name="V_STRING14" Mode="In" Type="String" />
+            <Parameter Name="V_STRING15" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_HISTORIALATRASOS">
+            <Parameter Name="V_ATRASO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTPROF" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="ACTIVIDADMEJORA">
           <Key>
@@ -859,6 +1133,8 @@
           <Property Name="ID_ACTIVIDADMEJORA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="NOMBREMEJORA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCIONMEJORA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.ACTIVIDADMEJORA_CLIENTES_FK" FromRole="ACTIVIDADMEJORA" ToRole="CLIENTES" />
         </EntityType>
         <EntityType Name="CLIENTES">
           <Key>
@@ -878,6 +1154,8 @@
           <NavigationProperty Name="SERVICIO" Relationship="Model.SERVICIO_CLIENTES_FK" FromRole="CLIENTES" ToRole="SERVICIO" />
           <NavigationProperty Name="SOLICITUD" Relationship="Model.SOLICITUDASESORIA_CLIENTES_FK" FromRole="CLIENTES" ToRole="SOLICITUD" />
           <NavigationProperty Name="VISITASTERRENO" Relationship="Model.VISITASTERRENO_CLIENTES_FK" FromRole="CLIENTES" ToRole="VISITASTERRENO" />
+          <NavigationProperty Name="ACTIVIDADMEJORA" Relationship="Model.ACTIVIDADMEJORA_CLIENTES_FK" FromRole="CLIENTES" ToRole="ACTIVIDADMEJORA" />
+          <NavigationProperty Name="CAPACITACIONES" Relationship="Model.CAPACITACIONES_CLIENTES_FK" FromRole="CLIENTES" ToRole="CAPACITACIONES" />
         </EntityType>
         <EntityType Name="CONTRATOCLIENT">
           <Key>
@@ -926,6 +1204,8 @@
           <NavigationProperty Name="CONTRATOPROF" Relationship="Model.CONTRATOPROF_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="CONTRATOPROF" />
           <NavigationProperty Name="SERVICIO" Relationship="Model.SERVICIO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="SERVICIO" />
           <NavigationProperty Name="VISITASTERRENO" Relationship="Model.VISITASTERRENO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="VISITASTERRENO" />
+          <NavigationProperty Name="CAPACITACIONES" Relationship="Model.CAPACITACIONES_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="CAPACITACIONES" />
+          <NavigationProperty Name="HISTORIALATRASOS" Relationship="Model.ATRASOS_PROF_FK" FromRole="PROFESIONAL" ToRole="HISTORIALATRASOS" />
         </EntityType>
         <EntityType Name="REPORTEACCIDENTE">
           <Key>
@@ -971,12 +1251,12 @@
           </Key>
           <Property Name="ID_SERV" Type="Int32" Nullable="false" />
           <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
-          <Property Name="DESCRIPCIÓN" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="FECHASERVICIO" Type="DateTime" Nullable="false" />
           <Property Name="VALOR" Type="Int32" Nullable="false" />
           <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Model.SERVICIO_CLIENTES_FK" FromRole="SERVICIO" ToRole="CLIENTES" />
           <NavigationProperty Name="PROFESIONAL" Relationship="Model.SERVICIO_PROFESIONAL_FK" FromRole="SERVICIO" ToRole="PROFESIONAL" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
@@ -1018,6 +1298,7 @@
           <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Model.VISITASTERRENO_CLIENTES_FK" FromRole="VISITASTERRENO" ToRole="CLIENTES" />
           <NavigationProperty Name="PROFESIONAL" Relationship="Model.VISITASTERRENO_PROFESIONAL_FK" FromRole="VISITASTERRENO" ToRole="PROFESIONAL" />
+          <NavigationProperty Name="CHECKLIST" Relationship="Model.CHECKLIST_VISITASTERRENO_FK" FromRole="VISITASTERRENO" ToRole="CHECKLIST" />
         </EntityType>
         <Association Name="CONTRATOCLIENT_CLIENTES_FK">
           <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
@@ -1175,6 +1456,111 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="ID_CAP" />
+          </Key>
+          <Property Name="ID_CAP" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHA_REALIZA" Type="DateTime" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CLIENTES_RUT_CLIENT" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="DESC_MATERIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REALIZADA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CLIENTES" Relationship="Model.CAPACITACIONES_CLIENTES_FK" FromRole="CAPACITACIONES" ToRole="CLIENTES" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Model.CAPACITACIONES_PROFESIONAL_FK" FromRole="CAPACITACIONES" ToRole="PROFESIONAL" />
+        </EntityType>
+        <EntityType Name="CHECKLIST">
+          <Key>
+            <PropertyRef Name="ID_CHECK" />
+          </Key>
+          <Property Name="ID_CHECK" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="VISITASTERRENO_ID_VISITA" Type="Int32" Nullable="false" />
+          <Property Name="FIELD01" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD02" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD03" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD04" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD05" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD06" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD07" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD08" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD09" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD11" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD12" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD13" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD14" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FIELD15" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VISITASTERRENO" Relationship="Model.CHECKLIST_VISITASTERRENO_FK" FromRole="CHECKLIST" ToRole="VISITASTERRENO" />
+        </EntityType>
+        <EntityType Name="HISTORIALATRASOS">
+          <Key>
+            <PropertyRef Name="ID_ATRASO" />
+          </Key>
+          <Property Name="ID_ATRASO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="FECHA" Type="DateTime" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Model.ATRASOS_PROF_FK" FromRole="HISTORIALATRASOS" ToRole="PROFESIONAL" />
+        </EntityType>
+        <Association Name="ACTIVIDADMEJORA_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.ACTIVIDADMEJORA" Role="ACTIVIDADMEJORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="ACTIVIDADMEJORA">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACIONES_CLIENTES_FK">
+          <End Type="Model.CLIENTES" Role="CLIENTES" Multiplicity="1" />
+          <End Type="Model.CAPACITACIONES" Role="CAPACITACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="RUT_CLIENT" />
+            </Principal>
+            <Dependent Role="CAPACITACIONES">
+              <PropertyRef Name="CLIENTES_RUT_CLIENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACIONES_PROFESIONAL_FK">
+          <End Type="Model.PROFESIONAL" Role="PROFESIONAL" Multiplicity="1" />
+          <End Type="Model.CAPACITACIONES" Role="CAPACITACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="CAPACITACIONES">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CHECKLIST_VISITASTERRENO_FK">
+          <End Type="Model.VISITASTERRENO" Role="VISITASTERRENO" Multiplicity="1" />
+          <End Type="Model.CHECKLIST" Role="CHECKLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITASTERRENO">
+              <PropertyRef Name="ID_VISITA" />
+            </Principal>
+            <Dependent Role="CHECKLIST">
+              <PropertyRef Name="VISITASTERRENO_ID_VISITA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ATRASOS_PROF_FK">
+          <End Type="Model.PROFESIONAL" Role="PROFESIONAL" Multiplicity="1" />
+          <End Type="Model.HISTORIALATRASOS" Role="HISTORIALATRASOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="HISTORIALATRASOS">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1184,6 +1570,7 @@
           <EntitySetMapping Name="ACTIVIDADMEJORA">
             <EntityTypeMapping TypeName="Model.ACTIVIDADMEJORA">
               <MappingFragment StoreEntitySet="ACTIVIDADMEJORA">
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
                 <ScalarProperty Name="DESCRIPCIONMEJORA" ColumnName="DESCRIPCIONMEJORA" />
                 <ScalarProperty Name="NOMBREMEJORA" ColumnName="NOMBREMEJORA" />
                 <ScalarProperty Name="ID_ACTIVIDADMEJORA" ColumnName="ID_ACTIVIDADMEJORA" />
@@ -1289,10 +1676,10 @@
           <EntitySetMapping Name="SERVICIO">
             <EntityTypeMapping TypeName="Model.SERVICIO">
               <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
                 <ScalarProperty Name="VALOR" ColumnName="VALOR" />
                 <ScalarProperty Name="FECHASERVICIO" ColumnName="FECHASERVICIO" />
-                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
                 <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
                 <ScalarProperty Name="ID_SERV" ColumnName="ID_SERV" />
               </MappingFragment>
@@ -1376,6 +1763,56 @@
           <FunctionImportMapping FunctionImportName="SP_UPDATE_SOLICITUD" FunctionName="Model.Store.SP_UPDATE_SOLICITUD" />
           <FunctionImportMapping FunctionImportName="SP_UPDATE_USUARIOS" FunctionName="Model.Store.SP_UPDATE_USUARIOS" />
           <FunctionImportMapping FunctionImportName="SP_UPDATE_VISITASTERRENO" FunctionName="Model.Store.SP_UPDATE_VISITASTERRENO" />
+          <EntitySetMapping Name="CAPACITACIONES">
+            <EntityTypeMapping TypeName="Model.CAPACITACIONES">
+              <MappingFragment StoreEntitySet="CAPACITACIONES">
+                <ScalarProperty Name="REALIZADA" ColumnName="REALIZADA" />
+                <ScalarProperty Name="DESC_MATERIAL" ColumnName="DESC_MATERIAL" />
+                <ScalarProperty Name="CLIENTES_RUT_CLIENT" ColumnName="CLIENTES_RUT_CLIENT" />
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="FECHA_REALIZA" ColumnName="FECHA_REALIZA" />
+                <ScalarProperty Name="ID_CAP" ColumnName="ID_CAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKLIST">
+            <EntityTypeMapping TypeName="Model.CHECKLIST">
+              <MappingFragment StoreEntitySet="CHECKLIST">
+                <ScalarProperty Name="FIELD15" ColumnName="FIELD15" />
+                <ScalarProperty Name="FIELD14" ColumnName="FIELD14" />
+                <ScalarProperty Name="FIELD13" ColumnName="FIELD13" />
+                <ScalarProperty Name="FIELD12" ColumnName="FIELD12" />
+                <ScalarProperty Name="FIELD11" ColumnName="FIELD11" />
+                <ScalarProperty Name="FIELD10" ColumnName="FIELD10" />
+                <ScalarProperty Name="FIELD09" ColumnName="FIELD09" />
+                <ScalarProperty Name="FIELD08" ColumnName="FIELD08" />
+                <ScalarProperty Name="FIELD07" ColumnName="FIELD07" />
+                <ScalarProperty Name="FIELD06" ColumnName="FIELD06" />
+                <ScalarProperty Name="FIELD05" ColumnName="FIELD05" />
+                <ScalarProperty Name="FIELD04" ColumnName="FIELD04" />
+                <ScalarProperty Name="FIELD03" ColumnName="FIELD03" />
+                <ScalarProperty Name="FIELD02" ColumnName="FIELD02" />
+                <ScalarProperty Name="FIELD01" ColumnName="FIELD01" />
+                <ScalarProperty Name="VISITASTERRENO_ID_VISITA" ColumnName="VISITASTERRENO_ID_VISITA" />
+                <ScalarProperty Name="ID_CHECK" ColumnName="ID_CHECK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIALATRASOS">
+            <EntityTypeMapping TypeName="Model.HISTORIALATRASOS">
+              <MappingFragment StoreEntitySet="HISTORIALATRASOS">
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ID_ATRASO" ColumnName="ID_ATRASO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_CREATE_CAPACITACIONES" FunctionName="Model.Store.SP_CREATE_CAPACITACIONES" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_CHECKLIST" FunctionName="Model.Store.SP_CREATE_CHECKLIST" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_HISTORIALATRASOS" FunctionName="Model.Store.SP_CREATE_HISTORIALATRASOS" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_CAPACITACIONES" FunctionName="Model.Store.SP_UPDATE_CAPACITACIONES" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_CHECKLIST" FunctionName="Model.Store.SP_UPDATE_CHECKLIST" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_HISTORIALATRASOS" FunctionName="Model.Store.SP_UPDATE_HISTORIALATRASOS" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

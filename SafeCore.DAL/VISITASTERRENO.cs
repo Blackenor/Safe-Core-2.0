@@ -14,6 +14,11 @@ namespace SafeCore.DAL
     
     public partial class VISITASTERRENO
     {
+        public VISITASTERRENO()
+        {
+            this.CHECKLIST = new HashSet<CHECKLIST>();
+        }
+    
         public int ID_VISITA { get; set; }
         public System.DateTime FECHAVISITA { get; set; }
         public string PROFESIONAL_RUT_PROF { get; set; }
@@ -21,5 +26,6 @@ namespace SafeCore.DAL
     
         public virtual CLIENTES CLIENTES { get; set; }
         public virtual PROFESIONAL PROFESIONAL { get; set; }
+        public virtual ICollection<CHECKLIST> CHECKLIST { get; set; }
     }
 }

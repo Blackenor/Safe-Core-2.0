@@ -1,6 +1,38 @@
 -- SP Y SEQUENCE DE BBDD SafeCore --
 
 
+
+DROP SEQUENCE actividadmejora_seq;
+
+DROP SEQUENCE contratoclient_seq;
+
+DROP SEQUENCE contratoprof_seq;
+
+DROP SEQUENCE capacitaciones_seq;
+
+DROP SEQUENCE checklist_seq;
+
+DROP SEQUENCE HistorialAtrasos_seq;
+
+DROP SEQUENCE pagos_seq;
+
+DROP SEQUENCE reportec_seq;
+
+DROP SEQUENCE reportea_seq;
+
+DROP SEQUENCE reportg_seq;
+
+DROP SEQUENCE servicio_seq;
+
+DROP SEQUENCE solicitud_seq;
+
+DROP SEQUENCE usuarios_seq;
+
+DROP SEQUENCE visitas_seq;
+/
+commit;
+
+
 -- NEXT VALUE METHODS --
 
 CREATE SEQUENCE actividadmejora_seq
@@ -21,7 +53,31 @@ CREATE SEQUENCE contratoprof_seq
     NOCACHE
     NOCYCLE;
 / 
+CREATE SEQUENCE capacitaciones_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+/ 
+CREATE SEQUENCE checklist_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+/ 
+CREATE SEQUENCE HistorialAtrasos_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+/ 
 CREATE SEQUENCE pagos_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+/
+CREATE SEQUENCE reportec_seq
     START WITH 1
     INCREMENT BY 1
     NOCACHE
@@ -68,18 +124,19 @@ CREATE SEQUENCE visitas_seq
 -- ACTIVIDADMEJORA --
 
 -- PROCESO ALMACENADO DE CREATE DE ACT MEJORA
-create or replace procedure SP_CREATE_ACTIVIDADMEJORA(v_actividadmejora number, v_nombre varchar2, v_descripcion varchar2) as
+create or replace procedure SP_CREATE_ACTIVIDADMEJORA(v_nombre varchar2, v_descripcion varchar2, v_rutclient varchar2) as
 begin
-    insert into actividadmejora values (actividadmejora_seq.nextval, v_nombre, v_descripcion);
+    insert into actividadmejora values (actividadmejora_seq.nextval, v_nombre, v_descripcion, v_rutclient);
     commit;
 end;
 /
 -- PROCESO ALMACENADO DE UPDATE DE ACT MEJORA
-create or replace procedure SP_UPDATE_MEJORA(v_actividadmejora number, v_nombremejora varchar2, v_descripcion varchar2) as
+create or replace procedure SP_UPDATE_MEJORA(v_actividadmejora number, v_nombremejora varchar2, v_descripcion varchar2, v_rutclient varchar2) as
 begin
     UPDATE actividadmejora
     SET nombremejora = v_nombremejora,
-        descripcionmejora  = v_descripcion
+        descripcionmejora  = v_descripcion,
+        clientes_rut_client = v_rutclient 
     where id_actividadmejora = v_actividadmejora;
     commit;
 end;
@@ -132,7 +189,7 @@ end;
 -- CONTRATOCLIENT --
 
 -- PROCESO ALMACENADO DE CREATE DE CONTRATOCLIENT
-create or replace procedure SP_CREATE_CONTRATOCLIENT(v_idcontr number, v_activo CHAR, v_fechainicio date, v_fechatermino date,
+create or replace procedure SP_CREATE_CONTRATOCLIENT(v_activo CHAR, v_fechainicio date, v_fechatermino date,
                                                v_rutclient CHAR) as
 begin
     insert into contratoclient values (contratoclient_seq.nextval, v_activo, v_fechainicio, v_fechatermino, v_rutclient);
@@ -166,7 +223,7 @@ end;
 -- CONTRATOPROF --
 
 -- PROCESO ALMACENADO DE CREATE DE CONTRATOPROF
-create or replace procedure SP_CREATE_CONTRATOPROF(v_idcontr number, v_fechainicio date, v_fechatermino date,
+create or replace procedure SP_CREATE_CONTRATOPROF(v_fechainicio date, v_fechatermino date,
                                                v_historial varchar2, v_rutprof char) as
 begin
     insert into contratoprof values (contratoprof_seq.nextval, v_fechainicio, v_fechatermino, v_historial, v_rutprof);
@@ -176,6 +233,108 @@ end;
 
 
 
+
+-- Capacitacion --
+
+-- PROCESO ALMACENADO DE CREATE DE CAPACITACIONES
+create or replace procedure SP_CREATE_CAPACITACIONES(v_fecha date, v_rutprofesional char, v_rutclient char, v_descmaterial varchar2, v_realizada char) as
+begin
+    insert into capacitaciones values (capacitaciones_seq.nextval, v_fecha, v_rutprofesional, v_rutclient, v_descmaterial, v_realizada);
+    commit;
+end;
+/
+-- PROCESO ALMACENADO DE UPDATE DE CAPACITACIONES
+create or replace procedure SP_UPDATE_CAPACITACIONES(v_idcap number, v_fecha date, v_rutprofesional varchar2, v_rutclient varchar2, v_descmaterial varchar2, v_realizada boolean) as
+begin
+    UPDATE capacitaciones
+    SET fecha_realiza = v_fecha,
+        profesional_rut_prof  = v_rutprofesional,
+        clientes_rut_client = v_rutclient,
+        desc_material = v_descmaterial
+    where id_cap = v_idcap;
+    commit;
+end;
+/
+
+
+
+
+-- Checklist --
+
+-- PROCESO ALMACENADO DE CREATE DE CHECKLIST
+create or replace procedure SP_CREATE_CHECKLIST(v_visitaterreno number, v_string01 varchar2, v_string02 varchar2, v_string03 varchar2, v_string04 varchar2, v_string05 varchar2, v_string06 varchar2, v_string07 varchar2, v_string08 varchar2, v_string09 varchar2, v_string10 varchar2, v_string11 varchar2, v_string12 varchar2, v_string13 varchar2, v_string14 varchar2, v_string15 varchar2) as
+begin
+    insert into CHECKLIST values (checklist_seq.nextval, v_visitaterreno,
+                                                                v_string01,
+                                                                v_string02, 
+                                                                v_string03,
+                                                                v_string04,
+                                                                v_string05,
+                                                                v_string06,
+                                                                v_string07,
+                                                                v_string08,
+                                                                v_string09,
+                                                                v_string10,
+                                                                v_string11,
+                                                                v_string12,
+                                                                v_string13,
+                                                                v_string14,
+                                                                v_string15);
+    commit;
+end;
+/
+-- PROCESO ALMACENADO DE UPDATE DE CHECKLIST
+create or replace procedure SP_UPDATE_CHECKLIST(v_idchecklist number, v_visitaterreno number, v_string01 varchar2, v_string02 varchar2, v_string03 varchar2, v_string04 varchar2, v_string05 varchar2, v_string06 varchar2, v_string07 varchar2, v_string08 varchar2, v_string09 varchar2, v_string10 varchar2, v_string11 varchar2, v_string12 varchar2, v_string13 varchar2, v_string14 varchar2, v_string15 varchar2) as
+begin
+    UPDATE CHECKLIST
+    SET visitasterreno_id_visita = v_visitaterreno,
+        field01 = v_string01,
+        field02 = v_string02,
+        field03 = v_string03,
+        field04 = v_string04,
+        field05 = v_string05,
+        field06 = v_string06,
+        field07 = v_string07,
+        field08 = v_string08,
+        field09 = v_string09,
+        field10 = v_string10,
+        field11 = v_string11,
+        field12 = v_string12,
+        field13 = v_string13,
+        field14 = v_string14,
+        field15 = v_string15
+    where id_check = v_idchecklist;
+    commit;
+end;
+/
+
+
+
+
+-- Historial de atrasos --
+
+-- PROCESO ALMACENADO DE CREATE DE HISTORIALATRASOS
+create or replace procedure SP_CREATE_HISTORIALATRASOS(v_fecha date, v_rutprof varchar2) as
+begin
+    insert into HISTORIALATRASOS values (historialatrasos_seq.nextval, v_fecha, v_rutprof);
+    commit;
+end;
+/
+-- PROCESO ALMACENADO DE UPDATE DE HISTORIALATRASOS
+create or replace procedure SP_UPDATE_HISTORIALATRASOS(v_atraso number, v_fecha date, v_rutprof varchar2) as
+begin
+    UPDATE HISTORIALATRASOS
+    SET fecha = v_fecha,
+        profesional_rut_prof = v_rutprof
+    where id_atraso = v_atraso;
+    commit;
+end;
+/
+
+
+
+
+-- Producto --
 
 -- PROCESO ALMACENADO DE UPDATE DE PRODUCTO
 create or replace procedure SP_UPDATE_CONTRATOPROF(v_idcontr number, v_fechainicio date, v_fechatermino date,
@@ -206,7 +365,7 @@ end;
 -- PAGOS --
 
 -- PROCESO ALMACENADO DE CREATE DE PAGOS
-create or replace procedure SP_CREATE_PAGOS(v_idpago number, v_fecha date, v_monto number, v_rutclient CHAR) as
+create or replace procedure SP_CREATE_PAGOS(v_fecha date, v_monto number, v_rutclient CHAR) as
 begin
     insert into pagos values (pagos_seq.nextval, v_fecha, v_monto, v_rutclient);
     commit;
@@ -275,7 +434,7 @@ end;
 -- REPORTEACCIDENTE --
 
 -- PROCESO ALMACENADO DE CREATE DE REPORTEACCIDENTE
-create or replace procedure SP_CREATE_REPORTEACCIDENTE(v_idreport number, v_rutclient CHAR, v_fechaaccidente date, v_descripcion varchar2) as
+create or replace procedure SP_CREATE_REPORTEACCIDENTE(v_rutclient CHAR, v_fechaaccidente date, v_descripcion varchar2) as
 begin
     insert into reporteaccidente values (reportea_seq.nextval, v_rutclient, v_fechaaccidente, v_descripcion);
     commit;
@@ -306,9 +465,9 @@ end;
 -- REPORTECLIENTE --
 
 -- PROCESO ALMACENADO DE CREATE DE REPORTECLIENTE
-create or replace procedure SP_CREATE_REPORTECLIENTE(v_reportc number, v_rutclient CHAR, v_fecha date, v_descripcion varchar2) as
+create or replace procedure SP_CREATE_REPORTECLIENTE(v_rutclient CHAR, v_fecha date, v_descripcion varchar2) as
 begin
-    insert into reportecliente values (v_reportc, v_rutclient, v_fecha, v_descripcion);
+    insert into reportecliente values (reportec_seq.nextval, v_rutclient, v_fecha, v_descripcion);
     commit;
 end;
 /
@@ -337,7 +496,7 @@ end;
 -- REPORTEGLOBAL --
 
 -- PROCESO ALMACENADO DE CREATE DE REPORTEGLOBAL
-create or replace procedure SP_CREATE_REPORTEGLOBAL(v_reportg number, v_rutclient CHAR, v_fecha date, v_descripcion varchar2) as
+create or replace procedure SP_CREATE_REPORTEGLOBAL(v_rutclient CHAR, v_fecha date, v_descripcion varchar2) as
 begin
     insert into reporteglobal values (reportg_seq.nextval, v_rutclient, v_fecha, v_descripcion);
     commit;
@@ -368,7 +527,7 @@ end;
 -- REPORTEGLOBAL --
 
 -- PROCESO ALMACENADO DE CREATE DE SERVICIO
-create or replace procedure SP_CREATE_SERVICIO(v_idserv number, v_rutclient CHAR, v_descripcion varchar2, v_fechaservicio date,
+create or replace procedure SP_CREATE_SERVICIO(v_rutclient CHAR, v_descripcion varchar2, v_fechaservicio date,
                                                v_valor number, v_rutprof char) as
 begin
     insert into servicio values (servicio_seq.nextval, v_rutclient, v_descripcion, v_fechaservicio, v_valor, v_rutprof);
@@ -381,7 +540,7 @@ create or replace procedure SP_UPDATE_SERVICIO(v_idserv number, v_rutclient CHAR
 begin
     UPDATE servicio
     SET clientes_rut_client = v_rutclient,
-        descripción  = v_descripcion,
+        descripcion  = v_descripcion,
         fechaservicio = v_fechaservicio,
         valor = v_valor,
         profesional_rut_prof = v_rutprof
@@ -403,7 +562,7 @@ end;
 -- SOLICITUD --
 
 -- PROCESO ALMACENADO DE CREATE DE SOLICITUD
-create or replace procedure SP_CREATE_SOLICITUD(v_idsolicitud number, v_fecha date, v_descripcion varchar2, v_rutclient CHAR,
+create or replace procedure SP_CREATE_SOLICITUD(v_fecha date, v_descripcion varchar2, v_rutclient CHAR,
                                                v_idtiposolicitud number) as
 begin
     insert into solicitud values (solicitud_seq.nextval, v_fecha, v_descripcion, v_rutclient, v_idtiposolicitud);
@@ -437,7 +596,7 @@ end;
 -- USUARIOS --
 
 -- PROCESO ALMACENADO DE CREATE DE USUARIOS 
-create or replace procedure SP_CREATE_USUARIOS(v_iduser number, v_nombre varchar2, v_pass varchar2, v_rolid number) as
+create or replace procedure SP_CREATE_USUARIOS(v_nombre varchar2, v_pass varchar2, v_rolid number) as
 begin
     insert into usuarios values (usuarios_seq.nextval, v_nombre, v_pass, v_rolid);
     commit;
@@ -468,7 +627,7 @@ end;
 -- VISITASTERRENO --
 
 -- PROCESO ALMACENADO DE CREATE DE VISITASTERRENO 
-create or replace procedure SP_CREATE_VISITASTERRENO(v_idvisita number, v_fechavisita date, v_rutprof CHAR, v_rutclient CHAR) as
+create or replace procedure SP_CREATE_VISITASTERRENO(v_fechavisita date, v_rutprof CHAR, v_rutclient CHAR) as
 begin
     insert into visitasterreno values (visitas_seq.nextval, v_fechavisita, v_rutprof, v_rutclient);
     commit;
@@ -492,3 +651,5 @@ begin
     commit;
 end;
 /
+
+commit;

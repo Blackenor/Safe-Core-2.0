@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActividadMejora.cs" />
+    <Compile Include="Capacitaciones.cs" />
+    <Compile Include="Checklist.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ContratoCliente.cs" />
     <Compile Include="ContratoProfesional.cs" />
+    <Compile Include="HistorialAtrasos.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Profesional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

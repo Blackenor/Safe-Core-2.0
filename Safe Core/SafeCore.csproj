@@ -159,6 +159,7 @@
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ChecklistController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\HistorialAtrasosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
@@ -297,6 +298,7 @@
     <Folder Include="Data\" />
     <Folder Include="js\" />
     <Folder Include="Views\Calculator\" />
+    <Folder Include="Views\HistorialAtrasos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -12,8 +12,8 @@ namespace Safe_Core.Controllers
         // GET: Personal
         public ActionResult HistorialAtrasos()
         {
-            //CREAR TABLE
-           // ViewBag.HistorialAtrasos = new HistorialAtrasos().ReadAll();
+           
+            ViewBag.HistorialAtrasos = new HistorialAtrasos().ReadAll();
             return View();
         }
 

@@ -5,4 +5,39 @@
 
 <h2>Historial de atrasos</h2>
 
+@{ List<HistorialAtrasos> hist = (List<HistorialAtrasos>)ViewBag.HistorialAtrasos; }
 
+<main class="container">
+
+    @*<div>
+        <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateProfesionales", "Personal")"><i class="fa fa-plus mx-2"></i>Crear Profesional</a>
+    </div>*@
+
+    <table class="table" bgcolor="#FFFFFF">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>FECHA</th>
+                <th>RUT PROFESIONAL</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+            </tr>
+
+        </thead>
+        @foreach (var h in hist)
+        {
+            <tr>
+                <td>@h.ID_ATRASO</td>
+                <td>@h.FECHA</td>
+                <td>@h.PROFESIONAL_RUT_PROF</td>
+                <td>@h.Profesional.NOMBRE</td>
+                <td>@h.Profesional.APELLIDO</td>
+
+            </tr>
+        }
+
+    </table>
+
+
+
+</main>

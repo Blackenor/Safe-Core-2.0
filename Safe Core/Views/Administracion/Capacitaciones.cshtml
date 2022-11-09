@@ -1,0 +1,51 @@
+﻿@using SafeCore.BLL
+
+
+@{
+    ViewBag.Title = "Capacitaciones";
+}
+
+@{ List<Capacitaciones> capacitaciones = (List<Capacitaciones>)ViewBag.Capacitaciones; }
+
+
+<h2>Capacitaciones</h2>
+
+<main class="container">
+
+    <div>
+        <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CrearCapacitacion", "Administracion")"><i class="fa fa-plus mx-2"></i>Crear Capacitación</a>
+    </div>
+
+    <table class="table" bgcolor="#FFFFFF">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha realización</th>
+                <th>Profesional</th>
+                <th>Cliente</th>
+                <th>Descripción</th>
+                <th>Realizada</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var capacitacion in capacitaciones)
+            {
+                <tr>
+                    <td>@capacitacion.ID_CAP</td>
+                    <td>@capacitacion.FECHA_REALIZA</td>
+                    <td>@capacitacion.Profesional.NOMBRE</td>
+                    <td>@capacitacion.Cliente.Nombre</td>
+                    <td>@capacitacion.DESC_MATERIAL</td>
+                    <td>@capacitacion.REALIZADA</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+
+
+</main>

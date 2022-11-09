@@ -35,6 +35,13 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        public ActionResult Capacitaciones()
+        {
+            ViewBag.Capacitaciones = new Capacitaciones().ReadAll();
+
+            return View();
+        }
+
         public ActionResult CrearCapacitacion()
         {
             return View();
@@ -47,12 +54,12 @@ namespace Safe_Core.Controllers
             try
             {
                 visitasTerreno.Create();
-                TempData["mensaje"] = "Visita agendada correctamente";
+                TempData["mensaje"] = "Capacitación creada correctamente";
                 return View();
             }
             catch
             {
-                TempData["mensaje"] = "Error al agendar visita";
+                TempData["mensaje"] = "Error al crear la capacitación";
                 return View();
             }
             //return View();

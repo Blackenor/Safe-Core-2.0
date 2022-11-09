@@ -1,0 +1,73 @@
+﻿@using SafeCore.BLL
+@model  SafeCore.BLL.Profesional
+
+@{
+    ViewBag.Title = "CreatePofesionales";
+}
+
+<h2>CreatePofesionales</h2>
+
+<div class="container m-3">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.RUT_PROF, "RUT del profesional", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.RUT_PROF, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.ACTIVO, "Habilitar profesional", htmlAttributes: new { @class = "form-label" })
+                    @Html.DropDownListFor(p => p.ACTIVO, new List<SelectListItem>(){ new SelectListItem() { Text = "Si", Value = "1" },
+                                                                                     new SelectListItem() { Text = "No", Value = "0"}
+                                                                                   }, new { @id = "ACTIVO", @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.ACTIVO)
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.NOMBRE, "Nombre", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.NOMBRE, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.APELLIDO, "Apellido", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.APELLIDO, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.GENERO, "Genero", htmlAttributes: new { @class = "form-label" })
+                    @Html.DropDownListFor(p => p.GENERO, new List<SelectListItem>(){ new SelectListItem() { Text = "Hombre", Value = "Hombre" },
+                                                                                     new SelectListItem() { Text = "Mujer", Value = "Mujer"},
+                                                                                     new SelectListItem() { Text = "Otro", Value = "Otro"}
+                                                                                   }, new { @id = "GENERO", @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.ACTIVO)
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.DIRECCION, "Dirección", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.DIRECCION, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.TELEFONO, "Telefono", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.TELEFONO, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.CORREO, "Correo", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.CORREO, htmlAttributes: new { @class = "form-control", @type = "email" })
+                </li>
+
+            </ul>
+            <button class="btn btn-custom col-auto" type="submit">Ingresar profesional</button>
+            <br />
+            @TempData["mensaje"]
+        </div>
+    }
+
+    </div>

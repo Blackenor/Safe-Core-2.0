@@ -23,6 +23,31 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        public ActionResult CreateProfesionales()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProfesionales(Profesional profesional)
+        {
+            try
+            {
+                profesional.Create();
+                TempData["mensaje"] = "Profesional creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear al profesional";
+                return View();
+            }
+        }
+
+
+
+
+
         public ActionResult PagosClientes()
         {
             ViewBag.PagosClientes = new Pagos().ReadAll();

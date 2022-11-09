@@ -159,6 +159,7 @@
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ChecklistController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\HistorialAtrasosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
@@ -291,8 +292,7 @@
     <Content Include="Views\Calculadora\Calculator.cshtml" />
     <Content Include="Views\PlanificarVisita\Create.cshtml" />
     <Content Include="Views\ReportAccidente\Create.cshtml" />
-    <Content Include="Views\Personal\CreateProfesionales.cshtml" />
-    <Content Include="Views\Administracion\Capacitaciones.cshtml" />
+    <Content Include="Views\HistorialAtrasos\HistorialAtrasos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

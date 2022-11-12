@@ -38,7 +38,14 @@
                     <td>@capacitacion.Profesional.NOMBRE</td>
                     <td>@capacitacion.Cliente.Nombre</td>
                     <td>@capacitacion.DESC_MATERIAL</td>
-                    <td>@capacitacion.REALIZADA</td>
+                    @if (@capacitacion.REALIZADA.ToString().Equals("1"))
+                    {
+                        <td>✔</td>
+                    }
+                    else
+                    {
+                        <td>✘</td>
+                    }
                 </tr>
             }
 
@@ -49,3 +56,7 @@
 
 
 </main>
+
+
+
+

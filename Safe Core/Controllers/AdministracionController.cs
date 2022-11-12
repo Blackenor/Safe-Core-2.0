@@ -48,12 +48,12 @@ namespace Safe_Core.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearCapacitacion(VisitasTerreno visitasTerreno)
+        public ActionResult CrearCapacitacion(Capacitaciones capacitaciones)
         {
             // MÉTODO CREATE
             try
             {
-                visitasTerreno.Create();
+                capacitaciones.Create();
                 TempData["mensaje"] = "Capacitación creada correctamente";
                 return View();
             }

@@ -15,6 +15,11 @@
 
             <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
                 <li class="col form-group">
+                    @Html.LabelFor(c => c.FECHA_REALIZA, "Fecha de capacitación", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FECHA_REALIZA, htmlAttributes: new { @class = "form-control", @type = "datetime-local" })
+                </li>
+                
+                <li class="col form-group">
                     @Html.LabelFor(c => c.CLIENTES_RUT_CLIENT, "Rut del cliente", htmlAttributes: new { @class = "form-label" })
                     @Html.TextBoxFor(c => c.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
                 </li>
@@ -22,12 +27,6 @@
                 <li class="col form-group">
                     @Html.LabelFor(c => c.PROFESIONAL_RUT_PROF, "Rut del profesional", htmlAttributes: new { @class = "form-label" })
                     @Html.TextBoxFor(c => c.PROFESIONAL_RUT_PROF, htmlAttributes: new { @class = "form-control" })
-                </li>
-
-                <li class="col form-group">
-
-                    @Html.LabelFor(c => c.FECHA_REALIZA, "Fecha de capacitación", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(c => c.FECHA_REALIZA, htmlAttributes: new { @class = "form-control", @type = "datetime-local" })
                 </li>
                 
                 <li class="col form-group">

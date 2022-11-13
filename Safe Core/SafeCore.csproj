@@ -296,6 +296,7 @@
     <Content Include="Views\Personal\CreateClientes.cshtml" />
     <Content Include="Views\Personal\ContratoCliente.cshtml" />
     <Content Include="Views\Personal\CreateContratoC.cshtml" />
+    <Content Include="Views\Personal\CreateAtrasos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

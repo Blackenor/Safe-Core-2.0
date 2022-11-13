@@ -31,7 +31,7 @@ namespace SafeCore.BLL
                     RUT_PROF = h.PROFESIONAL.RUT_PROF,
                     ACTIVO = h.PROFESIONAL.ACTIVO,
                     NOMBRE = h.PROFESIONAL.NOMBRE,
-                    APELLIDO = h.PROFESIONAL.NOMBRE,
+                    APELLIDO = h.PROFESIONAL.APELLIDO,
                     GENERO = h.PROFESIONAL.GENERO,
                     DIRECCION = h.PROFESIONAL.DIRECCION,
                     TELEFONO = h.PROFESIONAL.TELEFONO,

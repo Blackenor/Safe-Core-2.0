@@ -63,15 +63,14 @@
                                     <li>
                                         <a href="@Url.Action("Capacitaciones", "Administracion")">Capacitaciones</a>
                                     </li>
-                                    <li>
+                                    @*<li>
                                         <a href="@Url.Action("Create", "PlanificarVisita")">Planificar visita</a>
-                                        @*<a href="@Url.Action("PlanificarVisita", "Administracion")">Planificar visita</a>*@
-                                    </li>
+                                    </li>*@
                                     <li>
                                         <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("Actividades", "Administracion")">Actividades</a>
+                                        <a href="@Url.Action("Actividades", "Administracion")">Visitas</a>
                                     </li>
                                 </ul>
                             </li>
@@ -118,19 +117,19 @@
 
                         @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
                         {
-                            <li>
+                            @*<li>
                                 <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
 
                                 <ul class="collapse list-unstyled" id="ActMejora">
                                     <li>
                                         <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
-                                        @*<a href="@Url.Action("IngresarMejora", "ActMejora")">Ingresar</a>*@
                                     </li>
-                                    <li>
-                                        <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Revisar</a>
-                                        @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
-                                    </li>
+
                                 </ul>
+                            </li>*@
+                            <li>
+                                <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Actividad de mejora</a>
+                                @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
                             </li>
                         }
 

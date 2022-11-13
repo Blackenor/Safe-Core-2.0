@@ -35,6 +35,24 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CrearVisita(VisitasTerreno visitas)
+        {
+            // MÉTODO CREATE
+            try
+            {
+                visitas.Create();
+                TempData["mensaje"] = "Visita planificada correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al planificar visita";
+                return View();
+            }
+            //return View();
+        }
+
         public ActionResult Capacitaciones()
         {
             ViewBag.Capacitaciones = new Capacitaciones().ReadAll();

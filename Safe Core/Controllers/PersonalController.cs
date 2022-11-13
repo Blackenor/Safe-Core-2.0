@@ -83,8 +83,32 @@ namespace Safe_Core.Controllers
             }
         }
 
+        public ActionResult ContratoCliente()
+        {
+            ViewBag.ContratosCliente = new ContratoCliente().ReadAll();
+            return View();
+        }
 
+        public ActionResult CreateContratoC()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult CreateContratoC(ContratoCliente contrato)
+        {
+            try
+            {
+                contrato.Create();
+                TempData["mensaje"] = "Contrato creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear el contrato";
+                return View();
+            }
+        }
 
 
 

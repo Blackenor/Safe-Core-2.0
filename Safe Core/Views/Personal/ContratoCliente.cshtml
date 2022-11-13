@@ -1,0 +1,56 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.ContratoCliente
+
+@{
+    ViewBag.Title = "ContratoCliente";
+}
+
+@{ List<ContratoCliente> contratos = (List<ContratoCliente>)ViewBag.ContratosCliente; }
+
+<h2>Contratos Clientes</h2>
+
+<main class="container">
+
+    <div>
+        <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateContratoC", "Personal")"><i class="fa fa-plus mx-2"></i>Crear Contrato</a>
+    </div>
+
+    <table class="table" bgcolor="#FFFFFF">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID contrato</th>
+                <th>Rut cliente</th>
+                <th>Nombre cliente</th>
+                <th>Rubro cliente</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino</th>
+                <th>Contrato Activo</th>
+            </tr>
+
+        </thead>
+        @foreach (var c in contratos)
+        {
+            <tr>
+                <td>@c.ID_CONTR</td>
+                <td>@c.Cliente.Rut_cliente</td>
+                <td>@c.Cliente.Nombre</td>
+                <td>@c.Cliente.Rubro</td>
+                <td>@c.FECHAINICIO</td>
+                <td>@c.FECHATERMINO</td>
+
+                @if (c.ACTIVO.ToString().Equals("1"))
+                {
+                    <td>✔</td>
+                }
+                else
+                {
+                    <td>✘</td>
+                }
+            </tr>
+        }
+
+    </table>
+
+
+
+</main>

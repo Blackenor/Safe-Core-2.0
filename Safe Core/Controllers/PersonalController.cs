@@ -17,6 +17,28 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        public ActionResult CreateAtrasos() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateAtrasos(HistorialAtrasos historial)
+        {
+            try
+            {
+                historial.Create();
+                TempData["mensaje"] = "Historial creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear Historial";
+                return View();
+            }
+        }
+
+
         public ActionResult Profesionales()
         {
             ViewBag.Profesionales = new Profesional().ReadAll();

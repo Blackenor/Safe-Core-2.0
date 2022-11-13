@@ -22,6 +22,9 @@
     <h1>Clientes</h1>
     <main class="container">
 
+        <div>
+            <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateClientes", "Personal")"><i class="fa fa-plus mx-2"></i>Crear Cliente</a>
+        </div>
 
 
         <table class="table" bgcolor="#FFFFFF">
@@ -39,23 +42,23 @@
 
 
             <tbody>
-                
-            @foreach(var cliente in clientes)
-            {
-                <tr>
-                    <td>@cliente.Rut_cliente</td>
-                    <td>@cliente.Nombre</td>
-                    <td>@cliente.Direccion</td>
-                    <td>@cliente.Telefono</td>
-                    <td>@cliente.Correo</td>
-                    <td>@cliente.Rubro</td>
-                </tr>
-            }
-    
-    
-    
-    
-    
+
+                @foreach (var cliente in clientes)
+                {
+                    <tr>
+                        <td>@cliente.Rut_cliente</td>
+                        <td>@cliente.Nombre</td>
+                        <td>@cliente.Direccion</td>
+                        <td>@cliente.Telefono</td>
+                        <td>@cliente.Correo</td>
+                        <td>@cliente.Rubro</td>
+                    </tr>
+                }
+
+
+
+
+
                 @*<tr>
                     <td>12343123-6</td>
                     <td>Nike</td>

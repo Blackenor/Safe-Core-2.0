@@ -16,7 +16,9 @@
             <th>ID Visita</th>
             <th>Fecha Visita</th>
             <th>Rut profesional</th>
+            <th>Nombre profesional</th>
             <th>Rut cliente</th>
+            <th>Nombre cliente</th>
         </tr>
 
     </thead>
@@ -30,7 +32,9 @@
             <td>@visita.ID_VISITA</td>
             <td>@visita.FECHAVISITA</td>
             <td>@visita.PROFESIONAL_RUT_PROF</td>
+            <td>@visita.Profesional.NOMBRE @visita.Profesional.APELLIDO</td>
             <td>@visita.CLIENTES_RUT_CLIENT</td>
+            <td>@visita.Cliente.Nombre</td>
         </tr>
     }
 </table>

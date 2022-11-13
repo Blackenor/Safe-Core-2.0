@@ -1,0 +1,58 @@
+﻿@using SafeCore.BLL
+@model  SafeCore.BLL.Cliente
+
+@{
+    ViewBag.Title = "CreateClientes";
+}
+
+<h2>Crear Clientes</h2>
+
+
+
+<div class="container m-3">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Rut_cliente, "RUT del Cliente", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Rut_cliente, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Nombre, "Nombre", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Nombre, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Direccion, "Dirección", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Direccion, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Telefono, "Teléfono", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Telefono, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Correo, "Correo", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Correo, htmlAttributes: new { @class = "form-control", @type = "email" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.Rubro, "Rubro", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.Rubro, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+            </ul>
+            <button class="btn btn-custom col-auto" type="submit">Ingresar Cliente</button>
+            <br />
+            @TempData["mensaje"]
+        </div>
+    }
+
+</div>

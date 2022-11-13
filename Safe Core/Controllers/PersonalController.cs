@@ -62,6 +62,27 @@ namespace Safe_Core.Controllers
             return View();
         }
 
+        public ActionResult CreateClientes()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateClientes(Cliente cliente)
+        {
+            try
+            {
+                cliente.Create();
+                TempData["mensaje"] = "Cliente creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear al cliente";
+                return View();
+            }
+        }
+
 
 
 

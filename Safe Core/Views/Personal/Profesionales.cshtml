@@ -24,13 +24,13 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Rut del profesional</th>
-                    <th>Activo</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Genero</th>
                     <th>Dirección</th>
                     <th>Teléfono</th>
                     <th>Correo</th>
+                    <th>Activo</th>
                 </tr>
 
             </thead>
@@ -38,13 +38,20 @@
             {
                 <tr>
                     <td>@pro.RUT_PROF</td>
-                    <td>@pro.ACTIVO</td>
                     <td>@pro.NOMBRE</td>
                     <td>@pro.APELLIDO</td>
                     <td>@pro.GENERO</td>
                     <td>@pro.DIRECCION</td>
                     <td>@pro.TELEFONO</td>
                     <td>@pro.CORREO</td>
+                    @if (@pro.ACTIVO.ToString().Equals("1"))
+                    {
+                        <td>✔</td>
+                    }
+                    else
+                    {
+                        <td>✘</td>
+                    }
                 </tr>
             }
 

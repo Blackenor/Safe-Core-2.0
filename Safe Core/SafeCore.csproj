@@ -293,6 +293,7 @@
     <Content Include="Views\ReportAccidente\Create.cshtml" />
     <Content Include="Views\Personal\CreateProfesionales.cshtml" />
     <Content Include="Views\Administracion\Capacitaciones.cshtml" />
+    <Content Include="Views\Personal\CreateClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

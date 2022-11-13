@@ -1,0 +1,46 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.ContratoProfesional
+
+@{
+    ViewBag.Title = "CreateContratoP";
+}
+
+<h2>CreateContratoP</h2>
+
+<div class="container m-3">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.PROFESIONAL_RUT_PROF, "RUT del Profesional", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.PROFESIONAL_RUT_PROF, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.FECHAINICIO, "Fecha de inicio", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.FECHAINICIO, htmlAttributes: new { @class = "form-control", @type = "date" })
+                </li>
+                
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.FECHATERMINO, "Fecha de termino", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.FECHATERMINO, htmlAttributes: new { @class = "form-control", @type = "date" })
+                </li>
+                
+                <li class="col form-group">
+                    @Html.LabelFor(p => p.HISTORIAL, "Historial", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(p => p.HISTORIAL, htmlAttributes: new { @class = "form-control", @type = "text" })
+                </li>
+
+            </ul>
+            <button class="btn btn-custom col-auto" type="submit">Ingresar Contrato</button>
+            <br />
+            @TempData["mensaje"]
+        </div>
+    }
+
+</div>

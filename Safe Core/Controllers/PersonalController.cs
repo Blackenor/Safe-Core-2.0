@@ -66,9 +66,32 @@ namespace Safe_Core.Controllers
             }
         }
 
+        public ActionResult ContratoProfesional()
+        {
+            ViewBag.Contratos = new ContratoProfesional().ReadAll();
+            return View();
+        }
 
+        public ActionResult CreateContratoP()
+        {
+            return View();
+        }
 
-
+        [HttpPost]
+        public ActionResult CreateContratoP(ContratoProfesional contrato)
+        {
+            try
+            {
+                contrato.Create();
+                TempData["mensaje"] = "Contrato creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear contrato";
+                return View();
+            }
+        }
 
         public ActionResult PagosClientes()
         {

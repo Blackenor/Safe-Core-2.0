@@ -2,32 +2,35 @@
 @{
     ViewBag.Title = "ReportAccidente";
 }
+@{ List<ReporteAccidente> report = (List<ReporteAccidente>)ViewBag.ReporteAccidente; }
 
 <h2>Reportar accidente</h2>
 
-<div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+<div>
+    <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateReportAccidente", "Report")"><i class="fa fa-plus mx-2"></i>Ingresar Reporte de accidente</a>
+</div>
 
-        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col">
-                <label for="number" class="form-label">ID report:</label>
-                <input type="number" id="number" class="form-control" name="user_rut">
-            </li>
-            <li class="col">
-                <label for="number" class="form-label">Rut Cliente:</label>
-                <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col">
-                <label for="date" class="form-label">Fecha Accidente:</label>
-                <input type="date" name="date_user" class="form-control">
-            </li>
-            <div class="d-flex col-12">
-            <li class="col">
-                <label for="msg" class="form-label">Descripción:</label>
-                <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-            </li>
-</div>
-        </ul>
-<button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
-    </form>
-</div>
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Reporte</th>
+            <th>Rut del cliente</th>
+            <th>Fecha</th>
+            <th>Descripcion</th>
+        </tr>
+
+    </thead>
+
+
+    @foreach (var reportc in report)
+    {
+        <tr>
+            <td>@reportc.ID_REPORTA</td>
+            <td>@reportc.CLIENTES_RUT_CLIENT</td>
+            <td>@reportc.FECHAACCIDENTE</td>
+            <td>@reportc.DESCRIPCION</td>
+        </tr>
+    }
+
+
+</table>

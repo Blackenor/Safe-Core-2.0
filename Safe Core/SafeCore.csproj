@@ -300,6 +300,7 @@
     <Content Include="Views\Personal\CreateContratoP.cshtml" />
     <Content Include="Views\Personal\ContratoProfesional.cshtml" />
     <Content Include="Views\Report\CreateReportClient.cshtml" />
+    <Content Include="Views\Report\CreateReportAccidente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

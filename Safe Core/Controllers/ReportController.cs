@@ -17,8 +17,29 @@ namespace Safe_Core.Controllers
         }
         public ActionResult ReportAccidente()
         {
+            ViewBag.ReporteAccidente = new ReporteAccidente().ReadAll();
             return View();
         }
+        public ActionResult CreateReportAccidente() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateReportAccidente(ReporteAccidente report)
+        {
+            try
+            {
+                report.Create();
+                TempData["mensaje"] = "Reporte de accidente creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear reporte de accidente";
+                return View();
+            }
+        }
+
         public ActionResult ReportClient()
         {
             ViewBag.ReporteCliente = new ReporteCliente().ReadAll();

@@ -14,30 +14,30 @@
     @using (Html.BeginForm())
     {
 
-        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+    <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
 
-            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
 
-                <li class="col form-group">
-                    @Html.LabelFor(c => c.CLIENTES_RUT_CLIENT, "RUT del Cliente", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(c => c.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
-                </li>
+            <li class="col form-group">
+                @Html.LabelFor(c => c.CLIENTES_RUT_CLIENT, "RUT del Cliente", htmlAttributes: new { @class = "form-label" })
+                @Html.TextBoxFor(c => c.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
+            </li>
 
-                <li class="col form-group">
-                    @Html.LabelFor(c => c.FECHA, "Fecha de Reporte", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(c => c.FECHA, htmlAttributes: new { @class = "form-control", @type = "date" })
-                </li>
+            <li class="col form-group">
+                @Html.LabelFor(c => c.FECHA, "Fecha de Reporte", htmlAttributes: new { @class = "form-label" })
+                @Html.TextBoxFor(c => c.FECHA, htmlAttributes: new { @class = "form-control", @type = "datetime-local" })
+            </li>
 
-                <li class="col form-group">
-                    @Html.LabelFor(c => c.DESCRIPCION, "Descripcion", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(c => c.DESCRIPCION, htmlAttributes: new { @class = "form-control" })
-                </li>
+            <li class="col form-group">
+                @Html.LabelFor(c => c.DESCRIPCION, "Descripcion", htmlAttributes: new { @class = "form-label" })
+                @Html.TextBoxFor(c => c.DESCRIPCION, htmlAttributes: new { @class = "form-control" })
+            </li>
 
-            </ul>
-            <button class="btn btn-custom col-auto" type="submit">Ingresar Reporte de cliente</button>
-            <br />
-            @TempData["mensaje"]
-        </div>
+        </ul>
+        <button class="btn btn-custom col-auto" type="submit">Ingresar Reporte de cliente</button>
+        <br />
+        @TempData["mensaje"]
+    </div>
     }
 
 </div>

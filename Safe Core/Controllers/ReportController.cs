@@ -24,5 +24,24 @@ namespace Safe_Core.Controllers
             ViewBag.ReporteCliente = new ReporteCliente().ReadAll();
             return View();
         }
+        public ActionResult CreateReportClient()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateReportClient(ReporteCliente report)
+        {
+            try
+            {
+                report.Create();
+                TempData["mensaje"] = "Reporte de cliente creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear reporte cliente";
+                return View();
+            }
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.ContratoProfesional
+
+@{
+    ViewBag.Title = "ContratoProfesional";
+}
+
+@{ List<ContratoProfesional> contratos = (List<ContratoProfesional>)ViewBag.Contratos; }
+
+
+<h2>ContratoProfesional</h2>
+
+<main class="container">
+
+    <div>
+        <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateContratoP", "Personal")"><i class="fa fa-plus mx-2"></i>Crear Contrato</a>
+    </div>
+
+    <table class="table" bgcolor="#FFFFFF">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID contrato</th>
+                <th>Rut profesional</th>
+                <th>Nombre profesional</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino</th>
+                <th>Historial</th>
+
+            </tr>
+
+        </thead>
+        @foreach (var c in contratos)
+        {
+            <tr>
+                <td>@c.ID_CONTR</td>
+                <td>@c.Profesional.RUT_PROF</td>
+                <td>@c.Profesional.NOMBRE @c.Profesional.APELLIDO</td>
+                <td>@c.FECHAINICIO</td>
+                <td>@c.FECHATERMINO</td>
+                <td>@c.HISTORIAL</td>
+            </tr>
+        }
+
+    </table>
+
+
+
+</main>

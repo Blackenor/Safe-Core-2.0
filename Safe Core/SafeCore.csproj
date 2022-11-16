@@ -180,6 +180,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Account.css" />
+    <Content Include="Content\Assets\SafeCore Icono.png" />
+    <Content Include="Content\Assets\SafeCore Icono.svg" />
+    <Content Include="Content\Assets\SafeCore Imagotipo_B.png" />
+    <Content Include="Content\Assets\SafeCore Imagotipo_G.png" />
+    <Content Include="Content\Assets\SafeCore Imagotipo_W 2.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />

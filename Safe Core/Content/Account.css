@@ -4,7 +4,7 @@
 
 .sidenav {
 	height: 100%;
-	background-color: #000;
+	background-color: #333136;
 	overflow-x: hidden;
 	padding-top: 20px;
 }
@@ -82,6 +82,11 @@ p {
 		animation-iteration-count: infinite;
 	}
 
+#SafeCoreLogo {
+	max-width: 600px;
+	width: 100%;
+	height: auto;
+}
 
 
 

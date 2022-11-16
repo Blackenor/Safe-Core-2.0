@@ -23,7 +23,8 @@
             <div class="RFIDCORE-logo">
                 <div class="col-12">
                     <!--LOGO CENTRAL-->
-                    <a href="#" class="pl-2 font-weight-bold RFIDCORE">SAFE CORE SOFTWARE</a>
+                    <img id="Logo" src="~/Content/Assets/SafeCore Icono.png" />
+                    @*<a href="#" class="pl-2 font-weight-bold RFIDCORE">SAFE CORE SOFTWARE</a>*@
                 </div>
             </div>
             <div style="width: 50px;">
@@ -41,7 +42,7 @@
         <nav id="sidebar">
 
             <div class="sidebar-header" id="sHeader">
-                <h3>Safe Core</h3>
+                <img id="SafeCoreLogo2" src="~/Content/Assets/SafeCore Imagotipo_G.png"/>
             </div>
 
             <div class="" id="sHeader_spacing">
@@ -274,9 +275,11 @@
 
             if (myWidth <= 1080) {
                 $("#sidebar").addClass("disabled");
+                $("#Logo").removeClass("hidden");
             }
 
             else {
+                $("#Logo").addClass("hidden");
 				$("#sidebar").removeClass("disabled");
             }
 		};

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SafeCore.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,11 +14,29 @@ namespace Safe_Core.Controllers
         {
             return View();
         }
+        public ActionResult CreateChecklist()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateChecklist(Checklist check)
+        {
+            try
+            {
+                check.Create();
+                TempData["mensaje"] = "Checklist creado correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear checklist";
+                return View();
+            }
+        }
 
         public ActionResult Responder()
         {
-            // Create
-           // ViewBag.Responder = new Checklist().ReadAll();
+            ViewBag.checklist = new Checklist().ReadAll();
             return View();
         }
     }

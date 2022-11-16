@@ -306,6 +306,7 @@
     <Content Include="Views\Personal\ContratoProfesional.cshtml" />
     <Content Include="Views\Report\CreateReportClient.cshtml" />
     <Content Include="Views\Report\CreateReportAccidente.cshtml" />
+    <Content Include="Views\Checklist\CreateChecklist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

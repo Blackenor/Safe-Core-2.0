@@ -1,9 +1,64 @@
 ﻿@using SafeCore.BLL
-@{
 
+@{
     ViewBag.Title = "Responder Checklist";
 }
 
-<h2>Responder Checklist</h2>
+@{ List<Checklist> ch = (List<Checklist>)ViewBag.checklist; }
+
+<h2>Reporte cliente</h2>
+
+<div>
+    <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateChecklist", "Checklist")"><i class="fa fa-plus mx-2"></i>Crear Checklist</a>
+</div>
+
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Check</th>
+            <th>ID Visita</th>
+            <th>Field 1</th>
+            <th>Field 2</th>
+            <th>Field 3</th>
+            <th>Field 4</th>
+            <th>Field 5</th>
+            <th>Field 6</th>
+            <th>Field 7</th>
+            <th>Field 8</th>
+            <th>Field 9</th>
+            <th>Field 10</th>
+            <th>Field 11</th>
+            <th>Field 12</th>
+            <th>Field 13</th>
+            <th>Field 14</th>
+            <th>Field 15</th>
+        </tr>
+
+    </thead>
 
 
+    @foreach (var check in ch)
+    {
+        <tr>
+            <td>@check.ID_CHECK</td>
+            <td>@check.VISITASTERRENO_ID_VISITA</td>
+            <td>@check.FIELD01</td>
+            <td>@check.FIELD02</td>
+            <td>@check.FIELD03</td>
+            <td>@check.FIELD04</td>
+            <td>@check.FIELD05</td>
+            <td>@check.FIELD06</td>
+            <td>@check.FIELD07</td>
+            <td>@check.FIELD08</td>
+            <td>@check.FIELD09</td>
+            <td>@check.FIELD10</td>
+            <td>@check.FIELD11</td>
+            <td>@check.FIELD12</td>
+            <td>@check.FIELD13</td>
+            <td>@check.FIELD14</td>
+            <td>@check.FIELD15</td>
+        </tr>
+    }
+
+
+</table>

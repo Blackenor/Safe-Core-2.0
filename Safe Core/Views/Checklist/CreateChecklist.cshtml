@@ -1,0 +1,81 @@
+﻿@using SafeCore.BLL
+@model  SafeCore.BLL.Checklist
+
+@{
+    ViewBag.Title = "CreateChecklist";
+}
+
+<h2>Crear Checklist</h2>
+
+
+
+<div class="container m-3">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.VISITASTERRENO_ID_VISITA, "ID de la visita:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.VISITASTERRENO_ID_VISITA, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD01, "Field 1:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD01, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD02, "Field 2:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD02, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD03, "Field 3:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD03, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD04, "Field 4:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD04, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD05, "Field 5:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD05, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD06, "Field 6:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD06, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD07, "Field 7:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD07, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD08, "Field 8:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD08, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD09, "Field 9:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD09, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD10, "Field 10:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD10, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD11, "Field 11:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD11, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD12, "Field 12:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD12, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD13, "Field 13:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD13, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD14, "Field 14:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD14, htmlAttributes: new { @class = "form-control" })
+                </li><li class="col form-group">
+                    @Html.LabelFor(c => c.FIELD15, "Field 15:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(c => c.FIELD15, htmlAttributes: new { @class = "form-control" })
+                </li>
+
+
+            </ul>
+            <button class="btn btn-custom col-auto" type="submit">Crear Checklist</button>
+            <br />
+            @TempData["mensaje"]
+        </div>
+    }
+
+</div>

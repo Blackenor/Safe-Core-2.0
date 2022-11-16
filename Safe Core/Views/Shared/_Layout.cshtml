@@ -141,17 +141,8 @@
                         @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
                         {
                             <li>
-                                <a href="#Checklist" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Checklist</a>
-
-                                <ul class="collapse list-unstyled" id="Checklist">
-                                    <li>
-                                        <a href="@Url.Action("Crearcheck", "Checklist")">Crear</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Responder", "Checklist")">Responder</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                 <a href="@Url.Action("Responder", "Checklist")">Checklist</a>
+                             </li>
                         }
 
 

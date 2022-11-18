@@ -1,55 +1,42 @@
 ﻿@using SafeCore.BLL
+
 @{
     ViewBag.Title = "Ingresar Asesoria";
 }
 
+@{ List<Servicio> asesoria = (List<Servicio>)ViewBag.asesoria; }
 
 <h2>Ingresar Asesoria</h2>
-<div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="@Url.Action("Index","Home")" method="post">
 
-        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col form-group">
-                <label for="number" class="form-label">Rut cliente:</label>
-                <input type="number" id="number" class="form-control" name="user_rut" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col form-group">
-                <label for="name" class="form-label">Nombre:</label>
-                <input type="text" id="name" class="form-control" name="user_name">
-            </li>
-            <li class="col form-group">
-                <label for="lastname" class="form-label">Apellido:</label>
-                <input type="text" id="lastname" class="form-control" name="user_lastname">
-            </li>
-            <li class="col form-group">
-                <label for="address" class="form-label">Direccion:</label>
-                <input type="text" id="address" class="form-control" name="user_address">
-            </li>
-            <li class="col form-group">
-                <label for="phone" class="form-label">Telefono:</label>
-                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-            </li>
-            <li class="col form-group">
-                <label for="mail" class="form-label">Email:</label>
-                <input type="email" id="mail" class="form-control" name="user_mail">
-            </li>
-            <li class="col form-group">
-                <label for="text" class="form-label">Rubro Empresa:</label>
-                <input type="text" id="rubro" class="form-control" name="user_work">
-            </li>
-            <li class="col form-group">
-                <label for="text" class="form-label">Cargo:</label>
-                <input type="text" id="rubro" class="form-control" name="user_work">
-            </li>
-            <div class="d-flex col-12">
-                <li class="col form-group">
-                    <label for="msg" class="form-label">Razón por la cual necesita asesoria:</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                </li>
-            </div>
-        </ul>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su mensaje</button>
-    </form>
+<div>
+    <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateAsesoria", "Asesoria")"><i class="fa fa-plus mx-2"></i>Ingresar Asesoria</a>
 </div>
 
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Servicio</th>
+            <th>Rut Cliente</th>
+            <th>Descripcion</th>
+            <th>Fecha del servicio</th>
+            <th>Valor servicio</th>
+            <th>Rut profesional</th>
+        </tr>
 
+    </thead>
+
+
+    @foreach (var aseso in asesoria)
+    {
+        <tr>
+            <td>@aseso.ID_SERV</td>
+            <td>@aseso.CLIENTES_RUT_CLIENT</td>
+            <td>@aseso.DESCRIPCION</td>
+            <td>@aseso.FECHASERVICIO</td>
+            <td>@aseso.VALOR</td>
+            <td>@aseso.PROFESIONAL_RUT_PROF</td>
+        </tr>
+    }
+
+
+</table>

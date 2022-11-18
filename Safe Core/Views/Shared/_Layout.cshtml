@@ -65,8 +65,8 @@
                                         <a href="@Url.Action("Capacitaciones", "Administracion")">Capacitaciones</a>
                                     </li>
                                     @*<li>
-                                        <a href="@Url.Action("Create", "PlanificarVisita")">Planificar visita</a>
-                                    </li>*@
+                        <a href="@Url.Action("Create", "PlanificarVisita")">Planificar visita</a>
+                    </li>*@
                                     <li>
                                         <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
                                     </li>
@@ -78,17 +78,20 @@
                         }
 
                         <li>
+                            <a href="@Url.Action("IngresarAsesoria", "Asesoria")">Asesorías</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("AsesoriaEspecial", "Asesoria")">Asesorías especiales</a>
+                        </li>
+
+
+                        @*<li>
                             <a href="#Asesoria" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Asesoría</a>
 
                             <ul class="collapse list-unstyled" id="Asesoria">
-                                <li>
-                                    <a href="@Url.Action("AsesoriaEspecial", "Asesoria")">Solicitar asesoría especial</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("IngresarAsesoria", "Asesoria")">Ingresar asesoría</a>
-                                </li>
                             </ul>
-                        </li>
+                        </li>*@
 
                         @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
                         {
@@ -122,15 +125,15 @@
                         @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
                         {
                             @*<li>
-                                <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
+                <a href="#ActMejora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Actividad de mejora</a>
 
-                                <ul class="collapse list-unstyled" id="ActMejora">
-                                    <li>
-                                        <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
-                                    </li>
+                <ul class="collapse list-unstyled" id="ActMejora">
+                    <li>
+                        <a href="@Url.Action("Create", "ActividadMejora")">Ingresar</a>
+                    </li>
 
-                                </ul>
-                            </li>*@
+                </ul>
+            </li>*@
                             <li>
                                 <a href="@Url.Action("RevisarActMejora", "ActividadMejora")">Actividad de mejora</a>
                                 @*<a href="@Url.Action("RevisarMejora", "ActMejora")">Revisar</a>*@
@@ -141,8 +144,8 @@
                         @if (User.Identity.Name == "admin" || User.Identity.Name == "profesional")
                         {
                             <li>
-                                 <a href="@Url.Action("Responder", "Checklist")">Checklist</a>
-                             </li>
+                                <a href="@Url.Action("Responder", "Checklist")">Checklist</a>
+                            </li>
                         }
 
 
@@ -179,12 +182,12 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li>
-                                @Html.ActionLink("Cerrar Sesion", "LogOut", "Login")
+                                <a>
+                                    Usuario: @User.Identity.Name
+                                </a>
                             </li>
                             <li>
-                                <a>
-                                    @User.Identity.Name
-                                </a>
+                                @Html.ActionLink("Cerrar Sesion", "LogOut", "Login")
                             </li>
                         }
                         else

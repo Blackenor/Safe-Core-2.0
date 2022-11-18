@@ -1,0 +1,41 @@
+﻿@using SafeCore.BLL
+@model  SafeCore.BLL.Solicitud
+
+@{
+    ViewBag.Title = "CreateAsesoriaEsp";
+}
+
+<h2>Crear Asesoria Especial</h2>
+
+
+
+<div class="container m-3">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
+
+            <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
+
+                <li class="col form-group">
+                    @Html.LabelFor(s => s.FECHA, "Fecha:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(s => s.FECHA, htmlAttributes: new { @class = "form-control", @type = "date"})
+                </li>
+
+                <li class="col form-group">
+                    @Html.LabelFor(s => s.DESCRIPCION, "Descripcion:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(s => s.DESCRIPCION, htmlAttributes: new { @class = "form-control" })
+                </li>
+                <li class="col form-group">
+                    @Html.LabelFor(s => s.CLIENTES_RUT_CLIENT, "Rut del cliente:", htmlAttributes: new { @class = "form-label" })
+                    @Html.TextBoxFor(s => s.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
+                </li>
+            </ul>
+            <button class="btn btn-custom col-auto" type="submit">Crear Asesoria Especial</button>
+            <br />
+            @TempData["mensaje"]
+        </div>
+    }
+
+</div>

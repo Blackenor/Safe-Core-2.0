@@ -1,50 +1,40 @@
-﻿
+﻿@using SafeCore.BLL
+
 @{
-    ViewBag.Title = "Solicitar asesoria especial";
+    ViewBag.Title = "Solicitar Asesoria Especial";
 }
 
-<h2>Solicitar asesoria especial</h2>
-<div class="container m-3">
-    <form class="d-flex row container justify-content-center" style="padding-left: 8%; padding-right: 8%;" action="/my-handling-form-page" method="post">
-        <ul class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <li class="col">
-                <label for="nombres" class="form-label">Nombres : </label>
-                <input type="text" id="nombres" class="form-control" name="user_name" />
-            </li>
-            <li class="col">
-                <label for="lastname" class="form-label">Apellidos : </label>
-                <input type="text" id="lastname" class="form-control" name="user_lastname" />
-            </li>
-            <li class="col">
-                <label for="rut" class="form-label">Rut : </label>
-                <input type="text" id="rut" class="form-control" name="user_rut" />
-            </li>
-            <li class="col form-group">
-                <label for="address" class="form-label">Direccion:</label>
-                <input type="text" id="address" class="form-control" name="user_address">
-            </li>
-            <li class="col form-group">
-                <label for="phone" class="form-label">Telefono:</label>
-                <input type="number" id="number" class="form-control" name="user_phone" maxlength="9" required>
-            </li>
-            <li class="col form-group">
-                <label for="mail" class="form-label">Correo:</label>
-                <input type="email" id="mail" class="form-control" name="user_mail">
-            </li>
-            <li class="col">
-                <label for="date" class="form-label">Fecha :</label>
-                <input type="date" name="date_user" class="form-control">
-            </li>
+@{ List<Solicitud> aespecial = (List<Solicitud>)ViewBag.asesoriaesp; }
 
-        </ul>
-        <div class="row row-cols-1 row-cols-md-2 justify-content-center">
-            <ul class="d-flex col-12">
-                <li class="col">
-                    <label for="msg" class="form-label">Descripcion :</label>
-                    <textarea class="form-control" name="msg" type="text" placeholder="Escriba algo"></textarea>
-                </li>
-            </ul>
-        </div>
-        <button class="btn btn-custom col-auto" type="submit">Envíe su solicitud</button>
-    </form>
+<h2>Ingresar Asesoria Especial</h2>
+
+<div>
+    <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("CreateAsesoriaESP", "Asesoria")"><i class="fa fa-plus mx-2"></i>Ingresar solicitud asesoria especial</a>
 </div>
+
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Solicitud</th>
+            <th>Fecha</th>
+            <th>Descripcion</th>
+            <th>Rut del cliente</th>
+            <th>Tipo de solicitud</th>
+        </tr>
+
+    </thead>
+
+
+    @foreach (var asesoesp in aespecial)
+    {
+        <tr>
+            <td>@asesoesp.ID_SOLICITUD</td>
+            <td>@asesoesp.FECHA</td>
+            <td>@asesoesp.DESCRIPCION</td>
+            <td>@asesoesp.CLIENTES_RUT_CLIENT</td>
+            <td>@asesoesp.TIPOSOLICITUD_ID_TIPOSOLICITUD</td>
+        </tr>
+    }
+
+
+</table>

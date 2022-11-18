@@ -308,6 +308,7 @@
     <Content Include="Views\Report\CreateReportAccidente.cshtml" />
     <Content Include="Views\Checklist\CreateChecklist.cshtml" />
     <Content Include="Views\Asesoria\CreateAsesoria.cshtml" />
+    <Content Include="Views\Asesoria\CreateAsesoriaESP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,9 +38,29 @@ namespace Safe_Core.Controllers
 
         public ActionResult AsesoriaEspecial()
         {
-            // MÉTODO CREATE
+            ViewBag.asesoriaesp = new Solicitud().ReadAll();
+            return View();
+        }
+
+        public ActionResult CreateAsesoriaESP()
+        {
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult CreateAsesoriaESP(Solicitud asesoriaesp)
+        {
+            try
+            {
+                asesoriaesp.Create();
+                TempData["mensaje"] = "Asesoria Especial creada correctamente";
+                return View();
+            }
+            catch
+            {
+                TempData["mensaje"] = "Error al crear Asesoria Especial";
+                return View();
+            }
         }
     }
 }

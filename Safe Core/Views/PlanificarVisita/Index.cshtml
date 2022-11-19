@@ -1,0 +1,42 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.VisitasTerreno
+@{
+    ViewBag.Title = "Index";
+
+    List<VisitasTerreno> visitas = (List<VisitasTerreno>)ViewBag.visitas;
+}
+
+<h2>Visitas terreno</h2>
+
+<div>
+    <a type="button" class="btn btn-custom mb-4 mt-4" href="@Url.Action("Create", "PlanificarVisita")"><i class="fa fa-plus mx-2"></i>Planificar Visita</a>
+</div>
+
+<table class="table" bgcolor="#FFFFFF">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID Visita</th>
+            <th>Fecha Visita</th>
+            <th>Rut profesional</th>
+            <th>Nombre profesional</th>
+            <th>Rut cliente</th>
+            <th>Nombre cliente</th>
+        </tr>
+
+    </thead>
+
+
+
+
+    @foreach (var v in visitas)
+    {
+        <tr>
+            <td>@v.ID_VISITA</td>
+            <td>@v.FECHAVISITA</td>
+            <td>@v.PROFESIONAL_RUT_PROF</td>
+            <td>@v.Profesional.NOMBRE @v.Profesional.APELLIDO</td>
+            <td>@v.CLIENTES_RUT_CLIENT</td>
+            <td>@v.Cliente.Nombre</td>
+        </tr>
+    }
+</table>

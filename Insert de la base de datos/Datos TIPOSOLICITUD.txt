@@ -1,0 +1,2 @@
+INSERT INTO tiposolicitud VALUES(1, 'Asesoría');
+INSERT INTO tiposolicitud VALUES(2, 'Visita');

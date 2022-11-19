@@ -12,7 +12,11 @@ namespace Safe_Core.Controllers
         // GET: Administracion
         public ActionResult Actividades()
         {
-            ViewBag.Actividades = new VisitasTerreno().ReadAll();
+            ViewBag.capacitaciones = new Capacitaciones().ReadAll();
+            ViewBag.servicios = new Servicio().ReadAll();
+            ViewBag.visitas = new VisitasTerreno().ReadAll();
+            ViewBag.checklist = new Checklist().ReadAll();
+            ViewBag.actividadMejora = new ActividadMejora().ReadAll();
 
             return View();
         }

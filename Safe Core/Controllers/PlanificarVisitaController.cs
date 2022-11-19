@@ -12,6 +12,7 @@ namespace Safe_Core.Controllers
         // GET: PlanificarVisita
         public ActionResult Index()
         {
+            ViewBag.visitas = new VisitasTerreno().ReadAll();
             return View();
         }
 

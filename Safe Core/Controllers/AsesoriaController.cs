@@ -53,12 +53,12 @@ namespace Safe_Core.Controllers
             try
             {
                 asesoriaesp.Create();
-                TempData["mensaje"] = "Asesoria Especial creada correctamente";
+                TempData["mensaje"] = "Solicitud Enviada";
                 return View();
             }
             catch
             {
-                TempData["mensaje"] = "Error al crear Asesoria Especial";
+                TempData["mensaje"] = "Error al enviar la solicitud";
                 return View();
             }
         }

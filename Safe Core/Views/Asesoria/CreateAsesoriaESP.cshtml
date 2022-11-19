@@ -20,19 +20,29 @@
 
                 <li class="col form-group">
                     @Html.LabelFor(s => s.FECHA, "Fecha:", htmlAttributes: new { @class = "form-label" })
-                    @Html.TextBoxFor(s => s.FECHA, htmlAttributes: new { @class = "form-control", @type = "date"})
+                    @Html.TextBoxFor(s => s.FECHA, htmlAttributes: new { @class = "form-control", @type = "date" })
                 </li>
 
                 <li class="col form-group">
                     @Html.LabelFor(s => s.DESCRIPCION, "Descripcion:", htmlAttributes: new { @class = "form-label" })
                     @Html.TextBoxFor(s => s.DESCRIPCION, htmlAttributes: new { @class = "form-control" })
                 </li>
+
                 <li class="col form-group">
                     @Html.LabelFor(s => s.CLIENTES_RUT_CLIENT, "Rut del cliente:", htmlAttributes: new { @class = "form-label" })
                     @Html.TextBoxFor(s => s.CLIENTES_RUT_CLIENT, htmlAttributes: new { @class = "form-control" })
                 </li>
+                
+                <li class="col form-group">
+                    @Html.LabelFor(s => s.TIPOSOLICITUD_ID_TIPOSOLICITUD, "Seleccione el tipo de solicitud", htmlAttributes: new { @class = "form-label" })
+                    @Html.DropDownListFor(s => s.TIPOSOLICITUD_ID_TIPOSOLICITUD, new List<SelectListItem>(){ new SelectListItem() { Text = "Asesoría especial", Value = "1" },
+                                                                                     new SelectListItem() { Text = "Visita a terreno", Value = "2"}
+                                                                                   }, new { @id = "TIPOSOLICITUD_ID_TIPOSOLICITUD", @class = "form-control" })
+                    @Html.ValidationMessageFor(s => s.TIPOSOLICITUD_ID_TIPOSOLICITUD)
+                </li>
+
             </ul>
-            <button class="btn btn-custom col-auto" type="submit">Crear Asesoria Especial</button>
+            <button class="btn btn-custom col-auto" type="submit">Enviar Solicitud</button>
             <br />
             @TempData["mensaje"]
         </div>

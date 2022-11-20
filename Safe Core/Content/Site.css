@@ -29,9 +29,26 @@ th {
     background-color: #200C39 !important;
 }
 
+tbody td:hover {
+    background-color: #6c6c6c !important;
+}
+
+tbody tr:hover {
+    background-color: rgb(108 108 108 / 0,45) !important;
+}
+
+#grid-container {
+    border: 1px solid #2080a4;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 300px;
+    padding: 1rem;
+}
+
+
+
 
 /* BASE DESIGN */
-
 html {
     font-size: 14px;
 }
@@ -245,7 +262,7 @@ ul ul a {
 
 /* TOP OPTIONS */
 #topOptions {
-    max-height: 73vh !important;
+    max-height: 70vh !important;
     overflow: auto;
     position: fixed;
     max-width: 250px !important;

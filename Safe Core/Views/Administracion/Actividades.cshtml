@@ -1,38 +1,232 @@
 ﻿@using SafeCore.BLL
 @{
     ViewBag.Title = "Actividades";
+
+    List<Capacitaciones> capacitaciones = (List<Capacitaciones>)ViewBag.capacitaciones;
+    List<Servicio> servicios = (List<Servicio>)ViewBag.servicios;
+    List<VisitasTerreno> visitas = (List<VisitasTerreno>)ViewBag.visitas;
+    List<Checklist> checklists = (List<Checklist>)ViewBag.checklist;
+    List<ActividadMejora> actividadMejora = (List<ActividadMejora>)ViewBag.actividadMejora;
 }
 
 <h2>Actividades</h2>
 
 
+<h4 class="mt-5 mb-2">Capacitaciones</h4>
+<div id="grid-container" class="container">
 
 
-@*<table class="table" bgcolor="#FFFFFF">
-    <thead class="thead-dark">
-        <tr>
-            <th>ID Visita</th>
-            <th>Fecha Visita</th>
-            <th>Rut profesional</th>
-            <th>Nombre profesional</th>
-            <th>Rut cliente</th>
-            <th>Nombre cliente</th>
-        </tr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha realización</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Material utilizado</th>
+                <th>Realizada</th>
+            </tr>
 
-    </thead>
+        </thead>
+
+        <tbody>
+            @foreach (var c in capacitaciones)
+            {
+            <tr>
+                <td>@c.ID_CAP</td>
+                <td>@c.FECHA_REALIZA</td>
+                <td>@c.PROFESIONAL_RUT_PROF</td>
+                <td>@c.Profesional.NOMBRE @c.Profesional.APELLIDO</td>
+                <td>@c.CLIENTES_RUT_CLIENT</td>
+                <td>@c.Cliente.Nombre</td>
+                <td>@c.DESC_MATERIAL</td>
+                @if (c.REALIZADA.ToString().Equals("1"))
+                {
+                    <td>✔</td>
+                }
+                else
+                {
+                    <td>✘</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Servicios</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Descripción</th>
+                <th>Fecha servicio</th>
+                <th>valor</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var s in servicios)
+            {
+                <tr>
+                    <td>@s.ID_SERV</td>
+                    <td>@s.CLIENTES_RUT_CLIENT</td>
+                    <td>@s.Cliente.Nombre</td>
+                    <td>@s.PROFESIONAL_RUT_PROF</td>
+                    <td>@s.Profesional.NOMBRE @s.Profesional.APELLIDO</td>
+                    <td>@s.DESCRIPCION</td>
+                    <td>@s.FECHASERVICIO</td>
+                    <td>@s.VALOR</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Visitas</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha visita</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var v in visitas)
+            {
+                <tr>
+                    <td>@v.ID_VISITA</td>
+                    <td>@v.FECHAVISITA</td>
+                    <td>@v.PROFESIONAL_RUT_PROF</td>
+                    <td>@v.Profesional.NOMBRE @v.Profesional.APELLIDO</td>
+                    <td>@v.CLIENTES_RUT_CLIENT</td>
+                    <td>@v.Cliente.Nombre</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
 
 
 
 
-    @foreach (var visita in Visitas) 
-    {
-        <tr>
-            <td>@visita.ID_VISITA</td>
-            <td>@visita.FECHAVISITA</td>
-            <td>@visita.PROFESIONAL_RUT_PROF</td>
-            <td>@visita.Profesional.NOMBRE @visita.Profesional.APELLIDO</td>
-            <td>@visita.CLIENTES_RUT_CLIENT</td>
-            <td>@visita.Cliente.Nombre</td>
-        </tr>
-    }
-</table>*@
+<h4 class="mt-5 mb-2">Checklist</h4>
+<div id="grid-container" class="container">
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID Check</th>
+                <th>ID Visita</th>
+                <th>Field 1</th>
+                <th>Field 2</th>
+                <th>Field 3</th>
+                <th>Field 4</th>
+                <th>Field 5</th>
+                <th>Field 6</th>
+                <th>Field 7</th>
+                <th>Field 8</th>
+                <th>Field 9</th>
+                <th>Field 10</th>
+                <th>Field 11</th>
+                <th>Field 12</th>
+                <th>Field 13</th>
+                <th>Field 14</th>
+                <th>Field 15</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var check in checklists)
+            {
+                <tr>
+                    <td>@check.ID_CHECK</td>
+                    <td>@check.VISITASTERRENO_ID_VISITA</td>
+                    <td>@check.FIELD01</td>
+                    <td>@check.FIELD02</td>
+                    <td>@check.FIELD03</td>
+                    <td>@check.FIELD04</td>
+                    <td>@check.FIELD05</td>
+                    <td>@check.FIELD06</td>
+                    <td>@check.FIELD07</td>
+                    <td>@check.FIELD08</td>
+                    <td>@check.FIELD09</td>
+                    <td>@check.FIELD10</td>
+                    <td>@check.FIELD11</td>
+                    <td>@check.FIELD12</td>
+                    <td>@check.FIELD13</td>
+                    <td>@check.FIELD14</td>
+                    <td>@check.FIELD15</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Actividades de Mejora</h4>
+<div id="grid-container" class="container">
+
+    
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>N° de Mejora</th>
+                <th>Nombre Mejora</th>
+                <th>Recomendacion</th>
+                <th>Rut cliente</th>
+                <th>Cliente</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var actividad in actividadMejora)
+            {
+                <tr>
+                    <td>@actividad.ID_ACTIVIDADMEJORA</td>
+                    <td>@actividad.NOMBREMEJORA</td>
+                    <td>@actividad.DESCRIPCIONMEJORA</td>
+                    <td>@actividad.CLIENTES_RUT_CLIENT</td>
+                    <td>@actividad.Cliente.Nombre</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

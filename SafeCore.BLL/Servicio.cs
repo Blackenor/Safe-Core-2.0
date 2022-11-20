@@ -17,6 +17,7 @@ namespace SafeCore.BLL
         public decimal VALOR { get; set; }
         public string PROFESIONAL_RUT_PROF { get; set; }
 
+        public Cliente Cliente { get; set; }
         public Profesional Profesional { get; set; }
 
 
@@ -43,6 +44,16 @@ namespace SafeCore.BLL
                     DIRECCION = s.PROFESIONAL.DIRECCION,
                     TELEFONO = s.PROFESIONAL.TELEFONO,
                     CORREO = s.PROFESIONAL.CORREO
+                },
+
+                Cliente = new Cliente()
+                {
+                    Rut_cliente = s.CLIENTES_RUT_CLIENT,
+                    Nombre = s.CLIENTES.NOMBRE,
+                    Direccion = s.CLIENTES.DIRECCION,
+                    Telefono = s.CLIENTES.TELEFONO,
+                    Correo = s.CLIENTES.CORREO,
+                    Rubro = s.CLIENTES.RUBRO
                 }
 
             }).ToList();

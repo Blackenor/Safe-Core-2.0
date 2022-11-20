@@ -262,7 +262,7 @@ ul ul a {
 
 /* TOP OPTIONS */
 #topOptions {
-    max-height: 70vh !important;
+    max-height: 65vh !important;
     overflow: auto;
     position: fixed;
     max-width: 250px !important;

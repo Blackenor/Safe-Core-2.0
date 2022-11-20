@@ -42,6 +42,38 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public List<ReporteAccidente> FilteredList(int month)
+        {
+            try
+            {
+                return this.db.REPORTEACCIDENTE
+                .Where(r => r.FECHAACCIDENTE.Month == month && r.FECHAACCIDENTE.Year == System.DateTime.Today.Year)
+                .Select(r => new ReporteAccidente()
+                {
+                    ID_REPORTA = r.ID_REPORTA,
+                    CLIENTES_RUT_CLIENT = r.CLIENTES_RUT_CLIENT,
+                    FECHAACCIDENTE = r.FECHAACCIDENTE,
+                    DESCRIPCION = r.DESCRIPCION,
+
+                    Cliente = new Cliente()
+                    {
+                        Rut_cliente = r.CLIENTES_RUT_CLIENT,
+                        Nombre = r.CLIENTES.NOMBRE,
+                        Direccion = r.CLIENTES.DIRECCION,
+                        Telefono = r.CLIENTES.TELEFONO,
+                        Correo = r.CLIENTES.CORREO,
+                        Rubro = r.CLIENTES.RUBRO
+                    }
+
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         public bool Create()
         {
             try

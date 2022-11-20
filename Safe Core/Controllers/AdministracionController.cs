@@ -25,9 +25,24 @@ namespace Safe_Core.Controllers
         {
             // EL CÁLCULO ES CANT DE ACCIDENTES POR CANT DE SERVICIOS
 
-            ViewBag.CalculoA = new ReporteAccidente().ReadAll();
+            ViewBag.Accidentes = new ReporteAccidente().ReadAll();
 
-            ViewBag.Servicio = new Servicio().ReadAll();
+            ViewBag.Capacitaciones = new Capacitaciones().ReadAll();
+
+            // FILTERED BY MONTH
+
+            ViewBag.Enero = new ReporteAccidente().FilteredList(1);
+            ViewBag.Febrero = new ReporteAccidente().FilteredList(2);
+            ViewBag.Marzo = new ReporteAccidente().FilteredList(3);
+            ViewBag.Abril = new ReporteAccidente().FilteredList(4);
+            ViewBag.Mayo = new ReporteAccidente().FilteredList(5);
+            ViewBag.Junio = new ReporteAccidente().FilteredList(6);
+            ViewBag.Julio = new ReporteAccidente().FilteredList(7);
+            ViewBag.Agosto = new ReporteAccidente().FilteredList(8);
+            ViewBag.Septiembre = new ReporteAccidente().FilteredList(9);
+            ViewBag.Octubre = new ReporteAccidente().FilteredList(10);
+            ViewBag.Noviembre = new ReporteAccidente().FilteredList(11);
+            ViewBag.Diciembre = new ReporteAccidente().FilteredList(12);
 
             return View();
         }

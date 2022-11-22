@@ -1,0 +1,37 @@
+﻿@media print {
+    /* Hide every element on page */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Show the print content */
+    .print-container, .print-container *{
+        visibility: visible !important;
+        position: absolute;
+        width: 2100px;
+        height: 2700px;
+        left: 0;
+        top: 0;
+    }
+}
+
+#form-content {
+    border: 1px solid #808080;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#check-container {
+    border: 1px solid black;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+    #check-container .col-md-6, .col-md-1, .col-md-5 {
+        border: 1px solid black;
+        margin: 9px;
+        padding-left: 10px;
+    }

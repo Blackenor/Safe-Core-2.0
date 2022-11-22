@@ -1,5 +1,5 @@
 ﻿@using SafeCore.BLL
-
+@model SafeCore.BLL.Checklist
 @{
     ViewBag.Title = "Responder Checklist";
 }
@@ -32,6 +32,7 @@
             <th>Field 13</th>
             <th>Field 14</th>
             <th>Field 15</th>
+            <th>Imprimir</th>
         </tr>
 
     </thead>
@@ -57,6 +58,7 @@
             <td>@check.FIELD13</td>
             <td>@check.FIELD14</td>
             <td>@check.FIELD15</td>
+            <td class="d-flex justify-content-center"><a id="printButton" href="@Url.Action("PrintChecklist", "Checklist", new { Id = check.ID_CHECK})"><i class="fa fa-print" aria-hidden="true"></i></a></td>
         </tr>
     }
 

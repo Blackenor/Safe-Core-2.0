@@ -64,6 +64,43 @@ namespace SafeCore.BLL
             }).ToList();
         }
 
+        public List<Checklist> ReadOne(int ID)
+        {
+            return this.db.CHECKLIST
+            .Where(c => c.ID_CHECK == ID)    
+            .Select(c => new Checklist()
+            {
+                ID_CHECK = c.ID_CHECK,
+                VISITASTERRENO_ID_VISITA = c.VISITASTERRENO_ID_VISITA,
+                FIELD01 = c.FIELD01,
+                FIELD02 = c.FIELD02,
+                FIELD03 = c.FIELD03,
+                FIELD04 = c.FIELD04,
+                FIELD05 = c.FIELD05,
+                FIELD06 = c.FIELD06,
+                FIELD07 = c.FIELD07,
+                FIELD08 = c.FIELD08,
+                FIELD09 = c.FIELD09,
+                FIELD10 = c.FIELD10,
+                FIELD11 = c.FIELD11,
+                FIELD12 = c.FIELD12,
+                FIELD13 = c.FIELD13,
+                FIELD14 = c.FIELD14,
+                FIELD15 = c.FIELD15,
+
+                VisitasTerreno = new VisitasTerreno()
+                {
+                    ID_VISITA = c.VISITASTERRENO.ID_VISITA,
+                    FECHAVISITA = c.VISITASTERRENO.FECHAVISITA,
+                    PROFESIONAL_RUT_PROF = c.VISITASTERRENO.PROFESIONAL_RUT_PROF,
+                    CLIENTES_RUT_CLIENT = c.VISITASTERRENO.CLIENTES_RUT_CLIENT
+                }
+
+            }).ToList();
+        }
+
+
+
         public bool Create()
         {
             try

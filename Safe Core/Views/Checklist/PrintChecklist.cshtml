@@ -1,0 +1,164 @@
+﻿@using SafeCore.BLL
+@model SafeCore.BLL.Checklist
+@{
+    ViewBag.Title = "PrintChecklist";
+
+    List<Checklist> checklist = (List<Checklist>)ViewBag.checklist;
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/PrintStyle.css">
+</head>
+
+<h2>Vista previa de la impresión</h2>
+<br />
+@foreach (var check in checklist)
+{
+    <div class="print-container">
+        <div id="form-content" class="container">
+            
+            <div class="d-flex justify-content-center">
+                <p>Safe Core Documents</p>
+            </div>
+            <br />
+            <div class="d-flex justify-content-around">
+                <h2>Chechlist para cliente con RUT @check.VisitasTerreno.CLIENTES_RUT_CLIENT</h2>
+            </div>
+            <br />
+            <div id="check-container" class="container">
+                <div class="d-flex justify-content-between p-2">
+                    <p>N° de documento: @check.ID_CHECK</p>
+                    <p>ID de visita: @check.VISITASTERRENO_ID_VISITA</p>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD01</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD02</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD03</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD04</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD05</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD06</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD07</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD08</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD09</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD10</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD11</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD12</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD13</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD14</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-6">
+                        <p>@check.FIELD15</p>
+                    </div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <button class="btn btn-custom" type="button" onclick="window.print();">Imprimir</button>
+    </div>
+}
+
+

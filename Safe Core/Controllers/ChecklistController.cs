@@ -18,6 +18,7 @@ namespace Safe_Core.Controllers
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult CreateChecklist(Checklist check)
         {
@@ -37,6 +38,13 @@ namespace Safe_Core.Controllers
         public ActionResult Responder()
         {
             ViewBag.checklist = new Checklist().ReadAll();
+            return View();
+        }
+
+        public ActionResult PrintChecklist(int ID)
+        {
+            ViewBag.checklist = new Checklist().ReadOne(ID);
+
             return View();
         }
     }

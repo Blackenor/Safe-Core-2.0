@@ -361,8 +361,15 @@ label {
     }
 
 
-/* DASHBOARD */
+#printButton {
+    font-size: 1.9em !important;
+    color: #cccccc;
+}
 
+
+
+
+/* DASHBOARD */
 #DashboardContainer {
     padding: 25px;
     background-color: transparent;

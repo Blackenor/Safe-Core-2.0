@@ -5,17 +5,34 @@
     }
 
     /* Show the print content */
-    .print-container, .print-container *{
+    .print-container, .print-container * {
         visibility: visible !important;
-        position: absolute;
-        width: 2100px;
-        height: 2700px;
-        left: 0;
-        top: 0;
+        /*position: absolute;*/
+        /*width: 800px !important;*/
+        height: 90px;
+        margin: 10px;
     }
+
+    .print-container {
+/*        left: 0;*/
+/*        top: 0;*/
+    }
+
+/*    #form-content {
+    }
+
+    #check-container {
+        width: 100%;
+        height: 2400px;
+    }*/
+}
+
+.print-container {
+    
 }
 
 #form-content {
+    /*width: 2100px !important;*/
     border: 1px solid #808080;
     padding-top: 20px;
     padding-bottom: 20px;

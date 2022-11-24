@@ -19,6 +19,7 @@ namespace Safe_Core.Controllers
             ViewBag.visitas = new VisitasTerreno().ReadAll();
             ViewBag.actividadMejora = new ActividadMejora().ReadAll();
             ViewBag.pagosC = new Pagos().ReadAll();
+            ViewBag.atrasos = new HistorialAtrasos().ReadAll();
             
             
             

@@ -5,18 +5,18 @@
 
     // Datos para el gráfico
 
-    int Cant_Enero = ViewBag.Enero;
-    int Cant_Febrero = ViewBag.Febrero;
-    int Cant_Marzo = ViewBag.Marzo;
-    int Cant_Abril = ViewBag.Abril;
-    int Cant_Mayo = ViewBag.Mayo;
-    int Cant_Junio = ViewBag.Junio;
-    int Cant_Julio = ViewBag.Julio;
-    int Cant_Agosto = ViewBag.Agosto;
-    int Cant_Septiembre = ViewBag.Septiembre;
-    int Cant_Octubre = ViewBag.Octubre;
-    int Cant_Noviembre = ViewBag.Noviembre;
-    int Cant_Diciembre = ViewBag.Dicembre;
+    int? Cant_Enero = ViewBag.Enero;
+    int? Cant_Febrero = ViewBag.Febrero;
+    int? Cant_Marzo = ViewBag.Marzo;
+    int? Cant_Abril = ViewBag.Abril;
+    int? Cant_Mayo = ViewBag.Mayo;
+    int? Cant_Junio = ViewBag.Junio;
+    int? Cant_Julio = ViewBag.Julio;
+    int? Cant_Agosto = ViewBag.Agosto;
+    int? Cant_Septiembre = ViewBag.Septiembre;
+    int? Cant_Octubre = ViewBag.Octubre;
+    int? Cant_Noviembre = ViewBag.Noviembre;
+    int? Cant_Diciembre = ViewBag.Dicembre;
 
 
 
@@ -26,10 +26,256 @@
     List<Servicio> servicios = (List<Servicio>)ViewBag.servicios;
     List<VisitasTerreno> visitas = (List<VisitasTerreno>)ViewBag.visitas;
     List<ActividadMejora> actividadMejora = (List<ActividadMejora>)ViewBag.actividadMejora;
-
-
+    List<Pagos> pagosClientes = (List<Pagos>)ViewBag.pagosC;
+    List<HistorialAtrasos> historialAtrasos = (List<HistorialAtrasos>)ViewBag.atrasos;
 
 }
 
 <h2>Reporte Global</h2>
+
+
+
+<h4 class="mt-5 mb-2">Capacitaciones</h4>
+<div id="grid-container" class="container">
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha realización</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Material utilizado</th>
+                <th>Realizada</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var c in capacitaciones)
+            {
+                <tr>
+                    <td>@c.ID_CAP</td>
+                    <td>@c.FECHA_REALIZA</td>
+                    <td>@c.PROFESIONAL_RUT_PROF</td>
+                    <td>@c.Profesional.NOMBRE @c.Profesional.APELLIDO</td>
+                    <td>@c.CLIENTES_RUT_CLIENT</td>
+                    <td>@c.Cliente.Nombre</td>
+                    <td>@c.DESC_MATERIAL</td>
+                    @if (c.REALIZADA.ToString().Equals("1"))
+                    {
+                        <td>✔</td>
+                    }
+                    else
+                    {
+                        <td>✘</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Servicios</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Descripción</th>
+                <th>Fecha servicio</th>
+                <th>valor</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var s in servicios)
+            {
+                <tr>
+                    <td>@s.ID_SERV</td>
+                    <td>@s.CLIENTES_RUT_CLIENT</td>
+                    <td>@s.Cliente.Nombre</td>
+                    <td>@s.PROFESIONAL_RUT_PROF</td>
+                    <td>@s.Profesional.NOMBRE @s.Profesional.APELLIDO</td>
+                    <td>@s.DESCRIPCION</td>
+                    <td>@s.FECHASERVICIO</td>
+                    <td>@s.VALOR</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Historial de atrasos</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                
+                <th>ID</th>
+                <th>Fecha atraso</th>
+                <th>Rut profesional</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var a in historialAtrasos)
+            {
+                <tr>
+                    <td>@a.ID_ATRASO</td>
+                    <td>@a.FECHA</td>
+                    <td>@a.PROFESIONAL_RUT_PROF</td>
+                    <td>@a.Profesional.NOMBRE @a.Profesional.APELLIDO</td>
+                    <td>@a.Profesional.CORREO</td>
+                    <td>@a.Profesional.TELEFONO</td>
+                    
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Visitas a terreno</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Fecha visita</th>
+                <th>Rut Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Rut Cliente</th>
+                <th>Nombre Cliente</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var v in visitas)
+            {
+                <tr>
+                    <td>@v.ID_VISITA</td>
+                    <td>@v.FECHAVISITA</td>
+                    <td>@v.PROFESIONAL_RUT_PROF</td>
+                    <td>@v.Profesional.NOMBRE @v.Profesional.APELLIDO</td>
+                    <td>@v.CLIENTES_RUT_CLIENT</td>
+                    <td>@v.Cliente.Nombre</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+<h4 class="mt-5 mb-2">Pagos de clientes</h4>
+<div id="grid-container" class="container">
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+
+                <th>ID</th>
+                <th>Fecha de pago</th>
+                <th>Monto</th>
+                <th>Rut Cliente</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var p in pagosClientes)
+            {
+                <tr>
+
+                    <td>@p.ID_PAGO</td>
+                    <td>@p.FECHA</td>
+                    <td>@p.MONTO</td>
+                    <td>@p.CLIENTES_RUT_CLIENT</td>
+                    <td>@p.Cliente.Nombre</td>
+                    <td>@p.Cliente.Correo</td>
+                    <td>@p.Cliente.Telefono</td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<h4 class="mt-5 mb-2">Actividades de Mejora</h4>
+<div id="grid-container" class="container">
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>N° de Mejora</th>
+                <th>Nombre Mejora</th>
+                <th>Recomendacion</th>
+                <th>Rut cliente</th>
+                <th>Cliente</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var actividad in actividadMejora)
+            {
+                <tr>
+                    <td>@actividad.ID_ACTIVIDADMEJORA</td>
+                    <td>@actividad.NOMBREMEJORA</td>
+                    <td>@actividad.DESCRIPCIONMEJORA</td>
+                    <td>@actividad.CLIENTES_RUT_CLIENT</td>
+                    <td>@actividad.Cliente.Nombre</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
 

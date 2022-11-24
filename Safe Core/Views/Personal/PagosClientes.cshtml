@@ -36,7 +36,11 @@
                 </tr>
             }
         </table>
-        <button class="btn btn-custom col-auto" type="submit">Exportar a excel</button>
+
+        <div class="d-flex justify-content-start">
+            <a class="btn btn-custom col-auto" type="button" href="@Url.Action("CSV", "Personal")">Exportar a excel</a>
+        </div>
+    
     </main>
     <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src=""></script>

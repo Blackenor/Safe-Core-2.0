@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using SafeCore.BLL;
@@ -156,7 +157,28 @@ namespace Safe_Core.Controllers
         }
 
 
+        public ActionResult CSV()
+        {
+            List<Pagos> pagos = new Pagos().ReadAll(); 
 
+            string titulos = "ID;" +
+                "Rut Cliente;" +
+                "Fecha de pago;" +
+                "Monto;";
+
+            var builder = new StringBuilder();
+            builder.AppendLine(titulos);
+
+            foreach (var p in pagos)
+            {
+                builder.AppendLine($"{p.ID_PAGO};" +
+                                $"{p.CLIENTES_RUT_CLIENT};" +
+                                $"{p.FECHA};" +
+                                $"{p.MONTO};");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "Text/csv", "Historial_Pagos_" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + ".csv");
+        }
 
 
 

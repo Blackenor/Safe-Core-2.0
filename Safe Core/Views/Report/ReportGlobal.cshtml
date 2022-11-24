@@ -1,6 +1,34 @@
 ﻿@using SafeCore.BLL
+
 @{
     ViewBag.Title = "ReportGlobal";
+
+    // Datos para el gráfico
+
+    int Cant_Enero = ViewBag.Enero;
+    int Cant_Febrero = ViewBag.Febrero;
+    int Cant_Marzo = ViewBag.Marzo;
+    int Cant_Abril = ViewBag.Abril;
+    int Cant_Mayo = ViewBag.Mayo;
+    int Cant_Junio = ViewBag.Junio;
+    int Cant_Julio = ViewBag.Julio;
+    int Cant_Agosto = ViewBag.Agosto;
+    int Cant_Septiembre = ViewBag.Septiembre;
+    int Cant_Octubre = ViewBag.Octubre;
+    int Cant_Noviembre = ViewBag.Noviembre;
+    int Cant_Diciembre = ViewBag.Dicembre;
+
+
+
+    // Datos para las grillas
+
+    List<Capacitaciones> capacitaciones = (List<Capacitaciones>)ViewBag.capacitaciones;
+    List<Servicio> servicios = (List<Servicio>)ViewBag.servicios;
+    List<VisitasTerreno> visitas = (List<VisitasTerreno>)ViewBag.visitas;
+    List<ActividadMejora> actividadMejora = (List<ActividadMejora>)ViewBag.actividadMejora;
+
+
+
 }
 
 <h2>Reporte Global</h2>

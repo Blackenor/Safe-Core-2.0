@@ -12,7 +12,33 @@ namespace Safe_Core.Controllers
         // GET: Report
         public ActionResult ReportGlobal()
         {
+            // DATOS PARA LAS GRILLAS
+
+            ViewBag.capacitaciones = new Capacitaciones().ReadAll();
+            ViewBag.servicios = new Servicio().ReadAll();
+            ViewBag.visitas = new VisitasTerreno().ReadAll();
+            ViewBag.actividadMejora = new ActividadMejora().ReadAll();
+            ViewBag.pagosC = new Pagos().ReadAll();
+            
+            
+            
+            // DATOS PARA EL GRÁFICO
+
+            ViewBag.Enero = new ReporteAccidente().FilteredList(1).Count();
+            ViewBag.Febrero = new ReporteAccidente().FilteredList(2).Count();
+            ViewBag.Marzo = new ReporteAccidente().FilteredList(3).Count();
+            ViewBag.Abril = new ReporteAccidente().FilteredList(4).Count();
+            ViewBag.Mayo = new ReporteAccidente().FilteredList(5).Count();
+            ViewBag.Junio = new ReporteAccidente().FilteredList(6).Count();
+            ViewBag.Julio = new ReporteAccidente().FilteredList(7).Count();
+            ViewBag.Agosto = new ReporteAccidente().FilteredList(8).Count();
+            ViewBag.Septiembre = new ReporteAccidente().FilteredList(9).Count();
+            ViewBag.Octubre = new ReporteAccidente().FilteredList(10).Count();
+            ViewBag.Noviembre = new ReporteAccidente().FilteredList(11).Count();
+            ViewBag.Diciembre = new ReporteAccidente().FilteredList(12).Count();
+
             ViewBag.ReporteGlobal = new ReporteGlobal().ReadAll();
+
             return View();
         }
         public ActionResult ReportAccidente()

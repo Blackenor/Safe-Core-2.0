@@ -55,7 +55,8 @@
                     <ul class="list-unstyled components overflow-auto">
 
 
-
+                        @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
+                        {
                             <li>
                                 <a href="#Administracion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administración</a>
 
@@ -86,9 +87,9 @@
                          }
                                 </ul>
                             </li>
-                        
+                        }
 
-                        
+
                         @if (User.Identity.Name == "profesional")
                         {
                         <li>
@@ -109,18 +110,20 @@
                             </ul>
                         </li>*@
 
-                     
+                    @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
+                    {
                     <li>
+                    
                         <a href="#Personal" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Personal</a>
 
                         <ul class="collapse list-unstyled" id="Personal">
-                            @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
-                            {
+                            
+                    
                                 <li>
                                     @*<a href="@Url.Action("RevisarCliente", "Cliente")">clientes</a>*@
                                     <a href="@Url.Action("Clientes", "Personal")">Clientes</a>
                                 </li>
-                            }
+                    
                             @if (User.Identity.Name == "admin")
                             {
                                 <li>
@@ -138,12 +141,12 @@
                                 <li>
                                     <a href="@Url.Action("HistorialAtrasos", "Personal")">Historial de atrasos</a>
                                 </li>
-                            
 
-                        }
+                            }
+
                             </ul>
                         </li>
-                        
+                    }
 
                         @if (User.Identity.Name == "profesional")
                         {
@@ -159,13 +162,14 @@
                         }
 
 
-
+                       @if (User.Identity.Name == "admin" || User.Identity.Name == "cliente")
+                       {
                         <li>
                             <a href="#Reportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reportes</a>
 
                             <ul class="collapse list-unstyled" id="Reportes">
-                       @if (User.Identity.Name == "admin")
-                       {
+                        @if (User.Identity.Name == "admin")
+                        {
                                 <li>
                                     <a href="@Url.Action("ReportClient", "Report")">Reporte cliente</a>
                                 </li>
@@ -182,10 +186,10 @@
                                 
                             </ul>
                         </li>
-
+                       }
                     </ul>
                 </div>
-
+                       
                 <div id="bottomOptions">
                     <ul class="list-unstyled components" style="margin-bottom: 0; padding: 0;">
                         <li class="">

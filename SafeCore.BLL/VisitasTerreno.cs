@@ -52,7 +52,7 @@ namespace SafeCore.BLL
                     Rubro = v.CLIENTES.RUBRO
                 }
 
-            }).ToList();
+            }).OrderByDescending(v => v.ID_VISITA).ToList();
         }
 
         public bool Create()

@@ -22,6 +22,7 @@ namespace Safe_Core.Controllers
             if (IsValid(usuario)) 
             {
                 FormsAuthentication.SetAuthCookie(usuario.NOMBRE, false);
+
                 if (ReturnUrl != null) 
                 {
                     return Redirect(ReturnUrl);

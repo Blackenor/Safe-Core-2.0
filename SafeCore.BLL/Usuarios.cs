@@ -54,10 +54,45 @@ namespace SafeCore.BLL
 
         public bool Autenticar()
         {
-            return db.USUARIOS
-                .Where(u => u.NOMBRE == this.NOMBRE
-                && u.PASS == this.PASS)
-                .FirstOrDefault() != null;
+            try
+            {
+                Usuarios user = this.db.USUARIOS.Where(u => u.NOMBRE == this.NOMBRE && u.PASS == this.PASS).Select(u => new Usuarios() 
+                {
+                    ID_USER = u.ID_USER,
+                    NOMBRE = u.NOMBRE,
+                    ROL_ID_ROL = u.ROL_ID_ROL,
+                    PASS = u.PASS,
+
+                    Rol = new Rol()
+                    {
+                        ID_ROL = u.ROL_ID_ROL,
+                        NOMBREROL = u.ROL.NOMBREROL
+                    }
+                }).FirstOrDefault();
+
+                if (user != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+
+
+
+
+            //return db.USUARIOS
+            //    .Where(u => u.NOMBRE == this.NOMBRE
+            //    && u.PASS == this.PASS)
+            //    .FirstOrDefault() != null;
         }
 
 

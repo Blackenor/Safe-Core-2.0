@@ -61,19 +61,19 @@
                                 <a href="#Administracion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administración</a>
 
                                 <ul class="collapse list-unstyled" id="Administracion">
-                         @if (User.Identity.Name == "profesional")
+                         @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
                          {
                                     <li>
                                         <a href="@Url.Action("Capacitaciones", "Administracion")">Capacitaciones</a>
                                     </li>
                          }
-                         @if (User.Identity.Name == "admin")
+                         @if (User.Identity.Name == "admin" )
                          {
                                     <li>
                                         <a href="@Url.Action("CalculoA", "Administracion")">Cálculo de accidentabilidad</a>
                                     </li>
                          }
-                         @if (User.Identity.Name == "profesional")
+                         @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
                          {
                                     <li>
                                         <a href="@Url.Action("Index", "PlanificarVisita")">Visitas terreno</a>
@@ -90,13 +90,13 @@
                         }
 
 
-                        @if (User.Identity.Name == "profesional")
+                        @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
                         {
                         <li>
                             <a href="@Url.Action("IngresarAsesoria", "Asesoria")">Asesorías</a>
                         </li>
                         }
-                        @if (User.Identity.Name == "cliente")
+                        @if (User.Identity.Name == "cliente" || User.Identity.Name == "admin")
                         {
                             <li>
                                 <a href="@Url.Action("AsesoriaEspecial", "Asesoria")">Asesorías especiales</a>
@@ -148,7 +148,7 @@
                         </li>
                     }
 
-                        @if (User.Identity.Name == "profesional")
+                        @if (User.Identity.Name == "profesional" || User.Identity.Name == "admin")
                         {
 
                             <li>
@@ -177,7 +177,7 @@
                                     <a href="@Url.Action("ReportGlobal", "Report")">Reporte global</a>
                                 </li>
                         }
-                       @if (User.Identity.Name == "cliente")
+                       @if (User.Identity.Name == "cliente" || User.Identity.Name == "admin")
                        {
                                 <li>
                                     <a href="@Url.Action("ReportAccidente", "Report")">Reporte accidente</a>
